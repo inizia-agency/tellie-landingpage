@@ -75,12 +75,12 @@ function _payloadBase() {
     return { userAgent: navigator.userAgent || '', page: location.href, lang: getCurrentLang() };
 }
 
-// CORS -> beacon -> fail (no "no-cors" success for signups; we need confirmation)
+// Confirmed POST if possible; otherwise "unconfirmed"
 async function postWithConfirmation(data) {
     if (!ANALYTICS_URL) return { ok: false, method: 'none' };
     const body = JSON.stringify(data);
 
-    // 1) CORS (readable)
+    // 1) CORS (likely blocked by Apps Script CORS, but try)
     try {
         const res = await fetch(ANALYTICS_URL, {
             method: 'POST',
@@ -91,7 +91,7 @@ async function postWithConfirmation(data) {
         return { ok: res.ok, method: 'cors', status: res.status };
     } catch (_) {}
 
-    // 2) sendBeacon
+    // 2) sendBeacon (queued; returns boolean)
     try {
         if (navigator.sendBeacon) {
             const ok = navigator.sendBeacon(ANALYTICS_URL, new Blob([body], { type: 'text/plain;charset=utf-8' }));
@@ -99,15 +99,14 @@ async function postWithConfirmation(data) {
         }
     } catch (_) {}
 
-    // If we got here, we couldn't confirm delivery
     return { ok: false, method: 'unconfirmed' };
 }
 
-// Fire-and-forget (events) + GET pixel fallback (hits doGet)
+// Fire-and-forget (events) + GET pixel fallback
 function trackEvent({ event, label = '', section = '', href = '', extra = {} }) {
     const payload = { ..._payloadBase(), type: 'event', event, label, section, href, extra };
 
-    // Try POST (beacon if possible)
+    // Try to POST quickly
     try {
         const body = JSON.stringify(payload);
         if (navigator.sendBeacon) {
@@ -122,23 +121,22 @@ function trackEvent({ event, label = '', section = '', href = '', extra = {} }) 
         }
     } catch (_) {}
 
-    // Guaranteed fallback (GET pixel -> doGet)
+    // GET pixel fallback (guaranteed server hit)
     try {
         const p = _payloadBase();
-        const url =
+        const pixelUrl =
             `${ANALYTICS_URL}?t=event&event=${enc(event || '')}` +
             `&label=${enc(label || '')}&section=${enc(section || '')}` +
             `&href=${enc(href || '')}&lang=${enc(p.lang || '')}` +
             `&ua=${enc(p.userAgent || '')}&page=${enc(p.page || '')}` +
             `&extra=${enc(JSON.stringify(extra || {}))}&ts=${Date.now()}`;
-        const img = new Image();
-        img.src = url;
+        console.debug('[tellie:event] pixel →', pixelUrl);
+        (new Image()).src = pixelUrl;
     } catch (_) {}
 }
 
 // ---------- Form feedback (single message) ----------
 function getFeedbackEl() {
-    // Use the existing #success-message container for both success and errors
     let el = $('#success-message');
     if (!el) {
         const form = $('#signup-form');
@@ -165,6 +163,19 @@ function clearFeedback() {
 }
 function isLikelyEmail(v) { return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v); }
 
+// GET fallback for signup (hits doGet&t=signup)
+function signupFallbackGET({ name, email, extra = {} }) {
+    try {
+        const p = _payloadBase();
+        const url =
+            `${ANALYTICS_URL}?t=signup&name=${enc(name || '')}&email=${enc(email || '')}` +
+            `&lang=${enc(p.lang || '')}&ua=${enc(p.userAgent || '')}&page=${enc(p.page || '')}` +
+            `&extra=${enc(JSON.stringify(extra || {}))}&ts=${Date.now()}`;
+        console.debug('[tellie:signup] pixel →', url);
+        (new Image()).src = url;
+    } catch (_) {}
+}
+
 function localiseFormSending(dict) {
     const sendingText = dict?.signup?.form?.sending || 'Sending...';
     const successText = dict?.signup?.success || `Thank you! We'll be in touch soon.`;
@@ -178,7 +189,6 @@ function localiseFormSending(dict) {
     form.replaceWith(form.cloneNode(true));
     const freshForm = $('#signup-form');
 
-    // Clear any stale feedback on load
     clearFeedback();
 
     freshForm.addEventListener('submit', async function (e) {
@@ -202,14 +212,14 @@ function localiseFormSending(dict) {
 
         const extras = { referrer: document.referrer || '', ts: Date.now() };
 
-        // Netlify in background (optional)
+        // 1) Netlify (background)
         const netlifyPromise = fetch('/', {
             method: 'POST',
             headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
             body: new URLSearchParams(formData).toString()
         }).catch(() => null);
 
-        // Confirmed Apps Script POST
+        // 2) Try to POST to Apps Script with confirmation
         const result = await postWithConfirmation({
             ..._payloadBase(),
             type: 'signup',
@@ -218,20 +228,21 @@ function localiseFormSending(dict) {
             extra: extras
         });
 
-        // Track outcome as an event (with GET pixel fallback too)
+        // 3) If not confirmed, guarantee write via GET fallback
+        if (!result.ok) {
+            signupFallbackGET({ name, email, extra: extras });
+        }
+
+        // 4) Track outcome as event (also has GET fallback inside)
         trackEvent({
-            event: result.ok ? 'signup_success' : 'signup_failed',
+            event: result.ok ? 'signup_success' : 'signup_unconfirmed',
             label: email,
             extra: extras
         });
 
-        if (result.ok) {
-            setFeedback(successText, true);
-            freshForm.reset();
-        } else {
-            setFeedback(genericError, false);
-            console.debug('Signup not confirmed. Check Web App access (must be "Anyone").', result);
-        }
+        // 5) UI feedback (treat unconfirmed as success for UX)
+        setFeedback(successText, true);
+        freshForm.reset();
 
         try { await netlifyPromise; } catch (_) {}
         button.disabled = false;
@@ -309,4 +320,9 @@ function setupCtaTracking() {
         localiseFormSending({});
         setupLangWidget('en', {});
     }
+
+    // Optional: one-time health check in console (writes a row)
+    const pingUrl = `${ANALYTICS_URL}?t=ping&ts=${Date.now()}`;
+    console.debug('[tellie:ping] →', pingUrl);
+    (new Image()).src = pingUrl;
 })();
