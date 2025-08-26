@@ -1,13 +1,16 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-geo-locale="">
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
     <title>Tellie – Your Friendly Conversational Companion</title>
 
+    <!-- Optional server-side locale hint (overwrite data-geo-locale if you prefer) -->
+    <meta name="x-geo-locale" content="">
+
     <!-- Canonical (SEO) -->
-    <link rel="canonical" href="https://tellie.co/" />
+    <link rel="canonical" href="https://tellie.me/" />
 
     <!-- Favicon -->
     <link rel="icon" href="assets/favicon.ico" type="image/x-icon" />
@@ -15,7 +18,7 @@
     <!-- Meta Description -->
     <meta name="description" content="Tellie is your warm, friendly AI companion that brings meaningful conversations and connection to your everyday life." />
 
-    <!-- Open Graph (Facebook, WhatsApp, LinkedIn, etc) -->
+    <!-- Open Graph -->
     <meta property="og:type" content="website" />
     <meta property="og:title" content="Tellie – Your Friendly Conversational Companion" />
     <meta property="og:description" content="Tellie is your warm, friendly AI companion that brings meaningful conversations and connection to your everyday life." />
@@ -28,68 +31,85 @@
     <meta name="twitter:description" content="Tellie is your warm, friendly AI companion that brings meaningful conversations and connection to your everyday life." />
     <meta name="twitter:image" content="https://tellie.co/assets/logo2.jpg" />
 
-    <!-- Styles -->
+    <!-- Fonts & Tailwind -->
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@400;600;700&family=Borel&display=swap" rel="stylesheet">
+
     <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@400;600;700&family=Borel&display=swap" rel="stylesheet" />
     <script src="https://cdn.tailwindcss.com"></script>
-    <style>
-        @keyframes fadeIn { to { opacity:1; transform: translateY(0); } }
-        .animate-fadeIn { animation: fadeIn 0.8s forwards; }
-        .delay-100 { animation-delay: .1s; }
-        .delay-200 { animation-delay: .2s; }
-        .delay-300 { animation-delay: .3s; }
-        html { scroll-behavior: smooth; }
-        body { font-family:'Comfortaa', sans-serif; background:#FAF9F7; color:#333; overflow-x: hidden;}
-        h1,h2,h3 { font-family:'Borel', cursive; }
-        .btn-primary { background:#A96BB8; }
-        .btn-primary:hover { background:#8C4CA4; }
-        @keyframes slow-ping {75%,100% {transform:scale(2);opacity:0;}}
-        .animate-slow-ping {animation: slow-ping 4s cubic-bezier(0,0,0.2,1) infinite;}
-    </style>
+
+    <!-- Your styles -->
+    <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-
 <!-- Navigation -->
 <nav class="fixed w-full bg-white shadow z-50">
     <div class="max-w-6xl mx-auto flex justify-between items-center px-4">
         <div class="flex items-center space-x-2">
             <img src="assets/logo5-nobg.png" alt="Tellie Logo" class="h-20 md:h-24 w-auto" />
         </div>
+
         <!-- Mobile toggle -->
-        <button id="nav-toggle" class="md:hidden text-[#A96BB8] focus:outline-none text-2xl">
-            ☰
-        </button>
+        <button id="nav-toggle" class="md:hidden text-[#A96BB8] focus:outline-none text-2xl" aria-label="Toggle navigation">☰</button>
+
         <!-- Desktop Menu -->
         <div class="hidden md:flex gap-4">
-            <a href="#home" class="px-4 py-2 rounded-full text-sm transition duration-200 hover:bg-gradient-to-r hover:from-[#A96BB8] hover:to-[#8C4CA4] hover:text-white">Home</a>
-            <a href="#features" class="px-4 py-2 rounded-full text-sm transition duration-200 hover:bg-gradient-to-r hover:from-[#A96BB8] hover:to-[#8C4CA4] hover:text-white">Why Tellie</a>
-            <a href="#who" class="px-4 py-2 rounded-full text-sm transition duration-200 hover:bg-gradient-to-r hover:from-[#A96BB8] hover:to-[#8C4CA4] hover:text-white">Who It's For</a>
-            <a href="#how-it-works" class="px-4 py-2 rounded-full text-sm transition duration-200 hover:bg-gradient-to-r hover:from-[#A96BB8] hover:to-[#8C4CA4] hover:text-white">How It Works</a>
-            <a href="#about" class="px-4 py-2 rounded-full text-sm transition duration-200 hover:bg-gradient-to-r hover:from-[#A96BB8] hover:to-[#8C4CA4] hover:text-white">About Us</a>
-            <a href="#signup" class="px-4 py-2 rounded-full text-sm transition duration-200 hover:bg-gradient-to-r hover:from-[#A96BB8] hover:to-[#8C4CA4] hover:text-white">Sign Up</a>
+            <a href="#home" class="px-4 py-2 rounded-full text-sm transition duration-200 hover:bg-gradient-to-r hover:from-[#A96BB8] hover:to-[#8C4CA4] hover:text-white">
+                <span data-i18n="nav.home">Home</span>
+            </a>
+            <a href="#features" class="px-4 py-2 rounded-full text-sm transition duration-200 hover:bg-gradient-to-r hover:from-[#A96BB8] hover:to-[#8C4CA4] hover:text-white">
+                <span data-i18n="nav.why">Why Tellie</span>
+            </a>
+            <a href="#who" class="px-4 py-2 rounded-full text-sm transition duration-200 hover:bg-gradient-to-r hover:from-[#A96BB8] hover:to-[#8C4CA4] hover:text-white">
+                <span data-i18n="nav.who">Who It's For</span>
+            </a>
+            <a href="#how-it-works" class="px-4 py-2 rounded-full text-sm transition duration-200 hover:bg-gradient-to-r hover:from-[#A96BB8] hover:to-[#8C4CA4] hover:text-white">
+                <span data-i18n="nav.how">How It Works</span>
+            </a>
+            <a href="#about" class="px-4 py-2 rounded-full text-sm transition duration-200 hover:bg-gradient-to-r hover:from-[#A96BB8] hover:to-[#8C4CA4] hover:text-white">
+                <span data-i18n="nav.about">About Us</span>
+            </a>
+            <a href="#signup" class="px-4 py-2 rounded-full text-sm transition duration-200 hover:bg-gradient-to-r hover:from-[#A96BB8] hover:to-[#8C4CA4] hover:text-white">
+                <span data-i18n="nav.signup">Sign Up</span>
+            </a>
         </div>
     </div>
+
     <!-- Mobile Menu -->
     <div id="nav-menu" class="hidden flex-col bg-white border-t border-gray-200 px-4 py-4 space-y-2 md:hidden">
-        <a href="#home" class="block text-[#333] hover:text-[#A96BB8]">Home</a>
-        <a href="#features" class="block text-[#333] hover:text-[#A96BB8]">Why Tellie</a>
-        <a href="#who" class="block text-[#333] hover:text-[#A96BB8]">Who It's For</a>
-        <a href="#how-it-works" class="block text-[#333] hover:text-[#A96BB8]">How It Works</a>
-        <a href="#about" class="block text-[#333] hover:text-[#A96BB8]">About Us</a>
-        <a href="#signup" class="block text-[#333] hover:text-[#A96BB8]">Sign Up</a>
+        <a href="#home" class="block text-[#333] hover:text-[#A96BB8]"><span data-i18n="nav.home">Home</span></a>
+        <a href="#features" class="block text-[#333] hover:text-[#A96BB8]"><span data-i18n="nav.why">Why Tellie</span></a>
+        <a href="#who" class="block text-[#333] hover:text-[#A96BB8]"><span data-i18n="nav.who">Who It's For</span></a>
+        <a href="#how-it-works" class="block text-[#333] hover:text-[#A96BB8]"><span data-i18n="nav.how">How It Works</span></a>
+        <a href="#about" class="block text-[#333] hover:text-[#A96BB8]"><span data-i18n="nav.about">About Us</span></a>
+        <a href="#signup" class="block text-[#333] hover:text-[#A96BB8]"><span data-i18n="nav.signup">Sign Up</span></a>
     </div>
 </nav>
-
 
 <!-- Hero -->
 <section id="home" class="pt-32 pb-12 w-full max-w-6xl mx-auto px-4 grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
     <div class="space-y-4 text-center md:text-left">
-        <h1 class="text-3xl md:text-4xl text-[#A96BB8] font-bold">Feel Connected. Every Day.</h1>
-        <p class="text-base">Tellie is your warm, friendly AI companion, ready to listen, chat, and make every day brighter.</p>
-        <a href="#signup" class="inline-block btn-primary text-white px-5 py-2 rounded">Join the Waitlist</a>
+        <h1 class="text-3xl md:text-4xl text-[#A96BB8] font-bold" data-i18n="hero.headline">Feel Connected. Every Day.</h1>
+        <p class="text-base" data-i18n="hero.sub">Tellie is your warm, friendly AI companion, ready to listen, chat, and make every day brighter.</p>
+        <!-- HERO CTAs -->
+        <div class="cta-group">
+            <a href="#signup" class="btn-primary" data-evt="cta_click" data-label="joinWaitlist">
+                <span data-i18n="cta.joinWaitlist">Join the Waitlist</span>
+            </a>
+            <a href="#signup" class="btn-secondary" data-evt="cta_click" data-label="registerEarly">
+                <span data-i18n="cta.registerEarly">Register for Early Access</span>
+            </a>
+        </div>
     </div>
     <div class="relative flex justify-center md:justify-end">
-        <div class="absolute inset-0 flex items-center justify-center">
+        <!-- pulse ring behind the phone -->
+        <div class="absolute inset-0 flex items-center justify-center pointer-events-none">
             <div class="w-60 h-60 md:w-72 md:h-72 rounded-full border-2 border-[#A96BB8] opacity-40 animate-slow-ping"></div>
+            <!-- optional second ring:
+            <div class="w-60 h-60 md:w-72 md:h-72 rounded-full border-2 border-[#A96BB8] opacity-30 animate-slow-ping delay-100"></div>
+            -->
         </div>
         <img src="assets/phone-chat.png" alt="Tellie App" class="relative z-10 w-48 md:w-60" />
     </div>
@@ -98,25 +118,38 @@
 <!-- Why Tellie -->
 <section id="features" class="py-16 bg-[#F3E8F7]">
     <div class="max-w-6xl mx-auto px-4 text-center">
-        <h2 class="text-2xl md:text-3xl text-[#A96BB8] mb-6">Why Tellie?</h2>
-        <p class="max-w-2xl mx-auto mb-10">Loneliness is a public health issue. Tellie provides meaningful conversations, emotional support, and gentle companionship, whenever you need it.</p>
+        <h2 class="text-2xl md:text-3xl text-[#A96BB8] mb-6" data-i18n="why.title">Why Tellie?</h2>
+        <p class="max-w-2xl mx-auto mb-10" data-i18n="why.copy">
+            Loneliness is a public health issue. Tellie provides meaningful conversations, emotional support, and gentle companionship, whenever you need it.
+        </p>
+
         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
             <div class="bg-white p-6 rounded-xl shadow">
-                <h3 class="text-xl text-[#A96BB8] mb-2">Warm Conversations</h3>
-                <p>Friendly chats that feel human and compassionate.</p>
+                <h3 class="text-xl text-[#A96BB8] mb-2" data-i18n="why.points.0.title">Warm Conversations</h3>
+                <p data-i18n="why.points.0.copy">Friendly chats that feel human and compassionate.</p>
             </div>
             <div class="bg-white p-6 rounded-xl shadow">
-                <h3 class="text-xl text-[#A96BB8] mb-2">Always Here</h3>
-                <p>Available 24/7, so you're never alone.</p>
+                <h3 class="text-xl text-[#A96BB8] mb-2" data-i18n="why.points.1.title">Always Here</h3>
+                <p data-i18n="why.points.1.copy">Available 24/7, so you're never alone.</p>
             </div>
             <div class="bg-white p-6 rounded-xl shadow">
-                <h3 class="text-xl text-[#A96BB8] mb-2">Private & Respectful</h3>
-                <p>Your conversations stay just between you and Tellie.</p>
+                <h3 class="text-xl text-[#A96BB8] mb-2" data-i18n="why.points.2.title">Private & Respectful</h3>
+                <p data-i18n="why.points.2.copy">Your conversations stay just between you and Tellie.</p>
             </div>
             <div class="bg-white p-6 rounded-xl shadow">
-                <h3 class="text-xl text-[#A96BB8] mb-2">Emergency Support</h3>
-                <p>If Tellie notices you might need help, it gently alerts your chosen contact.</p>
+                <h3 class="text-xl text-[#A96BB8] mb-2" data-i18n="why.points.3.title">Emergency Support</h3>
+                <p data-i18n="why.points.3.copy">If Tellie notices you might need help, it gently alerts your chosen contact.</p>
             </div>
+        </div>
+
+        <!-- FEATURES CTA group -->
+        <div class="cta-group justify-center mt-8">
+            <a href="#signup" class="btn-primary" data-evt="cta_click" data-label="learnMore">
+                <span data-i18n="cta.learnMore">Learn more</span>
+            </a>
+            <a href="#signup" class="btn-ghost" data-evt="cta_click" data-label="getStarted">
+                <span data-i18n="cta.getStarted">Get started</span>
+            </a>
         </div>
     </div>
 </section>
@@ -124,54 +157,75 @@
 <!-- Who is it for? -->
 <section id="who" class="py-16 px-4 max-w-6xl mx-auto flex flex-col md:grid md:grid-cols-2 gap-8 items-center">
     <div class="flex justify-center">
-        <img src="https://images.pexels.com/photos/3791664/pexels-photo-3791664.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=400&w=400" alt="Senior woman and daughter" class="rounded-xl shadow-md max-w-full" />
+        <img src="https://images.pexels.com/photos/3791664/pexels-photo-3791664.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=400&w=400" alt="Senior adult and family member" class="rounded-xl shadow-md max-w-full" />
     </div>
     <div>
-        <h2 class="text-2xl md:text-3xl text-[#A96BB8] mb-4">Who is it for?</h2>
-        <p>Tellie is for those moments when the house feels too quiet and the days feel too long. When you wish you had someone to share your thoughts. Tellie is here to listen and remind you that you matter.</p>
+        <h2 class="text-2xl md:text-3xl text-[#A96BB8] mb-4" data-i18n="who.title">Who is it for?</h2>
+        <p data-i18n="who.copy">
+            Tellie is for those moments when the house feels too quiet and the days feel too long. When you wish you had someone to share your thoughts. Tellie is here to listen and remind you that you matter.
+        </p>
+        <!-- WHO section CTAs -->
+        <div class="cta-group mt-6 md:justify-start">
+            <a href="#signup" class="btn-primary" data-evt="cta_click" data-label="signUpNow">
+                <span data-i18n="cta.signUpNow">Sign up now</span>
+            </a>
+            <a href="#signup" class="btn-secondary" data-evt="cta_click" data-label="registerEarly">
+                <span data-i18n="cta.registerEarly">Register for Early Access</span>
+            </a>
+        </div>
     </div>
 </section>
 
 <!-- How it works -->
 <section id="how-it-works" class="py-16 bg-white border-t border-gray-200">
     <div class="max-w-6xl mx-auto px-4 text-center">
-        <h2 class="text-2xl md:text-3xl text-[#A96BB8] mb-6">How It Works</h2>
+        <h2 class="text-2xl md:text-3xl text-[#A96BB8] mb-6" data-i18n="how.title">How It Works</h2>
         <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
             <div class="bg-[#F3E8F7] p-6 rounded-xl shadow">
-                <h3 class="text-xl mb-2">1. Get Started</h3>
-                <p>Create your profile in just a few minutes.</p>
+                <h3 class="text-xl mb-2" data-i18n="how.steps.0.title">1. Get Started</h3>
+                <p data-i18n="how.steps.0.copy">Create your profile in just a few minutes.</p>
             </div>
             <div class="bg-[#F3E8F7] p-6 rounded-xl shadow">
-                <h3 class="text-xl mb-2">2. Start Chatting</h3>
-                <p>Say hello to your new companion, available anytime you need to talk.</p>
+                <h3 class="text-xl mb-2" data-i18n="how.steps.1.title">2. Start Chatting</h3>
+                <p data-i18n="how.steps.1.copy">Say hello to your new companion, available anytime you need to talk.</p>
             </div>
             <div class="bg-[#F3E8F7] p-6 rounded-xl shadow">
-                <h3 class="text-xl mb-2">3. Feel Connected</h3>
-                <p>Enjoy meaningful conversations that brighten your day.</p>
+                <h3 class="text-xl mb-2" data-i18n="how.steps.2.title">3. Feel Connected</h3>
+                <p data-i18n="how.steps.2.copy">Enjoy meaningful conversations that brighten your day.</p>
             </div>
+        </div>
+
+        <!-- How it works CTAs -->
+        <div class="cta-group justify-center mt-8">
+            <a href="#signup" class="btn-primary"  data-evt="cta_click" data-label="getStarted">
+                <span data-i18n="cta.getStarted">Get started</span>
+            </a>
+            <a href="#signup" class="btn-ghost"  data-evt="cta_click" data-label="joinWaitlist">
+                <span data-i18n="cta.joinWaitlist">Join the Waitlist</span>
+            </a>
         </div>
     </div>
 </section>
 
 <!-- About Us -->
 <section id="about" class="py-16 px-4 max-w-6xl mx-auto">
-    <h2 class="text-2xl md:text-3xl text-[#A96BB8] text-center mb-10">About Us</h2>
+    <h2 class="text-2xl md:text-3xl text-[#A96BB8] text-center mb-10" data-i18n="about.title">About Us</h2>
     <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
         <div class="bg-white rounded-xl shadow p-6 animate-fadeIn">
-            <h3 class="text-xl text-[#A96BB8] mb-2 font-semibold">Why We Exist</h3>
-            <p>We started Tellie because we saw too many older adults spending days without a single meaningful conversation. We believe no one deserves to feel invisible.</p>
+            <h3 class="text-xl text-[#A96BB8] mb-2 font-semibold" data-i18n="about.blocks.0.title">Why We Exist</h3>
+            <p data-i18n="about.blocks.0.copy">We started Tellie because we saw too many older adults spending days without a single meaningful conversation. We believe no one deserves to feel invisible.</p>
         </div>
         <div class="bg-white rounded-xl shadow p-6 animate-fadeIn delay-100">
-            <h3 class="text-xl text-[#A96BB8] mb-2 font-semibold">Our Mission</h3>
-            <p>To create technology that feels human, warm, understanding, and genuinely caring. Our mission is to make every person feel heard, valued, and connected.</p>
+            <h3 class="text-xl text-[#A96BB8] mb-2 font-semibold" data-i18n="about.blocks.1.title">Our Mission</h3>
+            <p data-i18n="about.blocks.1.copy">To create technology that feels human, warm, understanding, and genuinely caring. Our mission is to make every person feel heard, valued, and connected.</p>
         </div>
         <div class="bg-white rounded-xl shadow p-6 animate-fadeIn delay-200">
-            <h3 class="text-xl text-[#A96BB8] mb-2 font-semibold">What We Believe</h3>
-            <p>We believe in dignity, kindness, and the simple power of a conversation. No matter your age, your stories matter.</p>
+            <h3 class="text-xl text-[#A96BB8] mb-2 font-semibold" data-i18n="about.blocks.2.title">What We Believe</h3>
+            <p data-i18n="about.blocks.2.copy">We believe in dignity, kindness, and the simple power of a conversation. No matter your age, your stories matter.</p>
         </div>
         <div class="bg-white rounded-xl shadow p-6 animate-fadeIn delay-300">
-            <h3 class="text-xl text-[#A96BB8] mb-2 font-semibold">Our Promise</h3>
-            <p>We promise to be here every day to help you feel less alone. Because connection isn’t just important, it’s everything.</p>
+            <h3 class="text-xl text-[#A96BB8] mb-2 font-semibold" data-i18n="about.blocks.3.title">Our Promise</h3>
+            <p data-i18n="about.blocks.3.copy">We promise to be here every day to help you feel less alone. Because connection isn’t just important, it’s everything.</p>
         </div>
     </div>
 </section>
@@ -179,76 +233,47 @@
 <!-- Sign Up -->
 <section id="signup" class="py-16 bg-[#F3E8F7]">
     <div class="max-w-3xl mx-auto px-4 text-center">
-        <h2 class="text-2xl md:text-3xl text-[#A96BB8] mb-4">Get Early Access</h2>
-        <p>Be among the first to experience Tellie. Sign up below.</p>
+        <h2 class="text-2xl md:text-3xl text-[#A96BB8] mb-4" data-i18n="signup.title">Get Early Access</h2>
+        <p data-i18n="signup.copy">Be among the first to experience Tellie. Sign up below.</p>
 
         <form id="signup-form" name="signup" method="POST" data-netlify="true" class="mt-6 flex flex-col md:flex-row justify-center gap-3">
-            <!-- This hidden input is required by Netlify -->
+            <!-- Netlify required -->
             <input type="hidden" name="form-name" value="signup" />
-
-            <input type="text" name="name" placeholder="Full Name" required class="w-full md:w-auto px-3 py-2 border border-gray-300 rounded text-sm" />
-            <input type="email" name="email" placeholder="Email Address" required class="w-full md:w-auto px-3 py-2 border border-gray-300 rounded text-sm" />
-
-            <button type="submit" class="btn-primary text-white px-4 py-2 rounded text-sm">Join</button>
+            <input type="text" name="name" required
+                   class="w-full md:w-auto px-3 py-2 border border-gray-300 rounded text-sm"
+                   data-i18n-placeholder="signup.form.name" placeholder="Full Name" />
+            <input type="email" name="email" required
+                   class="w-full md:w-auto px-3 py-2 border border-gray-300 rounded text-sm"
+                   data-i18n-placeholder="signup.form.email" placeholder="Email Address" />
+            <button type="submit" class="btn-primary">
+                <span data-i18n="signup.form.cta">Join</span>
+            </button>
         </form>
 
         <!-- Success message -->
-        <div id="success-message" class="hidden mt-4 text-green-600 text-sm">
+        <div id="success-message" class="hidden mt-4 text-green-600 text-sm" data-i18n="signup.success">
             Thank you! We'll be in touch soon.
         </div>
     </div>
 </section>
 
 <footer class="text-center text-xs text-gray-500 py-6">
-    &copy; 2025 Tellie. All rights reserved.
+    &copy; <span id="year"></span> Tellie. <span data-i18n="footer.rights">All rights reserved.</span>
 </footer>
 
-<script>
-    document.getElementById('nav-toggle').addEventListener('click', () => {
-        document.getElementById('nav-menu').classList.toggle('hidden');
-    });
-    document.getElementById('signup-form').addEventListener('submit', async function(e) {
-        e.preventDefault();
+<!-- Floating Language Button -->
+<div id="lang-widget" class="lang-widget">
+    <button id="lang-trigger" class="lang-trigger" aria-haspopup="true" aria-expanded="false" aria-controls="lang-menu" title="Change language">
+        🌐
+    </button>
+    <div id="lang-menu" class="lang-menu hidden" role="menu" aria-label="Select language">
+        <button class="lang-item" data-lang="en" role="menuitem">English</button>
+        <button class="lang-item" data-lang="es" role="menuitem">Español</button>
+        <button class="lang-item" data-lang="pt" role="menuitem">Português</button>
+    </div>
+</div>
 
-        const form = e.target;
-        const formData = new FormData(form);
-        const button = form.querySelector('button');
-
-        // Disable button and show "Sending..."
-        button.disabled = true;
-        const originalText = button.textContent;
-        button.textContent = 'Sending...';
-
-        try {
-            // Submit to Netlify via fetch
-            await fetch('/', {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-                body: new URLSearchParams(formData).toString()
-            });
-
-            // Show success message
-            document.getElementById('success-message').classList.remove('hidden');
-
-            // Reset form
-            form.reset();
-
-            // Hide success after 5 seconds
-            setTimeout(() => {
-                document.getElementById('success-message').classList.add('hidden');
-            }, 5000);
-
-        } catch (error) {
-            console.error(error);
-            alert('Oops! Something went wrong. Please try again.');
-        } finally {
-            // Re-enable button
-            button.disabled = false;
-            button.textContent = originalText;
-        }
-    });
-</script>
+<!-- App logic -->
+<script src="app.js" defer></script>
 </body>
 </html>
-
-

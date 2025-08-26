@@ -1,0 +1,67 @@
+{
+  "nav": {
+    "home": "Início",
+    "why": "Por que a Tellie",
+    "who": "Para quem é",
+    "how": "Como funciona",
+    "about": "Sobre nós",
+    "signup": "Inscreva-se"
+  },
+  "hero": {
+    "headline": "Sinta-se conectado. Todos os dias.",
+    "sub": "A Tellie é seu companheiro de conversa — acolhedor e amigável — pronto para ouvir, conversar e iluminar o seu dia.",
+    "cta": "Entrar na lista de espera"
+  },
+  "cta": {
+    "joinWaitlist": "Entrar na lista de espera",
+    "signUpNow": "Inscreva-se agora",
+    "registerEarly": "Inscreva-se para acesso antecipado",
+    "getStarted": "Começar",
+    "learnMore": "Saiba mais"
+  },
+  "why": {
+    "title": "Por que a Tellie?",
+    "copy": "A solidão é um problema de saúde pública. A Tellie oferece conversas significativas, apoio emocional e companhia sempre que você precisar.",
+    "points": [
+      { "title": "Conversas acolhedoras", "copy": "Bate-papos amigáveis que soam humanos e compassivos." },
+      { "title": "Sempre disponível", "copy": "Acessível 24/7, para você nunca ficar sozinho." },
+      { "title": "Privado e respeitoso", "copy": "Suas conversas ficam apenas entre você e a Tellie." },
+      { "title": "Apoio em emergências", "copy": "Se a Tellie notar que você pode precisar de ajuda, ela avisa com carinho seu contato escolhido." }
+    ]
+  },
+  "who": {
+    "title": "Para quem é?",
+    "copy": "A Tellie é para aqueles momentos em que a casa parece silenciosa demais ou os dias longos demais. Quando você gostaria de ter alguém para compartilhar seus pensamentos. A Tellie está aqui para ouvir e lembrar que você importa."
+  },
+  "how": {
+    "title": "Como funciona",
+    "steps": [
+      { "title": "1. Comece", "copy": "Crie seu perfil em poucos minutos." },
+      { "title": "2. Comece a conversar", "copy": "Diga olá ao seu novo companheiro, disponível sempre que você quiser falar." },
+      { "title": "3. Sinta-se conectado", "copy": "Aproveite conversas significativas que iluminam seu dia." }
+    ]
+  },
+  "about": {
+    "title": "Sobre nós",
+    "blocks": [
+      { "title": "Por que existimos", "copy": "Criamos a Tellie porque vimos muitas pessoas passarem dias sem uma conversa significativa. Acreditamos que ninguém merece se sentir invisível." },
+      { "title": "Nossa missão", "copy": "Criar tecnologia que pareça humana, calorosa, compreensiva e realmente cuidadosa. Nossa missão é fazer cada pessoa se sentir ouvida, valorizada e conectada." },
+      { "title": "No que acreditamos", "copy": "Acreditamos na dignidade, gentileza e no simples poder de uma conversa. Não importa a idade, suas histórias importam." },
+      { "title": "Nossa promessa", "copy": "Prometemos estar aqui todos os dias para ajudar você a se sentir menos sozinho. Porque conexão não é apenas importante, é tudo." }
+    ]
+  },
+  "signup": {
+    "title": "Acesso antecipado",
+    "copy": "Seja uma das primeiras pessoas a experimentar a Tellie. Inscreva-se abaixo.",
+    "form": {
+      "name": "Nome completo",
+      "email": "E-mail",
+      "cta": "Entrar",
+      "sending": "Enviando..."
+    },
+    "success": "Obrigado! Entraremos em contato em breve."
+  },
+  "footer": {
+    "rights": "Todos os direitos reservados."
+  }
+}

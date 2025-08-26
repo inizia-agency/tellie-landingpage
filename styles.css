@@ -1,0 +1,100 @@
+/* --- Fonts & base --- */
+:root {
+    --font-body: "Comfortaa", system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+    --font-display: "Borel", "Comic Sans MS", cursive;
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+    font-family: var(--font-body);
+    background: #FAF9F7;
+    color: #333;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+h1, h2, h3 {
+    font-family: var(--font-display);
+}
+
+/* Keep your button styles if not already defined */
+.btn-primary {
+    display: inline-block;
+    background: #A96BB8;
+    color: #fff;
+    padding: 0.5rem 1rem;
+    border-radius: 0.5rem;
+}
+.btn-primary:hover { background: #8C4CA4; }
+
+.btn-secondary {
+    display: inline-block;
+    background: #fff;
+    color: #A96BB8;
+    border: 2px solid #A96BB8;
+    padding: 0.5rem 1rem;
+    border-radius: 0.5rem;
+}
+.btn-secondary:hover { background: #F8EFFC; }
+
+.btn-ghost {
+    display: inline-block;
+    background: transparent;
+    color: #A96BB8;
+    border: 2px solid #A96BB8;
+    padding: 0.5rem 1rem;
+    border-radius: 0.5rem;
+}
+.btn-ghost:hover { background: #F8EFFC; }
+
+/* CTA group layout (keeps spacing aligned) */
+.cta-group {
+    display: flex;
+    gap: 0.75rem;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+/* Floating lang widget (unchanged, here in case it's missing) */
+.lang-widget {
+    position: fixed;
+    right: 1rem;
+    bottom: 1rem;
+    z-index: 60;
+}
+.lang-trigger {
+    width: 44px; height: 44px;
+    border-radius: 9999px;
+    box-shadow: 0 10px 20px rgba(0,0,0,.12);
+    background: #fff;
+}
+.lang-menu {
+    margin-top: .5rem;
+    background: #fff;
+    border: 1px solid #eee;
+    border-radius: .5rem;
+    padding: .25rem;
+    box-shadow: 0 10px 20px rgba(0,0,0,.12);
+}
+.lang-item {
+    display: block;
+    width: 100%;
+    text-align: left;
+    padding: .5rem .75rem;
+    border-radius: .375rem;
+}
+.lang-item:hover { background: #F8EFFC; }
+
+/* --- Hero pulse ring --- */
+@keyframes slow-ping {
+    0%   { transform: scale(1);   opacity: .4; }
+    75%  { transform: scale(2);   opacity: 0;  }
+    100% { transform: scale(2);   opacity: 0;  }
+}
+.animate-slow-ping {
+    animation: slow-ping 4s cubic-bezier(0,0,0.2,1) infinite;
+}
+
+/* (optional) a second ring, slightly offset for a nicer effect */
+.animate-slow-ping.delay-100 { animation-delay: .8s; }

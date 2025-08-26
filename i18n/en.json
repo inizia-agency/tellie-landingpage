@@ -1,0 +1,67 @@
+{
+  "nav": {
+    "home": "Home",
+    "why": "Why Tellie",
+    "who": "Who It's For",
+    "how": "How It Works",
+    "about": "About Us",
+    "signup": "Sign Up"
+  },
+  "hero": {
+    "headline": "Feel Connected. Every Day.",
+    "sub": "Tellie is your warm, friendly AI companion, ready to listen, chat, and make every day brighter.",
+    "cta": "Join the Waitlist"
+  },
+  "cta": {
+    "joinWaitlist": "Join the Waitlist",
+    "signUpNow": "Sign up now",
+    "registerEarly": "Register for Early Access",
+    "getStarted": "Get started",
+    "learnMore": "Learn more"
+  },
+  "why": {
+    "title": "Why Tellie?",
+    "copy": "Loneliness is a public health issue. Tellie provides meaningful conversations, emotional support, and gentle companionship, whenever you need it.",
+    "points": [
+      { "title": "Warm Conversations", "copy": "Friendly chats that feel human and compassionate." },
+      { "title": "Always Here", "copy": "Available 24/7, so you are never alone." },
+      { "title": "Private & Respectful", "copy": "Your conversations stay just between you and Tellie." },
+      { "title": "Emergency Support", "copy": "If Tellie notices you might need help, it gently alerts your chosen contact." }
+    ]
+  },
+  "who": {
+    "title": "Who is it for?",
+    "copy": "Tellie is for those moments when the house feels too quiet and the days feel too long. When you wish you had someone to share your thoughts. Tellie is here to listen and remind you that you matter."
+  },
+  "how": {
+    "title": "How It Works",
+    "steps": [
+      { "title": "1. Get Started", "copy": "Create your profile in just a few minutes." },
+      { "title": "2. Start Chatting", "copy": "Say hello to your new companion, available anytime you want to talk." },
+      { "title": "3. Feel Connected", "copy": "Enjoy meaningful conversations that brighten your day." }
+    ]
+  },
+  "about": {
+    "title": "About Us",
+    "blocks": [
+      { "title": "Why We Exist", "copy": "We started Tellie because too many people were going days without a single meaningful conversation. We believe no one deserves to feel invisible." },
+      { "title": "Our Mission", "copy": "To create technology that feels human, warm, understanding, and genuinely caring. Our mission is to make every person feel heard, valued, and connected." },
+      { "title": "What We Believe", "copy": "We believe in dignity, kindness, and the simple power of a conversation. No matter your age, your stories matter." },
+      { "title": "Our Promise", "copy": "We promise to be here every day to help you feel less alone. Because connection isn’t just important, it’s everything." }
+    ]
+  },
+  "signup": {
+    "title": "Get Early Access",
+    "copy": "Be among the first to experience Tellie. Sign up below.",
+    "form": {
+      "name": "Full Name",
+      "email": "Email Address",
+      "cta": "Join",
+      "sending": "Sending..."
+    },
+    "success": "Thank you! We'll be in touch soon."
+  },
+  "footer": {
+    "rights": "All rights reserved."
+  }
+}
