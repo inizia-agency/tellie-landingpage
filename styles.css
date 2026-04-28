@@ -482,3 +482,138 @@ h1, h2, h3 {
 
 /* (optional) a second ring, slightly offset for a nicer effect */
 .animate-slow-ping.delay-100 { animation-delay: .8s; }
+
+/* --- Get Tellie page --- */
+.get-tellie-body {
+    background:
+        radial-gradient(circle at top, rgba(243, 232, 247, 0.95), rgba(255, 255, 255, 0) 42%),
+        linear-gradient(180deg, #fff 0%, #fff7fb 100%);
+}
+
+.get-tellie-page {
+    min-height: 100vh;
+    padding: 0.6rem 1rem 2rem;
+}
+
+.get-tellie-shell {
+    width: min(100%, 31rem);
+    margin: 0 auto;
+}
+
+.get-tellie-logo {
+    display: block;
+    width: 7.4rem;
+    height: auto;
+    margin: 0 auto 0.35rem;
+}
+
+.get-tellie-hero {
+    background: rgba(255, 255, 255, 0.88);
+    border: 1px solid #eadcf0;
+    border-radius: 1.75rem;
+    padding: 1.15rem 1.15rem 1.15rem;
+    box-shadow: 0 18px 36px rgba(169, 107, 184, 0.1);
+    text-align: center;
+}
+
+.get-tellie-eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.45rem;
+    margin-bottom: 1.35rem;
+    padding: 0.3rem 0.65rem;
+    border-radius: 999px;
+    background: #f3e8f7;
+    color: #8C4CA4;
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.02em;
+}
+
+.get-tellie-title {
+    margin: 0 0 0.7rem;
+    color: #A96BB8;
+    font-size: clamp(1.55rem, 6.3vw, 2.35rem);
+    line-height: 1.05;
+}
+
+.get-tellie-lead {
+    margin: 0;
+    color: #3f3a46;
+    font-size: 0.92rem;
+    line-height: 1.58;
+}
+
+.get-tellie-section {
+    margin-top: 1rem;
+    background: rgba(255, 255, 255, 0.84);
+    border: 1px solid #eadcf0;
+    border-radius: 1.5rem;
+    padding: 1.05rem 1.1rem;
+}
+
+.get-tellie-section h2 {
+    margin: 0 0 0.65rem;
+    color: #A96BB8;
+    font-size: 1.2rem;
+    line-height: 1.2;
+}
+
+.get-tellie-section p {
+    margin: 0;
+    color: #4d4b63;
+    font-size: 0.94rem;
+    line-height: 1.62;
+}
+
+.get-tellie-download {
+    margin-top: 1rem;
+    background: linear-gradient(180deg, #b97ac7 0%, #a96bb8 100%);
+    color: #fff;
+    border-radius: 1.6rem;
+    padding: 1.2rem 1.1rem 1.25rem;
+    box-shadow: 0 18px 34px rgba(140, 76, 164, 0.22);
+    text-align: center;
+}
+
+.get-tellie-download h2 {
+    margin: 0 0 0.45rem;
+    color: #fff;
+    font-size: 1.25rem;
+    line-height: 1.2;
+}
+
+.get-tellie-download p {
+    margin: 0;
+    color: rgba(255, 255, 255, 0.95);
+    font-size: 0.92rem;
+    line-height: 1.55;
+}
+
+.get-tellie-download .download-badges {
+    margin-top: 0.9rem;
+}
+
+.get-tellie-site-link {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 1rem;
+    color: #fff;
+    font-size: 0.9rem;
+    font-weight: 700;
+    text-decoration: underline;
+    text-underline-offset: 0.18rem;
+}
+
+@media (min-width: 768px) {
+    .get-tellie-page {
+        padding: 1.2rem 1.5rem 3rem;
+    }
+
+    .get-tellie-hero,
+    .get-tellie-section,
+    .get-tellie-download {
+        padding: 1.6rem;
+    }
+}
