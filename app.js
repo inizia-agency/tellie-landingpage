@@ -45,11 +45,16 @@ function applyTranslations(dict) {
 
 // ---------- Language bootstrap ----------
 async function chooseInitialLang() {
-    const saved = localStorage.getItem('lang');
-    if (saved) return mapToSupported(saved);
+    const browserLocales = Array.isArray(navigator.languages) ? navigator.languages : [];
+    const browserPreferred = browserLocales.find(langLike => SUPPORTED_LANGS.includes(mapToSupported(langLike)));
+    if (browserPreferred) return mapToSupported(browserPreferred);
+
+    const browserFallback = navigator.language || navigator.userLanguage;
+    if (browserFallback) return mapToSupported(browserFallback);
+
     const hint = getServerHint();
     if (hint) return mapToSupported(hint);
-    return mapToSupported(navigator.language || navigator.userLanguage || 'en');
+    return 'en';
 }
 async function loadLang(lang) {
     const dict = await fetchJSON(I18N_PATH(lang));
@@ -67,39 +72,32 @@ function setupNavToggle() {
     const toggle = $('#nav-toggle');
     const menu = $('#nav-menu');
     if (!toggle || !menu) return;
-    toggle.addEventListener('click', () => menu.classList.toggle('hidden'));
+
+    const setMenuState = (isOpen) => {
+        menu.classList.toggle('hidden', !isOpen);
+        toggle.setAttribute('aria-expanded', String(isOpen));
+        toggle.setAttribute('aria-label', isOpen ? 'Close navigation' : 'Open navigation');
+        toggle.textContent = isOpen ? '×' : '☰';
+        toggle.classList.toggle('mobile-nav-toggle-close', isOpen);
+    };
+
+    toggle.addEventListener('click', () => {
+        const isOpen = menu.classList.contains('hidden');
+        setMenuState(isOpen);
+    });
+
+    $$('a[href^="#"]', menu).forEach(link => {
+        link.addEventListener('click', () => setMenuState(false));
+    });
+
+    window.addEventListener('resize', () => {
+        if (window.innerWidth >= 768) setMenuState(false);
+    });
 }
 
 // ---------- Analytics core ----------
 function _payloadBase() {
     return { userAgent: navigator.userAgent || '', page: location.href, lang: getCurrentLang() };
-}
-
-// Confirmed POST if possible; otherwise "unconfirmed"
-async function postWithConfirmation(data) {
-    if (!ANALYTICS_URL) return { ok: false, method: 'none' };
-    const body = JSON.stringify(data);
-
-    // 1) CORS (likely blocked by Apps Script CORS, but try)
-    try {
-        const res = await fetch(ANALYTICS_URL, {
-            method: 'POST',
-            mode: 'cors',
-            headers: { 'Content-Type': 'text/plain;charset=utf-8' },
-            body
-        });
-        return { ok: res.ok, method: 'cors', status: res.status };
-    } catch (_) {}
-
-    // 2) sendBeacon (queued; returns boolean)
-    try {
-        if (navigator.sendBeacon) {
-            const ok = navigator.sendBeacon(ANALYTICS_URL, new Blob([body], { type: 'text/plain;charset=utf-8' }));
-            if (ok) return { ok: true, method: 'beacon' };
-        }
-    } catch (_) {}
-
-    return { ok: false, method: 'unconfirmed' };
 }
 
 // Fire-and-forget (events) + GET pixel fallback
@@ -135,162 +133,6 @@ function trackEvent({ event, label = '', section = '', href = '', extra = {} }) 
     } catch (_) {}
 }
 
-// ---------- Form feedback (single message) ----------
-function getFeedbackEl() {
-    let el = $('#success-message');
-    if (!el) {
-        const form = $('#signup-form');
-        if (!form) return null;
-        el = document.createElement('div');
-        el.id = 'success-message';
-        el.className = 'mt-4 text-sm hidden';
-        form.insertAdjacentElement('afterend', el);
-    }
-    return el;
-}
-function setFeedback(text, ok) {
-    const el = getFeedbackEl();
-    if (!el) return;
-    el.textContent = text;
-    el.classList.remove('hidden', 'text-red-600', 'text-green-600');
-    el.classList.add(ok ? 'text-green-600' : 'text-red-600');
-}
-function clearFeedback() {
-    const el = getFeedbackEl();
-    if (!el) return;
-    el.textContent = '';
-    el.classList.add('hidden');
-}
-function isLikelyEmail(v) { return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v); }
-
-// GET fallback for signup (hits doGet&t=signup)
-function signupFallbackGET({ name, email, extra = {} }) {
-    try {
-        const p = _payloadBase();
-        const url =
-            `${ANALYTICS_URL}?t=signup&name=${enc(name || '')}&email=${enc(email || '')}` +
-            `&lang=${enc(p.lang || '')}&ua=${enc(p.userAgent || '')}&page=${enc(p.page || '')}` +
-            `&extra=${enc(JSON.stringify(extra || {}))}&ts=${Date.now()}`;
-        console.debug('[tellie:signup] pixel →', url);
-        (new Image()).src = url;
-    } catch (_) {}
-}
-
-function localiseFormSending(dict) {
-    const sendingText = dict?.signup?.form?.sending || 'Sending...';
-    const successText = dict?.signup?.success || `Thank you! We'll be in touch soon.`;
-    const genericError = dict?.signup?.form?.error || 'Something went wrong. Please try again.';
-    const emailError = dict?.signup?.form?.emailError || 'Please enter a valid email address.';
-
-    const form = $('#signup-form');
-    if (!form) return;
-
-    // Remove existing listeners by cloning
-    form.replaceWith(form.cloneNode(true));
-    const freshForm = $('#signup-form');
-
-    clearFeedback();
-
-    freshForm.addEventListener('submit', async function (e) {
-        e.preventDefault();
-
-        const button = freshForm.querySelector('button');
-        const originalText = button.textContent;
-        button.disabled = true;
-        button.textContent = sendingText;
-
-        const formData = new FormData(freshForm);
-        const name = (formData.get('name') || '').toString().trim();
-        const email = (formData.get('email') || '').toString().trim();
-
-        if (!isLikelyEmail(email)) {
-            setFeedback(emailError, false);
-            button.disabled = false;
-            button.textContent = originalText;
-            return;
-        }
-
-        const extras = { referrer: document.referrer || '', ts: Date.now() };
-
-        // 1) Netlify (background)
-        const netlifyPromise = fetch('/', {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-            body: new URLSearchParams(formData).toString()
-        }).catch(() => null);
-
-        // 2) Try to POST to Apps Script with confirmation
-        const result = await postWithConfirmation({
-            ..._payloadBase(),
-            type: 'signup',
-            name,
-            email,
-            extra: extras
-        });
-
-        // 3) If not confirmed, guarantee write via GET fallback
-        if (!result.ok) {
-            signupFallbackGET({ name, email, extra: extras });
-        }
-
-        // 4) Track outcome as event (also has GET fallback inside)
-        trackEvent({
-            event: result.ok ? 'signup_success' : 'signup_unconfirmed',
-            label: email,
-            extra: extras
-        });
-
-        // 5) UI feedback (treat unconfirmed as success for UX)
-        setFeedback(successText, true);
-        freshForm.reset();
-
-        try { await netlifyPromise; } catch (_) {}
-        button.disabled = false;
-        button.textContent = originalText;
-    });
-}
-
-// ---------- Floating Language Button ----------
-function setupLangWidget(currentLang, dict) {
-    const widget = $('#lang-widget');
-    const trigger = $('#lang-trigger');
-    const menu = $('#lang-menu');
-    if (!widget || !trigger || !menu) return;
-
-    trigger.addEventListener('click', () => {
-        const expanded = trigger.getAttribute('aria-expanded') === 'true';
-        trigger.setAttribute('aria-expanded', String(!expanded));
-        menu.classList.toggle('hidden');
-    });
-
-    document.addEventListener('click', (e) => {
-        if (!widget.contains(e.target)) {
-            trigger.setAttribute('aria-expanded', 'false');
-            menu.classList.add('hidden');
-        }
-    });
-
-    $$('.lang-item', menu).forEach(btn => {
-        btn.addEventListener('click', async () => {
-            const lang = btn.dataset.lang;
-            if (!lang || lang === currentLang) {
-                widget.classList.add('hidden');
-                return;
-            }
-            try {
-                const newDict = await loadLang(lang);
-                localiseFormSending(newDict);
-                localStorage.setItem('lang', lang);
-                trackEvent({ event: 'language_change', label: lang });
-            } catch (e) {
-                console.error('Language load error:', e);
-            } finally {
-                widget.classList.add('hidden');
-            }
-        });
-    });
-}
-
 // ---------- CTA Click Tracking ----------
 function setupCtaTracking() {
     document.addEventListener('click', (e) => {
@@ -312,13 +154,9 @@ function setupCtaTracking() {
 
     const lang = await chooseInitialLang();
     try {
-        const dict = await loadLang(lang);
-        localiseFormSending(dict);
-        setupLangWidget(lang, dict);
+        await loadLang(lang);
     } catch (e) {
         console.error('Failed to init i18n:', e);
-        localiseFormSending({});
-        setupLangWidget('en', {});
     }
 
     // Optional: one-time health check in console (writes a row)

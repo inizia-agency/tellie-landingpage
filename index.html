@@ -45,14 +45,14 @@
 </head>
 <body>
 <!-- Navigation -->
-<nav class="fixed w-full bg-white shadow z-50">
-    <div class="max-w-6xl mx-auto flex justify-between items-center px-4">
+<nav class="fixed inset-x-0 top-0 bg-white shadow z-50">
+    <div class="max-w-6xl mx-auto flex justify-between items-center px-4 w-full min-w-0">
         <div class="flex items-center space-x-2">
             <img src="assets/logo5-nobg.png" alt="Tellie Logo" class="h-20 md:h-24 w-auto" />
         </div>
 
         <!-- Mobile toggle -->
-        <button id="nav-toggle" class="md:hidden text-[#A96BB8] focus:outline-none text-2xl" aria-label="Toggle navigation">☰</button>
+        <button id="nav-toggle" class="md:hidden text-[#A96BB8] focus:outline-none text-2xl shrink-0" aria-label="Open navigation" aria-expanded="false" aria-controls="nav-menu">☰</button>
 
         <!-- Desktop Menu -->
         <div class="hidden md:flex gap-4">
@@ -68,23 +68,30 @@
             <a href="#how-it-works" class="px-4 py-2 rounded-full text-sm transition duration-200 hover:bg-gradient-to-r hover:from-[#A96BB8] hover:to-[#8C4CA4] hover:text-white">
                 <span data-i18n="nav.how">How It Works</span>
             </a>
+            <a href="#pricing" class="px-4 py-2 rounded-full text-sm transition duration-200 hover:bg-gradient-to-r hover:from-[#A96BB8] hover:to-[#8C4CA4] hover:text-white">
+                <span data-i18n="nav.pricing">Pricing</span>
+            </a>
             <a href="#about" class="px-4 py-2 rounded-full text-sm transition duration-200 hover:bg-gradient-to-r hover:from-[#A96BB8] hover:to-[#8C4CA4] hover:text-white">
                 <span data-i18n="nav.about">About Us</span>
             </a>
-            <a href="#signup" class="px-4 py-2 rounded-full text-sm transition duration-200 hover:bg-gradient-to-r hover:from-[#A96BB8] hover:to-[#8C4CA4] hover:text-white">
-                <span data-i18n="nav.signup">Sign Up</span>
+            <a href="#download" class="px-4 py-2 rounded-full text-sm transition duration-200 hover:bg-gradient-to-r hover:from-[#A96BB8] hover:to-[#8C4CA4] hover:text-white">
+                <span data-i18n="nav.signup">Download</span>
             </a>
         </div>
     </div>
 
     <!-- Mobile Menu -->
-    <div id="nav-menu" class="hidden flex-col bg-white border-t border-gray-200 px-4 py-4 space-y-2 md:hidden">
-        <a href="#home" class="block text-[#333] hover:text-[#A96BB8]"><span data-i18n="nav.home">Home</span></a>
-        <a href="#features" class="block text-[#333] hover:text-[#A96BB8]"><span data-i18n="nav.why">Why Tellie</span></a>
-        <a href="#who" class="block text-[#333] hover:text-[#A96BB8]"><span data-i18n="nav.who">Who It's For</span></a>
-        <a href="#how-it-works" class="block text-[#333] hover:text-[#A96BB8]"><span data-i18n="nav.how">How It Works</span></a>
-        <a href="#about" class="block text-[#333] hover:text-[#A96BB8]"><span data-i18n="nav.about">About Us</span></a>
-        <a href="#signup" class="block text-[#333] hover:text-[#A96BB8]"><span data-i18n="nav.signup">Sign Up</span></a>
+    <div id="nav-menu" class="hidden bg-white border-t border-[#E8D7EE] px-4 py-4 md:hidden">
+        <div class="mobile-nav-header"></div>
+        <div class="mobile-nav-links">
+            <a href="#home" class="block text-[#333] hover:text-[#A96BB8]"><span data-i18n="nav.home">Home</span></a>
+            <a href="#features" class="block text-[#333] hover:text-[#A96BB8]"><span data-i18n="nav.why">Why Tellie</span></a>
+            <a href="#who" class="block text-[#333] hover:text-[#A96BB8]"><span data-i18n="nav.who">Who It's For</span></a>
+            <a href="#how-it-works" class="block text-[#333] hover:text-[#A96BB8]"><span data-i18n="nav.how">How It Works</span></a>
+            <a href="#pricing" class="block text-[#333] hover:text-[#A96BB8]"><span data-i18n="nav.pricing">Pricing</span></a>
+            <a href="#about" class="block text-[#333] hover:text-[#A96BB8]"><span data-i18n="nav.about">About Us</span></a>
+            <a href="#download" class="block text-[#333] hover:text-[#A96BB8]"><span data-i18n="nav.signup">Download</span></a>
+        </div>
     </div>
 </nav>
 
@@ -95,11 +102,19 @@
         <p class="text-base" data-i18n="hero.sub">Tellie is your warm, friendly AI companion, ready to listen, chat, and make every day brighter.</p>
         <!-- HERO CTAs -->
         <div class="cta-group">
-            <a href="#signup" class="btn-primary" data-evt="cta_click" data-label="joinWaitlist">
-                <span data-i18n="cta.joinWaitlist">Join the Waitlist</span>
+            <a href="https://apps.apple.com/au/app/tellie/id6761169754" class="store-badge-link" data-evt="cta_click" data-label="appStoreHero" target="_blank" rel="noopener noreferrer" aria-label="Download on the App Store">
+                <img
+                    src="https://tools.applemediaservices.com/api/badges/download-on-the-app-store/black/en-us?size=250x83&type=svg"
+                    alt="Download on the App Store"
+                    class="store-badge store-badge-apple"
+                />
             </a>
-            <a href="#signup" class="btn-secondary" data-evt="cta_click" data-label="registerEarly">
-                <span data-i18n="cta.registerEarly">Register for Early Access</span>
+            <a href="https://play.google.com/store/apps/details?id=com.tellie.mobile.app&pcampaignid=web_share" class="store-badge-link" data-evt="cta_click" data-label="playStoreHero" target="_blank" rel="noopener noreferrer" aria-label="Get it on Google Play">
+                <img
+                    src="https://play.google.com/intl/en_us/badges/static/images/badges/en_badge_web_generic.png"
+                    alt="Get it on Google Play"
+                    class="store-badge store-badge-play"
+                />
             </a>
         </div>
     </div>
@@ -115,28 +130,38 @@
     </div>
 </section>
 
+<!-- The Problem -->
+<section id="problem" class="py-16 bg-[#F3E8F7] border-t border-[#E8D7EE]">
+    <div class="max-w-4xl mx-auto px-4 text-center">
+        <h2 class="text-2xl md:text-3xl text-[#A96BB8] mb-6" data-i18n="why.problemTitle">The problem</h2>
+        <p class="max-w-3xl mx-auto text-[#444] text-lg leading-8" data-i18n="why.problemCopy">
+            Loneliness in later life is more than a quiet house. It can slowly affect health, confidence, and joy. Public-health research shows that lacking social connection is linked to earlier death, and around 1 in 4 older adults experience social isolation.
+        </p>
+    </div>
+</section>
+
 <!-- Why Tellie -->
-<section id="features" class="py-16 bg-[#F3E8F7]">
+<section id="features" class="py-16 bg-white border-t border-[#E8D7EE]">
     <div class="max-w-6xl mx-auto px-4 text-center">
         <h2 class="text-2xl md:text-3xl text-[#A96BB8] mb-6" data-i18n="why.title">Why Tellie?</h2>
-        <p class="max-w-2xl mx-auto mb-10" data-i18n="why.copy">
-            Loneliness is a public health issue. Tellie provides meaningful conversations, emotional support, and gentle companionship, whenever you need it.
+        <p class="max-w-3xl mx-auto mb-10 text-[#444] text-lg leading-8" data-i18n="why.solutionCopy">
+            Tellie gives your parent a warm, familiar voice to talk to every day, creating small moments of comfort, conversation, and connection when family cannot always be there.
         </p>
 
         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-            <div class="bg-white p-6 rounded-xl shadow">
+            <div class="bg-[#FFF7FB] p-6 rounded-xl shadow">
                 <h3 class="text-xl text-[#A96BB8] mb-2" data-i18n="why.points.0.title">Warm Conversations</h3>
                 <p data-i18n="why.points.0.copy">Friendly chats that feel human and compassionate.</p>
             </div>
-            <div class="bg-white p-6 rounded-xl shadow">
+            <div class="bg-[#FFF7FB] p-6 rounded-xl shadow">
                 <h3 class="text-xl text-[#A96BB8] mb-2" data-i18n="why.points.1.title">Always Here</h3>
                 <p data-i18n="why.points.1.copy">Available 24/7, so you're never alone.</p>
             </div>
-            <div class="bg-white p-6 rounded-xl shadow">
+            <div class="bg-[#FFF7FB] p-6 rounded-xl shadow">
                 <h3 class="text-xl text-[#A96BB8] mb-2" data-i18n="why.points.2.title">Private & Respectful</h3>
                 <p data-i18n="why.points.2.copy">Your conversations stay just between you and Tellie.</p>
             </div>
-            <div class="bg-white p-6 rounded-xl shadow">
+            <div class="bg-[#FFF7FB] p-6 rounded-xl shadow">
                 <h3 class="text-xl text-[#A96BB8] mb-2" data-i18n="why.points.3.title">Emergency Support</h3>
                 <p data-i18n="why.points.3.copy">If Tellie notices you might need help, it gently alerts your chosen contact.</p>
             </div>
@@ -144,52 +169,62 @@
 
         <!-- FEATURES CTA group -->
         <div class="cta-group justify-center mt-8">
-            <a href="#signup" class="btn-primary" data-evt="cta_click" data-label="learnMore">
+            <a href="#download" class="btn-primary" data-evt="cta_click" data-label="learnMore">
                 <span data-i18n="cta.learnMore">Learn more</span>
             </a>
-            <a href="#signup" class="btn-ghost" data-evt="cta_click" data-label="getStarted">
-                <span data-i18n="cta.getStarted">Get started</span>
+            <a href="#download" class="btn-ghost" data-evt="cta_click" data-label="downloadNowFeatures">
+                <span data-i18n="cta.signUpNow">Download now</span>
             </a>
         </div>
     </div>
 </section>
 
 <!-- Who is it for? -->
-<section id="who" class="py-16 px-4 max-w-6xl mx-auto flex flex-col md:grid md:grid-cols-2 gap-8 items-center">
-    <div class="flex justify-center">
-        <img src="https://images.pexels.com/photos/3791664/pexels-photo-3791664.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=400&w=400" alt="Senior adult and family member" class="rounded-xl shadow-md max-w-full" />
-    </div>
-    <div>
-        <h2 class="text-2xl md:text-3xl text-[#A96BB8] mb-4" data-i18n="who.title">Who is it for?</h2>
-        <p data-i18n="who.copy">
-            Tellie is for those moments when the house feels too quiet and the days feel too long. When you wish you had someone to share your thoughts. Tellie is here to listen and remind you that you matter.
-        </p>
-        <!-- WHO section CTAs -->
-        <div class="cta-group mt-6 md:justify-start">
-            <a href="#signup" class="btn-primary" data-evt="cta_click" data-label="signUpNow">
-                <span data-i18n="cta.signUpNow">Sign up now</span>
-            </a>
-            <a href="#signup" class="btn-secondary" data-evt="cta_click" data-label="registerEarly">
-                <span data-i18n="cta.registerEarly">Register for Early Access</span>
-            </a>
+<section id="who" class="py-16 bg-[#F3E8F7] border-t border-[#E8D7EE]">
+    <div class="px-4 max-w-6xl mx-auto flex flex-col md:grid md:grid-cols-2 gap-8 items-center">
+        <div class="flex justify-center">
+            <img src="https://images.pexels.com/photos/3791664/pexels-photo-3791664.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=400&w=400" alt="Senior adult and family member" class="rounded-xl shadow-md max-w-full" />
+        </div>
+        <div>
+            <h2 class="text-2xl md:text-3xl text-[#A96BB8] mb-4" data-i18n="who.title">Who is it for?</h2>
+            <p data-i18n="who.copy">
+                Tellie is for those moments when the house feels too quiet and the days feel too long. When you wish you had someone to share your thoughts. Tellie is here to listen and remind you that you matter.
+            </p>
+            <!-- WHO section CTAs -->
+            <div class="cta-group mt-6 md:justify-start">
+                <a href="https://apps.apple.com/au/app/tellie/id6761169754" class="store-badge-link" data-evt="cta_click" data-label="appStoreWho" target="_blank" rel="noopener noreferrer" aria-label="Download on the App Store">
+                    <img
+                        src="https://tools.applemediaservices.com/api/badges/download-on-the-app-store/black/en-us?size=250x83&type=svg"
+                        alt="Download on the App Store"
+                        class="store-badge store-badge-apple"
+                    />
+                </a>
+                <a href="https://play.google.com/store/apps/details?id=com.tellie.mobile.app&pcampaignid=web_share" class="store-badge-link" data-evt="cta_click" data-label="playStoreWho" target="_blank" rel="noopener noreferrer" aria-label="Get it on Google Play">
+                    <img
+                        src="https://play.google.com/intl/en_us/badges/static/images/badges/en_badge_web_generic.png"
+                        alt="Get it on Google Play"
+                        class="store-badge store-badge-play"
+                    />
+                </a>
+            </div>
         </div>
     </div>
 </section>
 
 <!-- How it works -->
-<section id="how-it-works" class="py-16 bg-white border-t border-gray-200">
+<section id="how-it-works" class="py-16 bg-white border-t border-[#E8D7EE]">
     <div class="max-w-6xl mx-auto px-4 text-center">
         <h2 class="text-2xl md:text-3xl text-[#A96BB8] mb-6" data-i18n="how.title">How It Works</h2>
         <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
-            <div class="bg-[#F3E8F7] p-6 rounded-xl shadow">
+            <div class="bg-[#FFF7FB] p-6 rounded-xl shadow">
                 <h3 class="text-xl mb-2" data-i18n="how.steps.0.title">1. Get Started</h3>
                 <p data-i18n="how.steps.0.copy">Create your profile in just a few minutes.</p>
             </div>
-            <div class="bg-[#F3E8F7] p-6 rounded-xl shadow">
+            <div class="bg-[#FFF7FB] p-6 rounded-xl shadow">
                 <h3 class="text-xl mb-2" data-i18n="how.steps.1.title">2. Start Chatting</h3>
                 <p data-i18n="how.steps.1.copy">Say hello to your new companion, available anytime you need to talk.</p>
             </div>
-            <div class="bg-[#F3E8F7] p-6 rounded-xl shadow">
+            <div class="bg-[#FFF7FB] p-6 rounded-xl shadow">
                 <h3 class="text-xl mb-2" data-i18n="how.steps.2.title">3. Feel Connected</h3>
                 <p data-i18n="how.steps.2.copy">Enjoy meaningful conversations that brighten your day.</p>
             </div>
@@ -197,62 +232,196 @@
 
         <!-- How it works CTAs -->
         <div class="cta-group justify-center mt-8">
-            <a href="#signup" class="btn-primary"  data-evt="cta_click" data-label="getStarted">
-                <span data-i18n="cta.getStarted">Get started</span>
+            <a href="https://apps.apple.com/au/app/tellie/id6761169754" class="store-badge-link"  data-evt="cta_click" data-label="appStoreHow" target="_blank" rel="noopener noreferrer" aria-label="Download on the App Store">
+                <img
+                    src="https://tools.applemediaservices.com/api/badges/download-on-the-app-store/black/en-us?size=250x83&type=svg"
+                    alt="Download on the App Store"
+                    class="store-badge store-badge-apple"
+                />
             </a>
-            <a href="#signup" class="btn-ghost"  data-evt="cta_click" data-label="joinWaitlist">
-                <span data-i18n="cta.joinWaitlist">Join the Waitlist</span>
+            <a href="https://play.google.com/store/apps/details?id=com.tellie.mobile.app&pcampaignid=web_share" class="store-badge-link"  data-evt="cta_click" data-label="playStoreHow" target="_blank" rel="noopener noreferrer" aria-label="Get it on Google Play">
+                <img
+                    src="https://play.google.com/intl/en_us/badges/static/images/badges/en_badge_web_generic.png"
+                    alt="Get it on Google Play"
+                    class="store-badge store-badge-play"
+                />
             </a>
         </div>
+    </div>
+</section>
+
+<!-- Pricing -->
+<section id="pricing" class="py-16 bg-[#F3E8F7] border-t border-b border-[#E8D7EE]">
+    <div class="max-w-6xl mx-auto px-4">
+        <div class="text-center max-w-3xl mx-auto mb-10">
+            <p class="text-sm uppercase tracking-[0.2em] text-[#A96BB8] mb-3" data-i18n="pricing.eyebrow">Pricing</p>
+            <h2 class="text-2xl md:text-3xl text-[#A96BB8] mb-4" data-i18n="pricing.title">Download Tellie free during beta</h2>
+            <p class="mb-4 text-[#555]" data-i18n="pricing.copy">Start now with full beta access at no cost, then choose the plan that fits later when our freemium model launches.</p>
+            <div class="inline-flex items-center gap-2 rounded-full bg-white border border-[#E8D7EE] px-4 py-2 text-sm text-[#8C4CA4] shadow-sm">
+                <span class="w-2.5 h-2.5 rounded-full bg-[#A96BB8]"></span>
+                <span data-i18n="pricing.betaBanner">Free during beta</span>
+            </div>
+            <div class="download-badges mt-8">
+                <a href="https://apps.apple.com/au/app/tellie/id6761169754" class="store-badge-link" data-evt="cta_click" data-label="appStorePricing" target="_blank" rel="noopener noreferrer" aria-label="Download on the App Store">
+                    <img
+                        src="https://tools.applemediaservices.com/api/badges/download-on-the-app-store/black/en-us?size=250x83&type=svg"
+                        alt="Download on the App Store"
+                        class="store-badge store-badge-apple"
+                    />
+                </a>
+                <a href="https://play.google.com/store/apps/details?id=com.tellie.mobile.app&pcampaignid=web_share" class="store-badge-link" data-evt="cta_click" data-label="playStorePricing" target="_blank" rel="noopener noreferrer" aria-label="Get it on Google Play">
+                    <img
+                        src="https://play.google.com/intl/en_us/badges/static/images/badges/en_badge_web_generic.png"
+                        alt="Get it on Google Play"
+                        class="store-badge store-badge-play"
+                    />
+                </a>
+            </div>
+            <div class="pricing-reassurance" aria-label="Beta reassurance">
+                <span class="pricing-reassurance-item" data-i18n="pricing.reassurance.0">Free during beta</span>
+                <span class="pricing-reassurance-item" data-i18n="pricing.reassurance.1">No payment required</span>
+                <span class="pricing-reassurance-item" data-i18n="pricing.reassurance.2">Set up in minutes</span>
+            </div>
+        </div>
+
+        <details class="pricing-future mt-8">
+            <summary class="pricing-future-summary">
+                <span class="pricing-future-title" data-i18n="pricing.futureToggle">Preview future personal plans</span>
+                <span class="pricing-future-icon" aria-hidden="true"></span>
+            </summary>
+            <div class="pricing-future-body">
+                <div class="text-center max-w-3xl mx-auto mb-8">
+                    <h3 class="text-xl md:text-2xl text-[#A96BB8] mb-3" data-i18n="pricing.futureTitle">Future plans, once beta ends</h3>
+                    <p class="text-[#6a6178]" data-i18n="pricing.futureCopy">If you would like to see what is coming, here is how Tellie plans to grow after beta.</p>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-6 items-stretch">
+                    <div class="pricing-card pricing-card-light">
+                        <div>
+                            <p class="pricing-tier" data-i18n="pricing.free.name">Free Forever</p>
+                            <p class="pricing-price" data-i18n="pricing.free.price">AUD $0</p>
+                            <p class="pricing-price-note" data-i18n="pricing.free.billing">Always free</p>
+                            <p class="pricing-tagline" data-i18n="pricing.free.tagline">A gentle introduction to Tellie</p>
+                            <ul class="pricing-list">
+                                <li data-i18n="pricing.free.points.0">30 minutes of conversation per month</li>
+                                <li data-i18n="pricing.free.points.1">A safe space to try Tellie</li>
+                                <li data-i18n="pricing.free.points.2">No payment required</li>
+                            </ul>
+                        </div>
+                        <a href="#download" class="pricing-cta pricing-cta-light" data-evt="cta_click" data-label="pricingFree">
+                            <span data-i18n="pricing.downloadFree">Download free now</span>
+                        </a>
+                    </div>
+
+                    <div class="pricing-card pricing-card-light">
+                        <div>
+                            <p class="pricing-tier" data-i18n="pricing.starter.name">Starter</p>
+                            <p class="pricing-price pricing-price-strike" data-i18n="pricing.starter.price">AUD $12.99</p>
+                            <p class="pricing-price-note" data-i18n="pricing.starter.billing">/month or AUD $129.90/year</p>
+                            <p class="pricing-beta-note" data-i18n="pricing.betaCard">Free during beta testing</p>
+                            <p class="pricing-tagline" data-i18n="pricing.starter.tagline">Meaningful moments, a few times each week</p>
+                            <ul class="pricing-list">
+                                <li data-i18n="pricing.starter.points.0">Up to 8 hours of conversation per month</li>
+                                <li data-i18n="pricing.starter.points.1">Longer chats when you need them</li>
+                                <li data-i18n="pricing.starter.points.2">Ideal for weekly connection</li>
+                            </ul>
+                        </div>
+                        <a href="#download" class="pricing-cta pricing-cta-light" data-evt="cta_click" data-label="pricingStarter">
+                            <span data-i18n="pricing.downloadFree">Download free now</span>
+                        </a>
+                    </div>
+
+                    <div class="pricing-card pricing-card-featured">
+                        <div>
+                            <div class="flex items-center justify-between gap-3 mb-3">
+                                <p class="pricing-tier text-white" data-i18n="pricing.premium.name">Premium</p>
+                                <span class="pricing-badge" data-i18n="pricing.premium.badge">Popular</span>
+                            </div>
+                            <p class="pricing-price pricing-price-strike text-white" data-i18n="pricing.premium.price">AUD $29.99</p>
+                            <p class="pricing-price-note text-white/80" data-i18n="pricing.premium.billing">/month or AUD $559.90/year</p>
+                            <p class="pricing-beta-note pricing-beta-note-featured" data-i18n="pricing.betaCard">Free during beta testing</p>
+                            <p class="pricing-tagline text-white" data-i18n="pricing.premium.tagline">Your everyday companion.</p>
+                            <ul class="pricing-list pricing-list-featured">
+                                <li data-i18n="pricing.premium.points.0">Up to 30 hours of conversation per month</li>
+                                <li data-i18n="pricing.premium.points.1">Freedom to talk without watching the clock</li>
+                                <li data-i18n="pricing.premium.points.2">Ideal for frequent or extended conversations</li>
+                                <li data-i18n="pricing.premium.points.3">Priority conversational continuity</li>
+                            </ul>
+                        </div>
+                        <a href="#download" class="pricing-cta pricing-cta-featured" data-evt="cta_click" data-label="pricingPremium">
+                            <span data-i18n="pricing.downloadFree">Download free now</span>
+                        </a>
+                    </div>
+
+                    <div class="pricing-card pricing-card-light">
+                        <div>
+                            <p class="pricing-tier" data-i18n="pricing.care.name">Care</p>
+                            <p class="pricing-price" data-i18n="pricing.care.price">Contact us</p>
+                            <p class="pricing-price-note" data-i18n="pricing.care.billing">Shared care for families and communities</p>
+                            <p class="pricing-tagline" data-i18n="pricing.care.tagline">Shared care for families and communities</p>
+                            <ul class="pricing-list">
+                                <li data-i18n="pricing.care.points.0">Unlimited conversations</li>
+                                <li data-i18n="pricing.care.points.1">Multi-member access</li>
+                                <li data-i18n="pricing.care.points.2">Family or facility management</li>
+                                <li data-i18n="pricing.care.points.3">Dedicated onboarding support</li>
+                            </ul>
+                        </div>
+                        <a href="mailto:info@tellie.me?subject=Tellie%20Care%20Plan" class="pricing-cta pricing-cta-light" data-evt="cta_click" data-label="pricingCare">
+                            <span data-i18n="pricing.careCta">Contact us</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </details>
     </div>
 </section>
 
 <!-- About Us -->
-<section id="about" class="py-16 px-4 max-w-6xl mx-auto">
-    <h2 class="text-2xl md:text-3xl text-[#A96BB8] text-center mb-10" data-i18n="about.title">About Us</h2>
-    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-        <div class="bg-white rounded-xl shadow p-6 animate-fadeIn">
-            <h3 class="text-xl text-[#A96BB8] mb-2 font-semibold" data-i18n="about.blocks.0.title">Why We Exist</h3>
-            <p data-i18n="about.blocks.0.copy">We started Tellie because we saw too many older adults spending days without a single meaningful conversation. We believe no one deserves to feel invisible.</p>
-        </div>
-        <div class="bg-white rounded-xl shadow p-6 animate-fadeIn delay-100">
-            <h3 class="text-xl text-[#A96BB8] mb-2 font-semibold" data-i18n="about.blocks.1.title">Our Mission</h3>
-            <p data-i18n="about.blocks.1.copy">To create technology that feels human, warm, understanding, and genuinely caring. Our mission is to make every person feel heard, valued, and connected.</p>
-        </div>
-        <div class="bg-white rounded-xl shadow p-6 animate-fadeIn delay-200">
-            <h3 class="text-xl text-[#A96BB8] mb-2 font-semibold" data-i18n="about.blocks.2.title">What We Believe</h3>
-            <p data-i18n="about.blocks.2.copy">We believe in dignity, kindness, and the simple power of a conversation. No matter your age, your stories matter.</p>
-        </div>
-        <div class="bg-white rounded-xl shadow p-6 animate-fadeIn delay-300">
-            <h3 class="text-xl text-[#A96BB8] mb-2 font-semibold" data-i18n="about.blocks.3.title">Our Promise</h3>
-            <p data-i18n="about.blocks.3.copy">We promise to be here every day to help you feel less alone. Because connection isn’t just important, it’s everything.</p>
+<section id="about" class="py-16 bg-white border-t border-[#E8D7EE]">
+    <div class="px-4 max-w-6xl mx-auto">
+        <h2 class="text-2xl md:text-3xl text-[#A96BB8] text-center mb-10" data-i18n="about.title">About Us</h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div class="bg-[#FFF7FB] rounded-xl shadow p-6 animate-fadeIn">
+                <h3 class="text-xl text-[#A96BB8] mb-2 font-semibold" data-i18n="about.blocks.0.title">Why We Exist</h3>
+                <p data-i18n="about.blocks.0.copy">We started Tellie because we saw too many older adults spending days without a single meaningful conversation. We believe no one deserves to feel invisible.</p>
+            </div>
+            <div class="bg-[#FFF7FB] rounded-xl shadow p-6 animate-fadeIn delay-100">
+                <h3 class="text-xl text-[#A96BB8] mb-2 font-semibold" data-i18n="about.blocks.1.title">Our Mission</h3>
+                <p data-i18n="about.blocks.1.copy">To create technology that feels human, warm, understanding, and genuinely caring. Our mission is to make every person feel heard, valued, and connected.</p>
+            </div>
+            <div class="bg-[#FFF7FB] rounded-xl shadow p-6 animate-fadeIn delay-200">
+                <h3 class="text-xl text-[#A96BB8] mb-2 font-semibold" data-i18n="about.blocks.2.title">What We Believe</h3>
+                <p data-i18n="about.blocks.2.copy">We believe in dignity, kindness, and the simple power of a conversation. No matter your age, your stories matter.</p>
+            </div>
+            <div class="bg-[#FFF7FB] rounded-xl shadow p-6 animate-fadeIn delay-300">
+                <h3 class="text-xl text-[#A96BB8] mb-2 font-semibold" data-i18n="about.blocks.3.title">Our Promise</h3>
+                <p data-i18n="about.blocks.3.copy">We promise to be here every day to help you feel less alone. Because connection isn’t just important, it’s everything.</p>
+            </div>
         </div>
     </div>
 </section>
 
-<!-- Sign Up -->
-<section id="signup" class="py-16 bg-[#F3E8F7]">
+<!-- Download -->
+<section id="download" class="py-16 bg-[#F3E8F7]">
     <div class="max-w-3xl mx-auto px-4 text-center">
-        <h2 class="text-2xl md:text-3xl text-[#A96BB8] mb-4" data-i18n="signup.title">Get Early Access</h2>
-        <p data-i18n="signup.copy">Be among the first to experience Tellie. Sign up below.</p>
+        <h2 class="text-2xl md:text-3xl text-[#A96BB8] mb-4" data-i18n="signup.title">Download Tellie</h2>
+        <p data-i18n="signup.copy">Download Tellie today from your preferred app store.</p>
 
-        <form id="signup-form" name="signup" method="POST" data-netlify="true" class="mt-6 flex flex-col md:flex-row justify-center gap-3">
-            <!-- Netlify required -->
-            <input type="hidden" name="form-name" value="signup" />
-            <input type="text" name="name" required
-                   class="w-full md:w-auto px-3 py-2 border border-gray-300 rounded text-sm"
-                   data-i18n-placeholder="signup.form.name" placeholder="Full Name" />
-            <input type="email" name="email" required
-                   class="w-full md:w-auto px-3 py-2 border border-gray-300 rounded text-sm"
-                   data-i18n-placeholder="signup.form.email" placeholder="Email Address" />
-            <button type="submit" class="btn-primary">
-                <span data-i18n="signup.form.cta">Join</span>
-            </button>
-        </form>
-
-        <!-- Success message -->
-        <div id="success-message" class="hidden mt-4 text-green-600 text-sm" data-i18n="signup.success">
-            Thank you! We'll be in touch soon.
+        <div class="download-badges mt-8">
+            <a href="https://apps.apple.com/au/app/tellie/id6761169754" class="store-badge-link" data-evt="cta_click" data-label="appStoreDownload" target="_blank" rel="noopener noreferrer" aria-label="Download on the App Store">
+                <img
+                    src="https://tools.applemediaservices.com/api/badges/download-on-the-app-store/black/en-us?size=250x83&type=svg"
+                    alt="Download on the App Store"
+                    class="store-badge store-badge-apple"
+                />
+            </a>
+            <a href="https://play.google.com/store/apps/details?id=com.tellie.mobile.app&pcampaignid=web_share" class="store-badge-link" data-evt="cta_click" data-label="playStoreDownload" target="_blank" rel="noopener noreferrer" aria-label="Get it on Google Play">
+                <img
+                    src="https://play.google.com/intl/en_us/badges/static/images/badges/en_badge_web_generic.png"
+                    alt="Get it on Google Play"
+                    class="store-badge store-badge-play"
+                />
+            </a>
         </div>
     </div>
 </section>
@@ -261,18 +430,6 @@
     &copy; <span id="year"></span> Tellie. <span data-i18n="footer.rights">All rights reserved.</span>
     <a href="/terms/" class="underline hover:text-[#A96BB8]">Terms &amp; Privacy</a>
 </footer>
-
-<!-- Floating Language Button -->
-<div id="lang-widget" class="lang-widget">
-    <button id="lang-trigger" class="lang-trigger" aria-haspopup="true" aria-expanded="false" aria-controls="lang-menu" title="Change language">
-        🌐
-    </button>
-    <div id="lang-menu" class="lang-menu hidden" role="menu" aria-label="Select language">
-        <button class="lang-item" data-lang="en" role="menuitem">English</button>
-        <button class="lang-item" data-lang="es" role="menuitem">Español</button>
-        <button class="lang-item" data-lang="pt" role="menuitem">Português</button>
-    </div>
-</div>
 
 <!-- App logic -->
 <script src="app.js" defer></script>

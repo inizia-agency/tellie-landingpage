@@ -4,24 +4,30 @@
     "why": "Por que a Tellie",
     "who": "Para quem é",
     "how": "Como funciona",
+    "pricing": "Preços",
     "about": "Sobre nós",
-    "signup": "Inscreva-se"
+    "signup": "Baixar"
   },
   "hero": {
     "headline": "Sinta-se conectado. Todos os dias.",
     "sub": "A Tellie é seu companheiro de conversa — acolhedor e amigável — pronto para ouvir, conversar e iluminar o seu dia.",
-    "cta": "Entrar na lista de espera"
+    "cta": "Baixar Tellie"
   },
   "cta": {
-    "joinWaitlist": "Entrar na lista de espera",
-    "signUpNow": "Inscreva-se agora",
-    "registerEarly": "Inscreva-se para acesso antecipado",
+    "joinWaitlist": "Baixar Tellie",
+    "signUpNow": "Baixar agora",
+    "registerEarly": "Baixar Tellie",
     "getStarted": "Começar",
-    "learnMore": "Saiba mais"
+    "learnMore": "Saiba mais",
+    "appStore": "Baixar na App Store",
+    "playStore": "Disponível no Google Play"
   },
   "why": {
     "title": "Por que a Tellie?",
-    "copy": "A solidão é um problema de saúde pública. A Tellie oferece conversas significativas, apoio emocional e companhia sempre que você precisar.",
+    "problemTitle": "O problema",
+    "problemCopy": "A solidão na vida mais velha é mais do que uma casa silenciosa. Ela pode afetar aos poucos a saúde, a confiança e a alegria. Evidências de saúde pública mostram que a falta de conexão social está associada à morte precoce, e cerca de 1 em cada 4 idosos vive isolamento social.",
+    "solutionTitle": "Por que a Tellie ajuda",
+    "solutionCopy": "A Tellie dá ao seu pai ou à sua mãe uma voz acolhedora e familiar para conversar todos os dias, criando pequenos momentos de conforto, conversa e conexão quando a família nem sempre pode estar presente.",
     "points": [
       { "title": "Conversas acolhedoras", "copy": "Bate-papos amigáveis que soam humanos e compassivos." },
       { "title": "Sempre disponível", "copy": "Acessível 24/7, para você nunca ficar sozinho." },
@@ -41,6 +47,71 @@
       { "title": "3. Sinta-se conectado", "copy": "Aproveite conversas significativas que iluminam seu dia." }
     ]
   },
+  "pricing": {
+    "eyebrow": "Preços",
+    "title": "Baixe a Tellie grátis durante o beta",
+    "copy": "Comece agora com acesso completo ao beta sem custo por tempo limitado e escolha o plano ideal depois, quando nosso modelo freemium for lançado.",
+    "betaBanner": "Grátis durante o beta por tempo limitado",
+    "betaCard": "Grátis durante o beta",
+    "futureToggle": "Ver os próximos planos da Tellie",
+    "futureTitle": "Planos futuros, quando o beta terminar",
+    "futureCopy": "Se quiser ver o que vem por aí, assim a Tellie pretende crescer depois do beta.",
+    "downloadFree": "Baixar grátis agora",
+    "reassurance": [
+      "Grátis no beta por tempo limitado",
+      "Sem pagamento",
+      "Configuração em minutos"
+    ],
+    "included": "O que está incluído",
+    "free": {
+      "name": "Grátis para sempre",
+      "price": "AUD $0",
+      "billing": "Sempre grátis",
+      "tagline": "Uma introdução suave à Tellie",
+      "points": [
+        "30 minutos de conversa por mês",
+        "Um espaço seguro para experimentar a Tellie",
+        "Sem necessidade de pagamento"
+      ]
+    },
+    "starter": {
+      "name": "Starter",
+      "price": "AUD $12.99",
+      "billing": "/mês ou AUD $129.90/ano",
+      "tagline": "Momentos significativos, algumas vezes por semana",
+      "points": [
+        "Até 8 horas de conversa por mês",
+        "Conversas mais longas quando você precisar",
+        "Ideal para conexão semanal"
+      ]
+    },
+    "premium": {
+      "name": "Premium",
+      "badge": "Popular",
+      "price": "AUD $29.99",
+      "billing": "/mês ou AUD $559.90/ano",
+      "tagline": "Sua companhia de todos os dias.",
+      "points": [
+        "Até 30 horas de conversa por mês",
+        "Liberdade para falar sem olhar para o relógio",
+        "Ideal para conversas frequentes ou mais longas",
+        "Continuidade conversacional prioritária"
+      ]
+    },
+    "care": {
+      "name": "Care",
+      "price": "Fale conosco",
+      "billing": "Cuidado compartilhado para famílias e comunidades",
+      "tagline": "Cuidado compartilhado para famílias e comunidades",
+      "points": [
+        "Conversas ilimitadas",
+        "Acesso para vários membros",
+        "Gestão da família ou da instituição",
+        "Suporte dedicado para onboarding"
+      ]
+    },
+    "careCta": "Fale conosco"
+  },
   "about": {
     "title": "Sobre nós",
     "blocks": [
@@ -51,15 +122,8 @@
     ]
   },
   "signup": {
-    "title": "Acesso antecipado",
-    "copy": "Seja uma das primeiras pessoas a experimentar a Tellie. Inscreva-se abaixo.",
-    "form": {
-      "name": "Nome completo",
-      "email": "E-mail",
-      "cta": "Entrar",
-      "sending": "Enviando..."
-    },
-    "success": "Obrigado! Entraremos em contato em breve."
+    "title": "Baixar Tellie",
+    "copy": "Baixe Tellie hoje na loja de aplicativos da sua preferência."
   },
   "footer": {
     "rights": "Todos os direitos reservados."

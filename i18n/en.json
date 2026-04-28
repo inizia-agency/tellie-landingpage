@@ -4,24 +4,30 @@
     "why": "Why Tellie",
     "who": "Who It's For",
     "how": "How It Works",
+    "pricing": "Pricing",
     "about": "About Us",
-    "signup": "Sign Up"
+    "signup": "Download"
   },
   "hero": {
     "headline": "Feel Connected. Every Day.",
     "sub": "Tellie is your warm, friendly AI companion, ready to listen, chat, and make every day brighter.",
-    "cta": "Join the Waitlist"
+    "cta": "Download Tellie"
   },
   "cta": {
-    "joinWaitlist": "Join the Waitlist",
-    "signUpNow": "Sign up now",
-    "registerEarly": "Register for Early Access",
+    "joinWaitlist": "Download Tellie",
+    "signUpNow": "Download now",
+    "registerEarly": "Download Tellie",
     "getStarted": "Get started",
-    "learnMore": "Learn more"
+    "learnMore": "Learn more",
+    "appStore": "Download on the App Store",
+    "playStore": "Get it on Google Play"
   },
   "why": {
     "title": "Why Tellie?",
-    "copy": "Loneliness is a public health issue. Tellie provides meaningful conversations, emotional support, and gentle companionship, whenever you need it.",
+    "problemTitle": "The problem",
+    "problemCopy": "Loneliness in later life is more than a quiet house. It can slowly affect health, confidence, and joy. Public-health research shows that lacking social connection is linked to earlier death, and around 1 in 4 older adults experience social isolation.",
+    "solutionTitle": "Why Tellie helps",
+    "solutionCopy": "Tellie gives your parent a warm, familiar voice to talk to every day, creating small moments of comfort, conversation, and connection when family cannot always be there.",
     "points": [
       { "title": "Warm Conversations", "copy": "Friendly chats that feel human and compassionate." },
       { "title": "Always Here", "copy": "Available 24/7, so you are never alone." },
@@ -41,6 +47,71 @@
       { "title": "3. Feel Connected", "copy": "Enjoy meaningful conversations that brighten your day." }
     ]
   },
+  "pricing": {
+    "eyebrow": "Pricing",
+    "title": "Download Tellie free during beta",
+    "copy": "Start now with full beta access at no cost for a limited time, then choose the plan that fits later when our freemium model launches.",
+    "betaBanner": "Free during beta for a limited time",
+    "betaCard": "Free during beta testing",
+    "futureToggle": "Preview Tellie's upcoming plans",
+    "futureTitle": "Future plans, once beta ends",
+    "futureCopy": "If you would like to see what is coming, here is how Tellie plans to grow after beta.",
+    "downloadFree": "Download free now",
+    "reassurance": [
+      "Free for a limited beta",
+      "No payment required",
+      "Set up in minutes"
+    ],
+    "included": "What's included",
+    "free": {
+      "name": "Free Forever",
+      "price": "AUD $0",
+      "billing": "Always free",
+      "tagline": "A gentle introduction to Tellie",
+      "points": [
+        "30 minutes of conversation per month",
+        "A safe space to try Tellie",
+        "No payment required"
+      ]
+    },
+    "starter": {
+      "name": "Starter",
+      "price": "AUD $12.99",
+      "billing": "/month or AUD $129.90/year",
+      "tagline": "Meaningful moments, a few times each week",
+      "points": [
+        "Up to 8 hours of conversation per month",
+        "Longer chats when you need them",
+        "Ideal for weekly connection"
+      ]
+    },
+    "premium": {
+      "name": "Premium",
+      "badge": "Popular",
+      "price": "AUD $29.99",
+      "billing": "/month or AUD $559.90/year",
+      "tagline": "Your everyday companion.",
+      "points": [
+        "Up to 30 hours of conversation per month",
+        "Freedom to talk without watching the clock",
+        "Ideal for frequent or extended conversations",
+        "Priority conversational continuity"
+      ]
+    },
+    "care": {
+      "name": "Care",
+      "price": "Contact us",
+      "billing": "Shared care for families and communities",
+      "tagline": "Shared care for families and communities",
+      "points": [
+        "Unlimited conversations",
+        "Multi-member access",
+        "Family or facility management",
+        "Dedicated onboarding support"
+      ]
+    },
+    "careCta": "Contact us"
+  },
   "about": {
     "title": "About Us",
     "blocks": [
@@ -51,15 +122,8 @@
     ]
   },
   "signup": {
-    "title": "Get Early Access",
-    "copy": "Be among the first to experience Tellie. Sign up below.",
-    "form": {
-      "name": "Full Name",
-      "email": "Email Address",
-      "cta": "Join",
-      "sending": "Sending..."
-    },
-    "success": "Thank you! We'll be in touch soon."
+    "title": "Download Tellie",
+    "copy": "Download Tellie today from your preferred app store."
   },
   "footer": {
     "rights": "All rights reserved."
