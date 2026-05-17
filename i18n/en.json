@@ -49,8 +49,8 @@
   },
   "pricing": {
     "eyebrow": "Pricing",
-    "title": "Download Tellie free during beta",
-    "copy": "Start now with full beta access at no cost for a limited time, then choose the plan that fits later when our freemium model launches.",
+    "title": "Choose the Tellie plan that fits you",
+    "copy": "Simple pricing for individuals, families, and care communities.",
     "betaBanner": "Free during beta for a limited time",
     "betaCard": "Free during beta testing",
     "futureToggle": "Preview Tellie's upcoming plans",
@@ -107,7 +107,9 @@
         "Unlimited conversations",
         "Multi-member access",
         "Family or facility management",
-        "Dedicated onboarding support"
+        "Dedicated onboarding support",
+        "Priority support",
+        "Priority conversational continuity"
       ]
     },
     "careCta": "Contact us"
