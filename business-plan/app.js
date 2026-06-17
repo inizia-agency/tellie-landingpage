@@ -1,4 +1,4 @@
-const FIXED_PASSWORD = "tellie-investor-2026";
+const FIXED_PASSWORD = "InvestingInTellie";
 const STORAGE_KEY = "tellieBusinessPlanUnlocked";
 
 const gate = document.getElementById("password-gate");
