@@ -5,6 +5,7 @@ const gate = document.getElementById("password-gate");
 const gateForm = document.getElementById("gate-form");
 const gatePassword = document.getElementById("gate-password");
 const gateError = document.getElementById("gate-error");
+const gateToggle = document.getElementById("gate-toggle");
 
 function unlockGate() {
   gate.hidden = true;
@@ -43,6 +44,15 @@ gateForm?.addEventListener("submit", (event) => {
 
   gateError.hidden = false;
   gatePassword.select();
+});
+
+gateToggle?.addEventListener("click", () => {
+  const isVisible = gatePassword.type === "text";
+  gatePassword.type = isVisible ? "password" : "text";
+  gateToggle.textContent = isVisible ? "Show" : "Hide";
+  gateToggle.setAttribute("aria-label", isVisible ? "Show password" : "Hide password");
+  gateToggle.setAttribute("aria-pressed", isVisible ? "false" : "true");
+  gatePassword.focus();
 });
 
 const panes = Array.from(document.querySelectorAll(".toc-inner, .document"));
