@@ -1,0 +1,657 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tellie Business Plan Story</title>
+    <meta name="description" content="Interactive investor story for Tellie." />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@400;500;600;700&family=Borel&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./styles.css" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        comfortaa: ['Comfortaa', 'system-ui', 'sans-serif'],
+                        borel: ['Borel', 'cursive'],
+                    },
+                    colors: {
+                        tellie: {
+                            ink: '#30263b',
+                            muted: '#74677d',
+                            accent: '#a96bb8',
+                            accent2: '#8c4ca4',
+                            blush: '#f3e8f7',
+                            paper: 'rgba(255, 250, 246, 0.82)',
+                        },
+                    },
+                    boxShadow: {
+                        tellie: '0 24px 60px rgba(74, 32, 63, 0.13)',
+                    },
+                    borderRadius: {
+                        '4xl': '2rem',
+                    },
+                },
+            },
+        };
+    </script>
+</head>
+<body>
+<div class="bp-bg"></div>
+
+<div class="bp-lock" id="bp-lock">
+    <div class="bp-lock-card">
+        <p class="eyebrow">Tellie Investor Story</p>
+        <h1>Enter access password</h1>
+        <p class="bp-lock-copy">
+            This experience presents Tellie's business plan as a horizontal story designed for investors, strategic partners, and potential co-founders.
+        </p>
+        <form id="bp-lock-form" class="bp-lock-form">
+            <label class="sr-only" for="bp-password">Password</label>
+            <input id="bp-password" name="password" type="password" autocomplete="current-password" placeholder="Password" />
+            <button type="submit">Unlock story</button>
+        </form>
+        <p id="bp-lock-error" class="bp-lock-error" aria-live="polite"></p>
+        <p class="bp-lock-note">Voice narration is prepared as the next step.</p>
+    </div>
+</div>
+
+<header class="bp-topbar">
+    <a class="bp-brand" href="../index.html">
+        <img src="../assets/logo5-nobg.png" alt="Tellie logo" />
+        <span class="sr-only">Tellie</span>
+    </a>
+    <div class="bp-topbar-actions">
+        <button class="bp-toc-toggle" type="button" id="bp-toc-toggle" aria-expanded="false" aria-controls="bp-toc-drawer">
+            Contents
+        </button>
+    </div>
+</header>
+<div class="bp-progress-line" aria-hidden="true">
+    <svg class="bp-progress-svg" viewBox="0 0 1440 28" preserveAspectRatio="none">
+        <path class="bp-progress-track" d="M0 14 C70 10, 110 18, 180 14 C250 10, 290 6, 360 12 C430 18, 470 20, 540 14 C610 8, 650 4, 720 10 C790 16, 830 20, 900 14 C970 8, 1010 4, 1080 10 C1150 16, 1190 20, 1260 14 C1330 8, 1370 10, 1440 14"></path>
+        <path class="bp-progress-bar" id="bp-progress-bar" d="M0 14 C70 10, 110 18, 180 14 C250 10, 290 6, 360 12 C430 18, 470 20, 540 14 C610 8, 650 4, 720 10 C790 16, 830 20, 900 14 C970 8, 1010 4, 1080 10 C1150 16, 1190 20, 1260 14 C1330 8, 1370 10, 1440 14"></path>
+    </svg>
+</div>
+
+<aside class="bp-toc-drawer" id="bp-toc-drawer" aria-hidden="true">
+    <div class="bp-toc-header">
+        <p class="eyebrow">Table of contents</p>
+        <button class="bp-toc-close" type="button" id="bp-toc-close" aria-label="Close table of contents">×</button>
+    </div>
+    <nav class="bp-toc-nav" aria-label="Business plan chapters">
+        <button class="bp-toc-link" type="button" data-panel-index="0">Opening</button>
+        <button class="bp-toc-link" type="button" data-panel-index="1">The Problem</button>
+        <button class="bp-toc-link" type="button" data-panel-index="2">Why Now</button>
+        <button class="bp-toc-link" type="button" data-panel-index="3">Why Mobile First</button>
+        <button class="bp-toc-link" type="button" data-panel-index="4">The Product</button>
+        <button class="bp-toc-link" type="button" data-panel-index="5">Founder And Traction</button>
+        <button class="bp-toc-link" type="button" data-panel-index="6">Market Opportunity</button>
+        <button class="bp-toc-link" type="button" data-panel-index="7">Revenue Model</button>
+        <button class="bp-toc-link" type="button" data-panel-index="8">Go-To-Market</button>
+        <button class="bp-toc-link" type="button" data-panel-index="9">Financial Engine</button>
+        <button class="bp-toc-link" type="button" data-panel-index="10">The Thesis</button>
+    </nav>
+</aside>
+<div class="bp-toc-scrim" id="bp-toc-scrim" hidden></div>
+
+<main class="bp-shell">
+    <section class="bp-mobile-fallback" aria-labelledby="bp-mobile-title">
+        <div class="bp-mobile-card">
+            <img class="bp-mobile-logo" src="../assets/logo5-nobg.png" alt="Tellie logo" />
+            <p class="eyebrow">Tellie investor story</p>
+            <h1 id="bp-mobile-title">This interactive business plan was designed for larger screens.</h1>
+            <p>
+                For the intended experience, open this story on a tablet, laptop, or desktop. You can still download the full Tellie business plan below.
+            </p>
+            <div class="bp-mobile-actions">
+                <a class="btn-primary-story" href="./downloads/tellie-business-plan.pdf" download>Download business plan PDF</a>
+                <a class="btn-secondary-story" href="mailto:mica@tellie.me?subject=Tellie%20business%20plan">Email Mica</a>
+            </div>
+        </div>
+    </section>
+    <div class="bp-track" id="bp-track">
+        <section class="bp-panel bp-panel-hero bp-panel-opening bp-layout bp-layout-1">
+            <div class="panel-art panel-art-glow"></div>
+            <div class="bp-scene bp-hero-scene reveal">
+                <div class="bp-scene-copy panel-content opening-copy">
+                    <p class="eyebrow reveal">Tellie business plan</p>
+                    <div class="opening-meta reveal">
+                        <span>Investor story</span>
+                        <span>11 chapters</span>
+                        <span>Australia to U.S.</span>
+                    </div>
+                    <h1 class="hero-title reveal">A story about aging, trust, and <span class="script-mark hero-script">technology that finally feels familiar</span>.</h1>
+                    <p class="hero-copy reveal">
+                        Tellie is building an empathetic technology platform for older adults, beginning with a voice-first companion and expanding into a broader digital-inclusion and healthy-aging company.
+                    </p>
+                    <p class="hero-kicker reveal">Start with the elders of today. Win trust through what already feels familiar. Earn the right to grow into the relationship layer families and future generations already know.</p>
+                    <div class="story-ledger hero-ledger reveal">
+                        <article>
+                            <span>01</span>
+                            <div>
+                                <strong>The wedge</strong>
+                                <p>Companionship is the entry point into a much larger digital-inclusion, family reassurance, and healthy-aging opportunity.</p>
+                            </div>
+                        </article>
+                        <article>
+                            <span>02</span>
+                            <div>
+                                <strong>The timing</strong>
+                                <p>Population aging is becoming structural, durable, and economically impossible to ignore.</p>
+                            </div>
+                        </article>
+                        <article>
+                            <span>03</span>
+                            <div>
+                                <strong>The strategy</strong>
+                                <p>Use mobile to win trust now, then extend that trust into families, institutions, and future form factors including robotics.</p>
+                            </div>
+                        </article>
+                    </div>
+                    <div class="hero-stat-ribbon hero-proof-row reveal">
+                        <article>
+                            <strong>1 in 6</strong>
+                            <span>people globally experience loneliness</span>
+                        </article>
+                        <article>
+                            <strong>61.2M</strong>
+                            <span>Americans were aged 65+ in 2024</span>
+                        </article>
+                        <article>
+                            <strong>21-23%</strong>
+                            <span>of Australians projected to be 65+ by 2066</span>
+                        </article>
+                    </div>
+                </div>
+                <div class="bp-scene-media hero-stage-grid">
+                    <div class="hero-photo-panel overflow-hidden rounded-[2rem] shadow-tellie border border-white/60 bg-white/40">
+                        <img class="block aspect-[4/5] h-full w-full object-cover" src="./assets/family-beach.jpg" alt="Adult daughter embracing her older mother at the beach" />
+                    </div>
+                    <div class="hero-note-card rounded-[2rem] border border-[rgba(46,33,54,0.08)] bg-[rgba(255,250,246,0.78)] p-5 shadow-tellie backdrop-blur-md">
+                        <p>Tellie brings familiarity, calm, and continuity to older adults and the families who worry about them.</p>
+                    </div>
+                    <div class="hero-device-row">
+                        <div class="floating-pill hero-pill-static">Built for older adults</div>
+                        <div class="phone-frame hero-phone-static">
+                            <div class="phone-notch"></div>
+                            <img src="./assets/tellie-call-screen.png" alt="Latest Tellie call interface inside an iPhone-style frame" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="bp-panel bp-panel-problem bp-layout bp-layout-2 !items-start !px-8 xl:!px-10 2xl:!px-14">
+            <div class="bp-scene mx-auto grid h-full w-full max-w-[1780px] gap-8 xl:grid-cols-12 xl:gap-10">
+                <div class="bp-scene-media problem-visual reveal xl:col-span-4 xl:self-start">
+                    <img src="./assets/lonely-sofa.jpg" alt="Older woman sitting alone and looking out the window" />
+                    <div class="visual-caption">
+                        <span>Tellie begins here</span>
+                        <p>Everything begins with the emotional gap between being connected in theory and feeling supported in practice.</p>
+                    </div>
+                </div>
+                <div class="bp-scene-copy panel-content reading-column !max-w-none xl:col-span-8 xl:self-start">
+                    <p class="eyebrow reveal">The problem</p>
+                    <h2 class="reveal !max-w-[14ch]">Older adults are living in a digital world that moves far faster than their confidence, pace, and sense of dignity.</h2>
+                    <p class="reveal">
+                        Loneliness collides with digital exclusion, shrinking confidence, and a world that keeps moving faster. Families are more geographically distributed, interfaces are more complex, and many seniors are left feeling marginal to the very technology that is supposed to keep them connected.
+                    </p>
+                    <div class="reading-notes reveal">
+                        <article class="margin-note">
+                            <span class="note-kicker">Loneliness</span>
+                            <strong>Now a public-health issue</strong>
+                            <p>Social disconnection is increasingly linked to significant mental and physical health outcomes, which makes this problem deeply human and economically costly.</p>
+                        </article>
+                        <article class="margin-note">
+                            <span class="note-kicker">Digital exclusion</span>
+                            <strong>Technology can deepen dependence</strong>
+                            <p>When products assume speed, confidence, and digital fluency, many older adults experience a loss of confidence, autonomy, and the feeling that modern life includes them.</p>
+                        </article>
+                    </div>
+                    <div class="quote-block reveal quote-block-large">
+                        <p>Tellie treats companionship as the wedge, and digital inclusion as the larger company opportunity.</p>
+                    </div>
+                    <div class="source-row reveal source-row-footnotes">
+                        <button class="source-pill" data-source-title="World Health Organization" data-source-copy="WHO says 1 in 6 people globally experience loneliness and links social disconnection to significant health harms." data-source-url="https://www.who.int/news/item/30-06-2025-social-connection-linked-to-improved-heath-and-reduced-risk-of-early-death">[1] WHO</button>
+                        <button class="source-pill" data-source-title="Australian Government digital exclusion report" data-source-copy="An Australian government report found 37% of people aged 65+ needed help keeping up with technological change." data-source-url="https://www.infrastructure.gov.au/sites/default/files/documents/digital-exclusion-in-australia-report.pdf">[2] Digital exclusion</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="bp-panel bp-panel-evidence bp-layout bp-layout-3">
+            <div class="bp-scene evidence-spread">
+                <div class="bp-scene-copy panel-content evidence-copy">
+                    <p class="eyebrow reveal">Why now</p>
+                    <h2 class="reveal">The population pyramid is inverting, and senior-first technology is becoming a structural need for modern life.</h2>
+                    <p class="reveal">
+                        Developed economies are moving from youth-heavy population structures to older, top-heavy ones. At the same time, everyday life is becoming more digital, more automated, and more demanding for people who grew up in a different technological era. That creates a durable gap between how the world works and how many older adults are able to comfortably participate in it.
+                    </p>
+                    <div class="chapter-intro reveal">
+                        <p>Tellie is being built into one of the largest and most predictable demographic transitions underway across developed economies.</p>
+                    </div>
+                </div>
+                <div class="bp-scene-support evidence-stage reveal">
+                    <div class="evidence-hero-number">
+                        <span class="evidence-label">United States</span>
+                        <strong>61.2M</strong>
+                        <p>Americans were aged 65+ in 2024, already representing one of the world’s largest aging populations.</p>
+                    </div>
+                    <div class="evidence-side-stack">
+                        <article class="evidence-card evidence-card-primary">
+                            <span class="evidence-label">Australia</span>
+                            <strong>21-23%</strong>
+                            <p>projected share of the population aged 65+ by 2066.</p>
+                        </article>
+                        <article class="evidence-card">
+                            <span class="evidence-label">Investor lens</span>
+                            <strong>Long-duration</strong>
+                            <p>This is a demographic and behavioral transition that will shape care, connection, and technology for decades.</p>
+                        </article>
+                    </div>
+                    <div class="bars-card evidence-bars">
+                        <div class="bars-head">
+                            <span>Population aging as a structural force</span>
+                            <span>Australia and U.S. spotlight</span>
+                        </div>
+                        <div class="bar-row">
+                            <span>Australia 65+ share by 2066</span>
+                            <div class="bar-track"><div class="bar-fill" style="--target: 72%"></div></div>
+                            <strong>21-23%</strong>
+                        </div>
+                        <div class="bar-row">
+                            <span>U.S. population aged 65+ in 2024</span>
+                            <div class="bar-track"><div class="bar-fill alt" style="--target: 84%"></div></div>
+                            <strong>61.2M</strong>
+                        </div>
+                        <div class="bar-row">
+                            <span>Older Australians in 2020</span>
+                            <div class="bar-track"><div class="bar-fill soft" style="--target: 62%"></div></div>
+                            <strong>4.2M+</strong>
+                        </div>
+                    </div>
+                </div>
+                <div class="source-row reveal source-row-footnotes">
+                    <button class="source-pill" data-source-title="Australian Institute of Health and Welfare" data-source-copy="AIHW projects Australians aged 65+ will represent 21% to 23% of the population by 2066." data-source-url="https://www.aihw.gov.au/reports/older-people/older-australians/contents/demographic-profile">[3] AIHW</button>
+                    <button class="source-pill" data-source-title="U.S. Census Bureau" data-source-copy="The U.S. 65+ population reached 61.2 million in 2024, representing 18.0% of the population." data-source-url="https://www.census.gov/newsroom/press-releases/2025/older-adults-outnumber-children.html">[4] U.S. Census</button>
+                    <button class="source-pill" data-source-title="Australian Intergenerational Report" data-source-copy="Australia's Intergenerational Report identifies population aging as one of the major structural forces shaping the economy and future care needs." data-source-url="https://treasury.gov.au/publication/2023-intergenerational-report">[5] Intergenerational Report</button>
+                    <button class="source-pill" data-source-title="United Nations World Population Ageing" data-source-copy="The UN identifies population aging as one of the defining demographic trends of this century." data-source-url="https://www.un.org/development/desa/pd/content/World-Population-Ageing-2023">[6] UN</button>
+                </div>
+            </div>
+        </section>
+
+        <section class="bp-panel bp-panel-strategy bp-layout bp-layout-1 !items-start !px-8 xl:!px-10 2xl:!px-14">
+            <div class="bp-scene mx-auto grid h-full w-full max-w-[1780px] gap-8 xl:grid-cols-12 xl:gap-10">
+                <div class="bp-scene-copy panel-content strategy-copy !max-w-none xl:col-span-5 xl:self-start">
+                    <p class="eyebrow reveal">Why mobile first</p>
+                    <h2 class="reveal">Trust first. Familiarity first.</h2>
+                    <p class="reveal">
+                        For the next 10 to 15 years, large waves of older adults will still be entering later life with lower digital confidence than the generations that follow them. Tellie meets them through something they already trust: the phone.
+                    </p>
+                    <div class="chapter-intro reveal">
+                        <p>We asked adults aged 60+ what they could do most confidently on their phone. The answer was simple: make a phone call. That insight shaped Tellie. First mobile. Then voice-first. Then call-shaped. Familiarity became the product strategy.</p>
+                    </div>
+                    <div class="strategy-strip reveal">
+                        <span>Lower capital needs</span>
+                        <span>Faster iteration</span>
+                        <span>Broader immediate market</span>
+                        <span>Optional future robotics expansion</span>
+                    </div>
+                </div>
+                <div class="bp-scene-media strategy-stage reveal xl:col-span-7 xl:self-start">
+                    <div class="stacked-media strategy-media">
+                        <img src="./assets/woman-window-phone.jpg" alt="Older woman using her phone at home" class="media-card-offset" />
+                        <div class="phone-frame story-phone">
+                            <div class="phone-notch"></div>
+                            <img src="./assets/tellie-call-screen.png" alt="Tellie call screen inside an iPhone frame" />
+                        </div>
+                    </div>
+                    <div class="comparison-card comparison-card-editorial">
+                        <div class="comparison-column">
+                            <h3>Robotics-first companies must solve</h3>
+                            <ul>
+                                <li>Hardware design</li>
+                                <li>Manufacturing</li>
+                                <li>Distribution logistics</li>
+                                <li>Companionship quality</li>
+                                <li>Trust and adoption</li>
+                            </ul>
+                        </div>
+                        <div class="comparison-column featured">
+                            <h3>Tellie mobile-first earns first</h3>
+                            <ul>
+                                <li>Companionship</li>
+                                <li>Trust</li>
+                                <li>Habit formation</li>
+                                <li>Family reassurance</li>
+                                <li>Lower-friction distribution</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="bp-panel bp-panel-product bp-layout bp-layout-2 !items-start !px-8 xl:!px-10 2xl:!px-14">
+            <div class="bp-scene-copy panel-content !max-w-none xl:pr-4">
+                <p class="eyebrow reveal">The product</p>
+                <h2 class="reveal !max-w-[13.5ch]">Tellie is designed to feel less like software, and more like calling someone who knows you.</h2>
+                <p class="reveal">
+                    Tellie begins with one simple product question: what can an older adult already do comfortably? The answer is call. So Tellie is built around a familiar behavior. Behind that simple interaction is an orchestration layer that combines voice, memory, context, and senior-first interaction design.
+                </p>
+                <div class="feature-orbit reveal">
+                    <article>
+                        <strong>Voice-first</strong>
+                        <span>Natural real-time conversation that lowers friction and supports confidence</span>
+                    </article>
+                    <article>
+                        <strong>Memory</strong>
+                        <span>Preferences, people, interests, routines, and the stories that make someone who they are</span>
+                    </article>
+                    <article>
+                        <strong>Orchestration</strong>
+                        <span>Chat, voice, context, reminders, entitlement, and future wellbeing signals</span>
+                    </article>
+                    <article>
+                        <strong>Senior-first UX</strong>
+                        <span>Low cognitive load, gentle pacing, and emotional comfort that supports confidence</span>
+                    </article>
+                </div>
+                <div class="product-pulse-card reveal">
+                    <div class="pulse-label">Live system signal</div>
+                    <div class="pulse-line" aria-hidden="true">
+                        <span></span>
+                    </div>
+                    <p>Older adults often want to tell their stories. Tellie was built to remember them, return to them, and make memory feel like respect, continuity, and care.</p>
+                </div>
+                <div class="product-actions reveal">
+                    <a class="btn-primary-story" href="https://apps.apple.com/au/app/tellie/id6761169754" target="_blank" rel="noopener noreferrer">Download on App Store</a>
+                    <a class="btn-secondary-story" href="https://play.google.com/store/apps/details?id=com.tellie.mobile.app&pcampaignid=web_share" target="_blank" rel="noopener noreferrer">Get it on Google Play</a>
+                    <a class="btn-secondary-story" href="./downloads/tellie-business-plan.pdf" download>Download business plan</a>
+                </div>
+                <div class="source-row reveal">
+                    <button class="source-pill" data-source-title="Tellie codebase context" data-source-copy="The current product includes a Flutter mobile app, Express backend, OpenAI chat and realtime voice flows, subscriptions, and enterprise activation systems." data-source-url="../index.html">Internal product context</button>
+                </div>
+            </div>
+            <div class="bp-scene-media panel-media xl:self-start xl:pt-14">
+                <img src="./assets/woman-blue-phone.jpg" alt="Older woman comfortably using a smartphone at home" />
+            </div>
+        </section>
+
+        <section class="bp-panel bp-panel-founder bp-layout bp-layout-3">
+            <div class="bp-scene-copy panel-content">
+                <p class="eyebrow reveal">Founder and traction</p>
+                <h2 class="reveal">Tellie reached product reality before outside capital.</h2>
+                <p class="reveal">
+                    Tellie moved forward through execution. The product was built first, reducing technical risk and focusing the company on the next questions: how to acquire, retain, and scale trust.
+                </p>
+                <div class="timeline reveal">
+                    <div class="timeline-item">
+                        <span class="timeline-year">Step 1</span>
+                        <div>
+                            <h3>Product-first execution</h3>
+                            <p>Tellie progressed to a live mobile product with voice, chat, subscriptions, memory, and activation flows before outside capital.</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <span class="timeline-year">Step 2</span>
+                        <div>
+                            <h3>Enterprise validation</h3>
+                            <p>A large Latin American health insurer explored a preventive-health protocol with an initial 10,000-user pathway and a longer-term 1.4M rollout opportunity.</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <span class="timeline-year">Step 3</span>
+                        <div>
+                            <h3>Resilience through external change</h3>
+                            <p>The opportunity ended because the insurer entered an M&amp;A process and priorities shifted. Tellie carried that learning forward into its broader platform thesis.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="bp-scene-media panel-media">
+                <img src="./assets/community-park.jpg" alt="Older adults socializing in a public square" />
+            </div>
+        </section>
+
+        <section class="bp-panel bp-panel-market bp-layout bp-layout-1">
+            <div class="bp-scene-copy panel-content wide">
+                <p class="eyebrow reveal">Market opportunity</p>
+                <h2 class="reveal">Australia is the launch market. The United States is the major scale market. The category itself is far larger than companionship alone.</h2>
+                <p class="reveal">
+                    Tellie begins in Australia because it is English-speaking, digitally connected, and already experiencing strong aging-population pressure. The United States becomes the major scale market because of its size, purchasing power, and much larger 65+ population base.
+                </p>
+                <div class="table-card reveal">
+                    <table>
+                        <thead>
+                        <tr>
+                            <th>Market</th>
+                            <th>65+ basis</th>
+                            <th>Directional TAM</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                            <td>Australia</td>
+                            <td>~4.4M</td>
+                            <td>USD $450M-$1.1B</td>
+                        </tr>
+                        <tr>
+                            <td>United States</td>
+                            <td>~56M to 61.2M</td>
+                            <td>USD $6B-$14B</td>
+                        </tr>
+                        <tr>
+                            <td>United Kingdom</td>
+                            <td>~12M</td>
+                            <td>USD $1.5B-$3B</td>
+                        </tr>
+                        <tr>
+                            <td>Canada</td>
+                            <td>~7M</td>
+                            <td>USD $800M-$2B</td>
+                        </tr>
+                        <tr>
+                            <td>New Zealand</td>
+                            <td>~0.9M</td>
+                            <td>USD $100M-$250M</td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="market-caption reveal">
+                    Combined directional TAM: approximately USD $9B-$20B+ annually across initial English-speaking markets.
+                </div>
+                <div class="source-row reveal source-row-footnotes">
+                    <button class="source-pill" data-source-title="Australian Institute of Health and Welfare" data-source-copy="AIHW reports Australians aged 65+ are projected to represent 21% to 23% of the population by 2066." data-source-url="https://www.aihw.gov.au/reports/older-people/older-australians/contents/demographic-profile">[7] AIHW</button>
+                    <button class="source-pill" data-source-title="U.S. Census Bureau" data-source-copy="The U.S. 65+ population reached 61.2 million in 2024." data-source-url="https://www.census.gov/newsroom/press-releases/2025/older-adults-outnumber-children.html">[8] U.S. Census</button>
+                    <button class="source-pill" data-source-title="Office for National Statistics" data-source-copy="UK official statistics track a growing share of the population aged 65 and over." data-source-url="https://www.ons.gov.uk/explore-local-statistics/indicators/percentage-population-aged-65">[9] ONS</button>
+                    <button class="source-pill" data-source-title="Statistics Canada" data-source-copy="Statistics Canada maintains the national dashboard for older adults and population aging." data-source-url="https://www.statcan.gc.ca/en/subjects-start/older_adults_and_population_aging">[10] Statistics Canada</button>
+                    <button class="source-pill" data-source-title="Stats NZ" data-source-copy="Stats NZ tracks New Zealand's older population growth and age distribution." data-source-url="https://www.stats.govt.nz/topics/older-people/">[11] Stats NZ</button>
+                </div>
+            </div>
+            <div class="bp-scene-media panel-media">
+                <img src="./assets/men-walking.jpg" alt="Two older men walking and talking together outdoors" />
+            </div>
+        </section>
+
+        <section class="bp-panel bp-panel-revenue bp-layout bp-layout-2 !items-start !px-8 xl:!px-10 2xl:!px-14">
+            <div class="bp-scene-copy panel-content !max-w-none xl:pr-4">
+                <p class="eyebrow reveal">Revenue model</p>
+                <h2 class="reveal !max-w-[13ch]">B2C proves demand. B2B accelerates trust and scale.</h2>
+                <p class="reveal">
+                    Tellie is designed as a hybrid business. Consumer subscriptions help prove product-market fit and family willingness to pay. Institutional distribution through trusted organizations can compress go-to-market time, lower acquisition friction, and scale revenue faster once the product is trusted.
+                </p>
+                <div class="chapter-intro reveal">
+                    <p>Today, the pricing story is simple: consumer subscriptions create the first revenue layer, while institutional pricing is structured through pilots, seats, or facility packages. Over time, the mix shifts from mostly B2C validation to stronger B2B scale.</p>
+                </div>
+                <div class="revenue-grid reveal">
+                    <article class="revenue-card">
+                        <h3>Consumer today</h3>
+                        <p>Freemium access supported by paid consumer plans for older adults and adult children.</p>
+                        <strong>Free, $12.99/mo, $29.99/mo</strong>
+                    </article>
+                    <article class="revenue-card">
+                        <h3>Institutional next</h3>
+                        <p>Community programs, councils, home care providers, and aged-care facilities.</p>
+                        <strong>Seat, facility, or bundle pricing</strong>
+                    </article>
+                </div>
+                <div class="reading-notes reveal">
+                    <article class="margin-note">
+                        <span class="note-kicker">Consumer pricing</span>
+                        <strong>Three clear entry points</strong>
+                        <p>Free tier supports trial and habit formation. Starter is designed for moderate recurring use. Premium is designed for heavier engagement and richer future features.</p>
+                    </article>
+                    <article class="margin-note">
+                        <span class="note-kicker">Institutional pricing</span>
+                        <strong>Pilot-led and flexible</strong>
+                        <p>Institutional pricing is validated through pilots and can be structured per seat, per facility, or through program bundles depending on the partner and deployment model.</p>
+                    </article>
+                </div>
+                <div class="quote-block reveal">
+                    <p>Consumer pricing proves willingness to pay. Institutional pricing creates the path to faster distribution and stronger long-term revenue.</p>
+                </div>
+            </div>
+            <div class="bp-scene-media panel-media xl:self-start xl:pt-14">
+                <img src="./assets/man-phone-smile.jpg" alt="Older man smiling while using a smartphone" />
+            </div>
+        </section>
+
+        <section class="bp-panel bp-panel-gtm bp-layout bp-layout-3">
+            <div class="bp-scene-copy panel-content">
+                <p class="eyebrow reveal">Go-to-market and marketing</p>
+                <h2 class="reveal">Start where trust already exists. Scale only after trust is repeatable.</h2>
+                <p class="reveal">
+                    The right sequence is community-first, family-second, and institutional expansion once product trust and retention are visible.
+                </p>
+                <div class="marketing-lanes reveal">
+                    <article>
+                        <strong>Community-led validation</strong>
+                        <span>Community centers, libraries, councils, seniors groups, and local programs help build the earliest trust loops.</span>
+                    </article>
+                    <article>
+                        <strong>Family-led demand</strong>
+                        <span>Facebook, Google Search, YouTube, and adult-child messaging convert emotional need into paid adoption.</span>
+                    </article>
+                    <article>
+                        <strong>Institutional expansion</strong>
+                        <span>Co-marketing, pilots, and program distribution through trusted organizations accelerate scale.</span>
+                    </article>
+                    <article>
+                        <strong>Founder-led narrative</strong>
+                        <span>Aging, loneliness, digital inclusion, and senior-first AI create a strong earned-media and partner story.</span>
+                    </article>
+                </div>
+                <div class="quote-block reveal">
+                    <p>Tellie grows by building trust first, then expanding through the channels that naturally compound trust.</p>
+                </div>
+            </div>
+            <div class="bp-scene-media panel-media">
+                <img src="./assets/family-beach.jpg" alt="Family connection across generations" />
+            </div>
+        </section>
+
+        <section class="bp-panel bp-panel-financial bp-layout bp-layout-1 !items-start !px-8 xl:!px-10 2xl:!px-14">
+            <div class="bp-scene-copy panel-content wide !max-w-none xl:pr-4">
+                <p class="eyebrow reveal">Financial engine and KPIs</p>
+                <h2 class="reveal !max-w-[13ch]">This business only works if trust becomes habit, and habit stays margin-aware.</h2>
+                <div class="kpi-board reveal">
+                    <article class="kpi-tile">
+                        <span>North star</span>
+                        <strong>Weekly meaningful conversations</strong>
+                        <small>Target: 500+ across 100 active seniors in 12 months</small>
+                    </article>
+                    <article class="kpi-tile">
+                        <span>Activation</span>
+                        <strong>60%+</strong>
+                        <small>Completed first conversation rate</small>
+                    </article>
+                    <article class="kpi-tile">
+                        <span>Retention</span>
+                        <strong>15%+</strong>
+                        <small>Day 30 baseline, 30%+ strong signal</small>
+                    </article>
+                    <article class="kpi-tile">
+                        <span>Margins</span>
+                        <strong>60%+</strong>
+                        <small>Blended gross margin target</small>
+                    </article>
+                </div>
+                <div class="financial-callout reveal">
+                    <h3>Unit economics principle</h3>
+                    <p>
+                        Tellie’s model depends on usage governance, tiering, disciplined AI cost management, and an institutional mix that improves margins over time.
+                    </p>
+                </div>
+                <div class="growth-chart reveal">
+                    <div class="growth-chart-head">
+                        <span>Illustrative growth path</span>
+                        <strong>Validation to scale readiness</strong>
+                    </div>
+                    <svg viewBox="0 0 520 220" aria-hidden="true">
+                        <defs>
+                            <linearGradient id="growthStroke" x1="0%" x2="100%" y1="0%" y2="0%">
+                                <stop offset="0%" stop-color="#d6b8f3"></stop>
+                                <stop offset="100%" stop-color="#a96bb8"></stop>
+                            </linearGradient>
+                        </defs>
+                        <path class="growth-grid-line" d="M20 180H500"></path>
+                        <path class="growth-grid-line" d="M20 125H500"></path>
+                        <path class="growth-grid-line" d="M20 70H500"></path>
+                        <path class="growth-area" d="M30 180 C120 172, 165 160, 220 144 C275 128, 320 116, 365 94 C415 70, 455 36, 490 20 L490 180 L30 180 Z"></path>
+                        <path class="growth-line" d="M30 180 C120 172, 165 160, 220 144 C275 128, 320 116, 365 94 C415 70, 455 36, 490 20"></path>
+                        <circle class="growth-dot" cx="30" cy="180" r="6"></circle>
+                        <circle class="growth-dot" cx="220" cy="144" r="6"></circle>
+                        <circle class="growth-dot" cx="365" cy="94" r="6"></circle>
+                        <circle class="growth-dot" cx="490" cy="20" r="6"></circle>
+                    </svg>
+                    <div class="growth-chart-labels">
+                        <span>Validation</span>
+                        <span>Retention</span>
+                        <span>Institutional revenue</span>
+                        <span>Scale readiness</span>
+                    </div>
+                </div>
+                <div class="source-row reveal">
+                    <button class="source-pill" data-source-title="OpenAI API pricing" data-source-copy="OpenAI pricing informs the current unit-economic assumptions for chat and realtime voice usage." data-source-url="https://openai.com/api/pricing/">OpenAI pricing</button>
+                    <button class="source-pill" data-source-title="Apple Small Business Program" data-source-copy="Apple's small business program can reduce commission rates to 15% for eligible developers." data-source-url="https://developer.apple.com/app-store/small-business-program/">Apple</button>
+                    <button class="source-pill" data-source-title="Firestore pricing" data-source-copy="Firestore usage is expected to remain relatively small at early scale compared with AI costs." data-source-url="https://firebase.google.com/docs/firestore/pricing">Firestore</button>
+                </div>
+            </div>
+            <div class="bp-scene-media panel-media xl:self-start xl:pt-14">
+                <img src="./assets/profile-listening.jpg" alt="Older woman listening thoughtfully in profile" />
+            </div>
+        </section>
+
+        <section class="bp-panel bp-panel-close bp-layout bp-layout-2">
+            <div class="bp-scene-copy panel-content wide">
+                <p class="eyebrow reveal">The thesis</p>
+                <h2 class="reveal">Tellie starts with the elders of today, wins trust through what already feels familiar, and grows into the trusted platform for the elders of tomorrow.</h2>
+                <p class="hero-copy reveal">
+                    Start with the current generation of older adults, who still need simplicity and trust more than novelty. Build around the phone, and then around the phone call. Prove companionship, retention, and family confidence. Expand into institutions, richer care contexts, and eventually future form factors including robotics. That is the business plan. 
+                </p>
+                <div class="close-actions reveal">
+                    <a class="btn-primary-story" href="mailto:mica@tellie.me?subject=I%20like%20Tellie%E2%80%99s%20business%20plan">I like this</a>
+                    <a class="btn-secondary-story" href="./downloads/tellie-business-plan.pdf" download>Download business plan</a>
+                    <a class="btn-primary-story" href="../index.html">Back to landing page</a>
+                    <button class="btn-secondary-story" type="button" id="bp-relock">Lock story</button>
+                </div>
+            </div>
+        </section>
+    </div>
+</main>
+
+<div class="source-tooltip" id="source-tooltip" role="dialog" aria-hidden="true">
+    <p class="source-tooltip-title"></p>
+    <p class="source-tooltip-copy"></p>
+    <a class="source-tooltip-link" href="#" target="_blank" rel="noopener noreferrer">Open source</a>
+</div>
+
+<script src="./app.js"></script>
+</body>
+</html>

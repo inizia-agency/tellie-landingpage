@@ -1,0 +1,694 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Tellie Business Plan</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./styles.css" />
+</head>
+<body>
+  <div id="password-gate" class="gate-overlay" aria-modal="true" role="dialog" aria-labelledby="gate-title">
+    <div class="gate-card">
+      <img src="../assets/logo5-nobg.png" alt="Tellie logo" class="gate-logo" />
+      <p class="eyebrow">Private access</p>
+      <h1 id="gate-title" class="gate-title">Enter password to view the business plan</h1>
+      <form id="gate-form" class="gate-form">
+        <label class="gate-label" for="gate-password">Password</label>
+        <input id="gate-password" class="gate-input" type="password" autocomplete="current-password" />
+        <p id="gate-error" class="gate-error" hidden>Incorrect password.</p>
+        <button class="button primary gate-button" type="submit">Open business plan</button>
+      </form>
+    </div>
+  </div>
+  <div class="page">
+    <header class="topbar">
+      <div class="brand">
+        <img src="../assets/logo5-nobg.png" alt="Tellie logo" />
+      </div>
+      <div class="top-actions">
+        <a class="button secondary" href="../index.html">Back</a>
+        <a class="button primary" href="./downloads/tellie-business-plan.pdf" download>Download PDF</a>
+      </div>
+    </header>
+    <main class="layout">
+      <aside class="toc">
+        <div class="toc-inner">
+          <p class="eyebrow">Contents</p>
+          <a class="toc-item toc-level-2" href="#document-status">Document Status</a><a class="toc-item toc-level-2" href="#executive-summary">Executive Summary</a><a class="toc-item toc-level-2" href="#company-overview">Company Overview</a><a class="toc-item toc-level-3" href="#company">Company</a><a class="toc-item toc-level-3" href="#mission">Mission</a><a class="toc-item toc-level-3" href="#vision">Vision</a><a class="toc-item toc-level-3" href="#core-values">Core Values</a><a class="toc-item toc-level-3" href="#founder-story">Founder Story</a><a class="toc-item toc-level-3" href="#company-history">Company History</a><a class="toc-item toc-level-2" href="#problem">Problem</a><a class="toc-item toc-level-3" href="#the-world-is-aging">The world is aging</a><a class="toc-item toc-level-3" href="#loneliness-and-social-isolation-are-serious-public-health-issues">Loneliness and social isolation are serious public-health issues</a><a class="toc-item toc-level-3" href="#digital-exclusion-amplifies-the-problem">Digital exclusion amplifies the problem</a><a class="toc-item toc-level-3" href="#why-existing-solutions-fall-short">Why existing solutions fall short</a><a class="toc-item toc-level-2" href="#solution">Solution</a><a class="toc-item toc-level-2" href="#product-and-how-it-works">Product And How It Works</a><a class="toc-item toc-level-3" href="#product-philosophy">Product philosophy</a><a class="toc-item toc-level-3" href="#elder-driven-interface">Elder-driven interface</a><a class="toc-item toc-level-3" href="#ai-orchestration-layer">AI orchestration layer</a><a class="toc-item toc-level-3" href="#current-codebase-backed-product-context">Current codebase-backed product context</a><a class="toc-item toc-level-3" href="#current-capabilities">Current capabilities</a><a class="toc-item toc-level-3" href="#near-term-roadmap">Near-term roadmap</a><a class="toc-item toc-level-3" href="#long-term-roadmap">Long-term roadmap</a><a class="toc-item toc-level-3" href="#product-boundary">Product boundary</a><a class="toc-item toc-level-2" href="#market-opportunity">Market Opportunity</a><a class="toc-item toc-level-3" href="#why-now">Why now</a><a class="toc-item toc-level-3" href="#demographic-shift-the-inversion-of-the-population-pyramid">Demographic shift: the inversion of the population pyramid</a><a class="toc-item toc-level-3" href="#why-mobile-first-not-robotics">Why mobile first, not robotics</a><a class="toc-item toc-level-3" href="#market-framing">Market framing</a><a class="toc-item toc-level-2" href="#tam-sam-som">TAM, SAM, SOM</a><a class="toc-item toc-level-3" href="#total-addressable-market">Total Addressable Market</a><a class="toc-item toc-level-3" href="#serviceable-available-market">Serviceable Available Market</a><a class="toc-item toc-level-3" href="#serviceable-obtainable-market">Serviceable Obtainable Market</a><a class="toc-item toc-level-2" href="#customer-segments">Customer Segments</a><a class="toc-item toc-level-3" href="#primary-user">Primary user</a><a class="toc-item toc-level-3" href="#primary-buyer">Primary buyer</a><a class="toc-item toc-level-3" href="#secondary-buyers-and-channel-partners">Secondary buyers and channel partners</a><a class="toc-item toc-level-2" href="#competitive-landscape">Competitive Landscape</a><a class="toc-item toc-level-3" href="#category-1-general-ai">Category 1: General AI</a><a class="toc-item toc-level-3" href="#category-2-senior-focused-companion-hardware">Category 2: Senior-focused companion hardware</a><a class="toc-item toc-level-3" href="#category-3-safety-and-monitoring-products">Category 3: Safety and monitoring products</a><a class="toc-item toc-level-3" href="#category-4-human-and-community-services">Category 4: Human and community services</a><a class="toc-item toc-level-3" href="#tellie-s-moat">Tellie&#x27;s moat</a><a class="toc-item toc-level-2" href="#business-model">Business Model</a><a class="toc-item toc-level-3" href="#b2c">B2C</a><a class="toc-item toc-level-3" href="#b2b">B2B</a><a class="toc-item toc-level-3" href="#revenue-thesis">Revenue thesis</a><a class="toc-item toc-level-2" href="#go-to-market-strategy">Go-To-Market Strategy</a><a class="toc-item toc-level-3" href="#phase-1-validation">Phase 1: Validation</a><a class="toc-item toc-level-3" href="#phase-2-community-distribution">Phase 2: Community distribution</a><a class="toc-item toc-level-3" href="#phase-3-family-acquisition">Phase 3: Family acquisition</a><a class="toc-item toc-level-3" href="#phase-4-institutional-expansion">Phase 4: Institutional expansion</a><a class="toc-item toc-level-2" href="#marketing-strategy">Marketing Strategy</a><a class="toc-item toc-level-3" href="#marketing-objectives">Marketing objectives</a><a class="toc-item toc-level-3" href="#core-positioning">Core positioning</a><a class="toc-item toc-level-3" href="#primary-audience-segments">Primary audience segments</a><a class="toc-item toc-level-3" href="#channel-strategy">Channel strategy</a><a class="toc-item toc-level-3" href="#funnel-design">Funnel design</a><a class="toc-item toc-level-3" href="#content-strategy">Content strategy</a><a class="toc-item toc-level-3" href="#brand-strategy">Brand strategy</a><a class="toc-item toc-level-3" href="#budget-and-sequencing">Budget and sequencing</a><a class="toc-item toc-level-3" href="#marketing-kpis">Marketing KPIs</a><a class="toc-item toc-level-3" href="#strategic-marketing-principle">Strategic marketing principle</a><a class="toc-item toc-level-2" href="#kpi-framework">KPI Framework</a><a class="toc-item toc-level-3" href="#north-star-metric">North star metric</a><a class="toc-item toc-level-3" href="#activation-metrics">Activation metrics</a><a class="toc-item toc-level-3" href="#engagement-metrics">Engagement metrics</a><a class="toc-item toc-level-3" href="#retention-metrics">Retention metrics</a><a class="toc-item toc-level-3" href="#emotional-impact-metrics">Emotional impact metrics</a><a class="toc-item toc-level-3" href="#business-metrics">Business metrics</a><a class="toc-item toc-level-3" href="#partnership-metrics-2">Partnership metrics</a><a class="toc-item toc-level-3" href="#stage-gates">Stage gates</a><a class="toc-item toc-level-2" href="#financial-model">Financial Model</a><a class="toc-item toc-level-3" href="#financial-model-purpose">Financial model purpose</a><a class="toc-item toc-level-3" href="#key-modelling-assumptions">Key modelling assumptions</a><a class="toc-item toc-level-3" href="#direct-cost-drivers">Direct cost drivers</a><a class="toc-item toc-level-3" href="#app-store-and-platform-baseline-assumptions">App store and platform baseline assumptions</a><a class="toc-item toc-level-3" href="#database-assumptions">Database assumptions</a><a class="toc-item toc-level-3" href="#consumer-pricing">Consumer pricing</a><a class="toc-item toc-level-3" href="#target-ai-budgets-by-tier">Target AI budgets by tier</a><a class="toc-item toc-level-3" href="#unit-economics">Unit economics</a><a class="toc-item toc-level-3" href="#important-economic-conclusion">Important economic conclusion</a><a class="toc-item toc-level-3" href="#required-cost-controls">Required cost controls</a><a class="toc-item toc-level-3" href="#3-year-directional-model">3-year directional model</a><a class="toc-item toc-level-3" href="#burn-rate-scenarios">Burn-rate scenarios</a><a class="toc-item toc-level-2" href="#funding-strategy">Funding Strategy</a><a class="toc-item toc-level-3" href="#bootstrap-phase">Bootstrap phase</a><a class="toc-item toc-level-3" href="#pre-seed-raise">Pre-seed raise</a><a class="toc-item toc-level-3" href="#seed-raise">Seed raise</a><a class="toc-item toc-level-2" href="#team-strategy">Team Strategy</a><a class="toc-item toc-level-3" href="#current-founding-profile">Current founding profile</a><a class="toc-item toc-level-3" href="#missing-capabilities-likely-required">Missing capabilities likely required</a><a class="toc-item toc-level-3" href="#recommended-co-founder-or-first-senior-hire-profile">Recommended co-founder or first senior hire profile</a><a class="toc-item toc-level-2" href="#risks-and-mitigation">Risks And Mitigation</a><a class="toc-item toc-level-3" href="#user-adoption-risk">User adoption risk</a><a class="toc-item toc-level-3" href="#retention-risk">Retention risk</a><a class="toc-item toc-level-3" href="#ai-cost-risk">AI cost risk</a><a class="toc-item toc-level-3" href="#competitive-platform-risk">Competitive/platform risk</a><a class="toc-item toc-level-3" href="#regulatory-risk">Regulatory risk</a><a class="toc-item toc-level-3" href="#b2b-sales-cycle-risk">B2B sales cycle risk</a><a class="toc-item toc-level-2" href="#strategic-positioning-recommendation">Strategic Positioning Recommendation</a><a class="toc-item toc-level-2" href="#5-year-and-long-term-vision">5-Year And Long-Term Vision</a><a class="toc-item toc-level-3" href="#5-year-ambition">5-year ambition</a><a class="toc-item toc-level-3" href="#long-term-ambition">Long-term ambition</a><a class="toc-item toc-level-2" href="#sources-register">Sources Register</a><a class="toc-item toc-level-3" href="#demographics-and-aging">Demographics and aging</a><a class="toc-item toc-level-3" href="#loneliness-and-public-health-impact">Loneliness and public-health impact</a><a class="toc-item toc-level-3" href="#digital-adoption-and-exclusion">Digital adoption and exclusion</a><a class="toc-item toc-level-3" href="#aged-care-and-care-delivery-market">Aged care and care delivery market</a><a class="toc-item toc-level-3" href="#market-sizing-and-category-reports">Market sizing and category reports</a><a class="toc-item toc-level-3" href="#competitors">Competitors</a><a class="toc-item toc-level-3" href="#regulation">Regulation</a><a class="toc-item toc-level-3" href="#financial-model-inputs">Financial model inputs</a>
+        </div>
+      </aside>
+      <article class="document">
+        <h1 id="tellie-business-plan">Tellie Business Plan</h1>
+<h2 id="document-status">Document Status</h2>
+<p>This document is a strategic and investor-style business plan drafted from the full conversation history provided by the founder. It is designed to be professional, compelling, and usable for:</p>
+<ul><li>angel investors</li><li>pre-seed investors</li><li>potential co-founders</li><li>pilot partners</li><li>strategic advisors</li></ul>
+<p>Where data is not yet directly validated by Tellie&#x27;s internal metrics, it is marked as an <code>Assumption to validate</code>.</p>
+<h2 id="executive-summary">Executive Summary</h2>
+<p>Tellie is an empathetic technology platform designed specifically for older adults. It begins as a voice-first AI companion and is intended to evolve into a broader healthy-aging and digital-inclusion platform.</p>
+<p>The core insight behind Tellie is simple: many older adults do not struggle because technology is unavailable to them, but because most technology is not designed for them. Interfaces are often complex, fast, cognitively demanding, and built for digitally native users. At the same time, aging populations across Australia, the United States, the United Kingdom, Canada, and New Zealand are facing rising loneliness, social isolation, and growing exclusion from an increasingly digital society.</p>
+<p>Tellie addresses this by designing around a familiar behavior older adults already know: making a phone call. Rather than forcing seniors to learn a new interaction model, Tellie uses a voice-first, elder-driven interface that feels more like calling someone than using software. The product is built to be warm, simple, patient, and relationship-oriented.</p>
+<p>Tellie&#x27;s wedge is companionship. Its long-term platform opportunity is much larger: digital inclusion, healthy aging, family reassurance, community participation, and wellbeing support for older adults.</p>
+<p>Tellie will initially launch with a hybrid B2C and B2B model:</p>
+<ul><li>B2C subscriptions for older adults and adult children</li><li>B2B distribution through councils, community centers, home care providers, and aged-care facilities</li></ul>
+<p>The long-term investment thesis is that Tellie can become the most trusted technology experience for older adults by combining senior-first design, longitudinal relationship memory, voice interaction, and institutional distribution.</p>
+<h2 id="company-overview">Company Overview</h2>
+<h3 id="company">Company</h3>
+<ul><li>Name: Tellie</li><li>Tagline: Your daily companion</li><li>Planned legal entity: Tellie Technologies Pty Ltd</li><li>Launch geography: Australia</li><li>Expansion markets: United States, United Kingdom, Canada, New Zealand</li></ul>
+<h3 id="mission">Mission</h3>
+<p>To ensure no older adult feels left behind in the digital world.</p>
+<h3 id="vision">Vision</h3>
+<p>A world where every older adult has access to companionship, connection, and technology designed around their needs.</p>
+<h3 id="core-values">Core Values</h3>
+<ul><li>Empathy: technology should make older adults feel heard, respected, and supported</li><li>Simplicity: technology should adapt to people, not the other way around</li><li>Dignity: older adults deserve independence, confidence, and meaningful participation in modern life</li></ul>
+<h3 id="founder-story">Founder Story</h3>
+<p>Tellie was born from personal experience with loneliness and from observing the emotional impact of isolation among older adults, including within the founder&#x27;s own family. The founder&#x27;s experience as an immigrant reinforced the emotional cost of disconnection and informed the company&#x27;s focus on connection, belonging, and human-centered technology.</p>
+<h3 id="company-history">Company History</h3>
+<h4 id="origins">Origins</h4>
+<p>Tellie was created from a simple belief: technology should serve humans, not the other way around. From the beginning, the company was shaped by the observation that while technology was becoming more powerful, many older adults were being left further behind by products that were not designed for their needs, confidence levels, or lived realities.</p>
+<h4 id="product-before-funding">Product before funding</h4>
+<p>Tellie&#x27;s early operating model was built around a two-founder structure in which product development and fundraising/growth responsibilities were intended to run in parallel. In practice, external capital for marketing and user acquisition did not materialize at the pace originally expected.</p>
+<p>Rather than waiting for funding to begin execution, the company chose to continue building. That decision resulted in a working product being developed before institutional investment, significantly reducing technical execution risk.</p>
+<p>Today, Tellie has progressed beyond concept stage and already includes:</p>
+<ul><li>a live mobile product across iOS and Android</li><li>real-time voice and chat experiences</li><li>memory and personalization systems</li><li>subscription infrastructure</li><li>organizational activation flows</li><li>usage and entitlement controls</li></ul>
+<p>This matters because Tellie is no longer an idea seeking validation at the product level. The remaining challenge is market validation, user acquisition, retention, and scalable distribution.</p>
+<h4 id="enterprise-validation-and-strategic-setback">Enterprise validation and strategic setback</h4>
+<p>During development, Tellie identified a significant B2B opportunity with a large health insurer in Latin America. The proposed collaboration explored how Tellie&#x27;s conversational and voice capabilities could support a preventive-health and voice-analysis protocol.</p>
+<p>The commercial pathway discussed included:</p>
+<ul><li>an initial validation cohort of approximately 10,000 users</li><li>a potential broader rollout to approximately 1.4 million insured members</li><li>insurer-backed infrastructure and development support for the protocol integration</li></ul>
+<p>Although the opportunity did not ultimately proceed because the insurer entered an M&amp;A process and strategic priorities changed, the engagement provided meaningful validation that a large enterprise stakeholder saw value in Tellie&#x27;s platform beyond companionship alone.</p>
+<h4 id="what-this-history-demonstrates">What this history demonstrates</h4>
+<p>Tellie&#x27;s journey shows:</p>
+<ul><li>founder resilience under difficult operating conditions</li><li>product execution before outside funding</li><li>early evidence of enterprise interest</li><li>platform potential beyond a narrow consumer companion use case</li></ul>
+<h2 id="problem">Problem</h2>
+<h3 id="the-world-is-aging">The world is aging</h3>
+<p>Developed nations are aging rapidly. Australia, the United States, the United Kingdom, Canada, and New Zealand all have growing 65+ populations, increasing strain on healthcare systems, care networks, and community support structures.</p>
+<h3 id="loneliness-and-social-isolation-are-serious-public-health-issues">Loneliness and social isolation are serious public-health issues</h3>
+<p>Research cited in the source register indicates:</p>
+<ul><li>WHO reports that 1 in 6 people globally experience loneliness</li><li>WHO links loneliness and social isolation to approximately 871,000 deaths annually</li><li>The U.S. Surgeon General associates social disconnection with depression, anxiety, dementia, stroke, cardiovascular disease, and premature mortality</li><li>Older adults are disproportionately vulnerable because of retirement, loss of partners, reduced mobility, shrinking social circles, and family dispersion</li></ul>
+<h3 id="digital-exclusion-amplifies-the-problem">Digital exclusion amplifies the problem</h3>
+<p>The opportunity is not only to reduce loneliness. It is to reduce digital exclusion, which affects:</p>
+<ul><li>social participation</li><li>confidence</li><li>independence</li><li>access to services</li><li>family connection</li><li>local engagement</li><li>healthy aging</li></ul>
+<p>Many seniors do have access to devices, but struggle with:</p>
+<ul><li>complex interfaces</li><li>lack of confidence</li><li>fear of making mistakes</li><li>products designed for younger users</li><li>inaccessible or cognitively demanding workflows</li></ul>
+<h3 id="why-existing-solutions-fall-short">Why existing solutions fall short</h3>
+<h4 id="general-purpose-ai">General-purpose AI</h4>
+<p>Products like ChatGPT, Gemini, and Claude are powerful but not optimized for older adults. They are broad, feature-heavy, and not built around emotional safety, simplicity, or senior-specific interaction design.</p>
+<h4 id="human-companion-services">Human companion services</h4>
+<p>Human support is valuable but expensive, geographically limited, and difficult to scale.</p>
+<h4 id="companion-robots">Companion robots</h4>
+<p>Products such as ElliQ show that the market exists, but hardware introduces adoption friction, setup complexity, and higher acquisition cost.</p>
+<h2 id="solution">Solution</h2>
+<p>Tellie is a voice-first AI companion designed specifically for older adults. It is not intended to replace human relationships. It is intended to multiply moments of connection and provide support when family, carers, or community are not immediately available.</p>
+<p>The product&#x27;s design thesis is that older adults may not be comfortable navigating advanced software, but most are comfortable making a phone call. Tellie therefore presents itself through a familiar call-like experience rather than a complex AI workspace.</p>
+<h2 id="product-and-how-it-works">Product And How It Works</h2>
+<h3 id="product-philosophy">Product philosophy</h3>
+<p>Tellie is built around one central product question:</p>
+<p><code>What can an older adult already do comfortably?</code></p>
+<p>The answer is: call.</p>
+<p>This is why Tellie is designed to feel like a phone call rather than a traditional AI tool. The product reduces adoption friction by matching an existing user habit instead of requiring a new one.</p>
+<h3 id="elder-driven-interface">Elder-driven interface</h3>
+<p>Tellie&#x27;s user experience is intentionally optimized for older adults:</p>
+<ul><li>voice-first interaction</li><li>minimal screen complexity</li><li>low cognitive load</li><li>familiar communication patterns</li><li>slower, gentler pacing</li><li>emotional comfort</li><li>large, simple interaction cues</li></ul>
+<p>The goal is not to expose the full power of AI. The goal is to make technology disappear into a familiar and dignified interaction.</p>
+<h3 id="ai-orchestration-layer">AI orchestration layer</h3>
+<p>Tellie is not simply a thin wrapper around a model. It is an orchestration system designed to create a senior-specific companion experience by coordinating:</p>
+<ul><li>real-time voice interaction</li><li>text-based conversation</li><li>personalized memory</li><li>user profile context</li><li>multilingual conversation</li><li>reminders and check-ins</li><li>entitlement and usage controls</li><li>enterprise and activation-code flows</li><li>future family and wellbeing signals</li></ul>
+<h3 id="current-codebase-backed-product-context">Current codebase-backed product context</h3>
+<p>Based on the current repository, Tellie already has:</p>
+<ul><li>a Flutter mobile application for iOS and Android</li><li>an Express and TypeScript backend</li><li>Firebase-backed authentication and data infrastructure</li><li>OpenAI-backed chat and realtime voice flows</li><li>subscription handling for Apple and Google Play</li><li>enterprise and organizational activation flows</li><li>chat persistence, voice messaging, and usage accounting</li></ul>
+<h3 id="current-capabilities">Current capabilities</h3>
+<ul><li>real-time voice conversations</li><li>text chat</li><li>long-term memory and personalized context</li><li>multilingual support</li><li>stories and conversational entertainment</li><li>freemium and paid subscriptions</li><li>organizational activation codes</li></ul>
+<h3 id="near-term-roadmap">Near-term roadmap</h3>
+<ul><li>reminders</li><li>check-ins</li><li>medication reminders</li><li>onboarding improvements</li><li>family dashboard v1</li><li>usage and wellbeing summaries</li><li>community activity discovery</li></ul>
+<h3 id="long-term-roadmap">Long-term roadmap</h3>
+<h4 id="stage-1-companion">Stage 1: Companion</h4>
+<ul><li>conversation</li><li>emotional support</li><li>memory</li><li>entertainment</li></ul>
+<h4 id="stage-2-wellbeing">Stage 2: Wellbeing</h4>
+<ul><li>check-ins</li><li>reminders</li><li>family reassurance</li><li>mood-aware engagement</li></ul>
+<h4 id="stage-3-community">Stage 3: Community</h4>
+<ul><li>local activity discovery</li><li>council events</li><li>community engagement</li><li>social recommendations</li></ul>
+<h4 id="stage-4-healthy-aging-platform">Stage 4: Healthy Aging Platform</h4>
+<ul><li>longitudinal wellbeing support</li><li>lifestyle insights</li><li>care coordination support</li><li>doctor visit summary support</li><li>healthy aging context</li></ul>
+<h3 id="product-boundary">Product boundary</h3>
+<p>Tellie should avoid making medical, diagnostic, treatment, or prevention claims unless and until an appropriate regulatory and clinical pathway is established.</p>
+<h2 id="market-opportunity">Market Opportunity</h2>
+<h3 id="why-now">Why now</h3>
+<p>Three trends support the market opportunity:</p>
+<ol><li>Aging populations are expanding across core English-speaking markets.</li><li>Loneliness and social isolation are increasingly treated as public-health and economic issues.</li><li>Conversational AI is now mature enough to support scalable, natural dialogue at consumer level.</li></ol>
+<h3 id="demographic-shift-the-inversion-of-the-population-pyramid">Demographic shift: the inversion of the population pyramid</h3>
+<p>One of the most important macro trends underpinning Tellie is population aging.</p>
+<p>Historically, many countries resembled a population pyramid, with large younger populations supporting relatively smaller older populations. Across developed economies, that structure is shifting because of declining birth rates and increasing life expectancy. The result is an increasingly top-heavy or inverted age profile, with more older adults and proportionally fewer younger people.</p>
+<p>This is not a temporary anomaly. It is one of the most predictable long-term demographic changes underway.</p>
+<p>According to the Australian Institute of Health and Welfare, older Australians already represented more than one in six Australians in 2020, and people aged 65 and over are projected to represent 21% to 23% of the population by 2066. The Australian Government&#x27;s Intergenerational Report identifies population aging as one of the major structural forces shaping the country&#x27;s future economy and care burden.</p>
+<p>In the United States, the U.S. Census Bureau reported that the 65+ population reached 61.2 million in 2024, representing 18.0% of the population. Across other core Tellie markets including the United Kingdom, Canada, and New Zealand, official statistics show the same directional trend: the senior share of the population continues to rise.</p>
+<p>At global level, the United Nations has projected that population aging will continue accelerating over coming decades, fundamentally reshaping healthcare demand, family structures, social support systems, and the design requirements for consumer technology.</p>
+<p>For Tellie, this matters because the company is not being built for a temporary niche. It is being built against one of the largest and most predictable demographic transitions of the century.</p>
+<h3 id="why-mobile-first-not-robotics">Why mobile first, not robotics</h3>
+<p>Several companies in the healthy-aging and companionship space are investing in robotics. Tellie believes robotics may become an important part of the future, but that the right initial market strategy is mobile-first.</p>
+<h4 id="today-s-seniors-are-not-tomorrow-s-seniors">Today&#x27;s seniors are not tomorrow&#x27;s seniors</h4>
+<p>For the next 10 to 15 years, a large share of older adults will still be less digitally native than the generations that follow them. Many continue to experience friction with:</p>
+<ul><li>new interfaces</li><li>setup-heavy devices</li><li>product onboarding</li><li>digital confidence</li></ul>
+<p>At the same time, smartphones have already achieved much broader familiarity than dedicated robots or new hardware categories.</p>
+<h4 id="trust-comes-before-hardware">Trust comes before hardware</h4>
+<p>Tellie&#x27;s thesis is that companionship is fundamentally a trust problem before it is a hardware problem.</p>
+<p>Older adults are unlikely to adopt unfamiliar devices or robotic companions at scale unless trust has already been established. By delivering companionship through devices seniors or their families already understand, Tellie can focus first on what matters most:</p>
+<ul><li>trust</li><li>habit</li><li>emotional connection</li><li>longitudinal relationship building</li></ul>
+<p>Once those are established, new form factors become easier to introduce.</p>
+<h4 id="building-for-the-current-wave-preparing-for-the-next">Building for the current wave, preparing for the next</h4>
+<p>Tellie&#x27;s immediate opportunity is today&#x27;s older adult population. By serving this generation now, the company aims to earn trust from the hardest cohort to win: seniors who are most likely to need digital simplicity and most likely to distrust unfamiliar technology.</p>
+<p>That creates long-term strategic value in the form of:</p>
+<ul><li>user trust</li><li>family trust</li><li>behavioral and relationship data</li><li>brand recognition</li><li>channel partnerships</li></ul>
+<p>As the next generation of older adults ages into the market, digital literacy will likely be materially higher. Many of those future seniors will already have used smartphones, voice interfaces, AI tools, and other connected technologies for decades. At that point, Tellie expects additional expansion opportunities across:</p>
+<ul><li>dedicated companion devices</li><li>smart home integrations</li><li>wearables</li><li>robotics</li></ul>
+<h4 id="strategic-advantage-for-investors">Strategic advantage for investors</h4>
+<p>Every robotics company must solve:</p>
+<ul><li>hardware</li><li>manufacturing</li><li>distribution</li><li>companionship</li><li>trust</li></ul>
+<p>Tellie only needs to solve:</p>
+<ul><li>companionship</li><li>trust</li></ul>
+<p>That makes the mobile-first strategy a competitive advantage, not a limitation. It enables:</p>
+<ul><li>lower capital requirements</li><li>faster iteration cycles</li><li>faster distribution</li><li>quicker product-market fit validation</li><li>optionality for future hardware expansion</li></ul>
+<p>Mobile is not Tellie&#x27;s final form factor. Mobile is Tellie&#x27;s fastest path to becoming the trusted relationship layer for older adults.</p>
+<h3 id="market-framing">Market framing</h3>
+<p>Tellie should not be positioned narrowly as &quot;an AI companion.&quot; The stronger frame is:</p>
+<p><code>A healthy-aging and digital-inclusion company powered by AI.</code></p>
+<p>This positioning:</p>
+<ul><li>enlarges the addressable market</li><li>reduces platform-risk concerns</li><li>aligns with impact investors</li><li>aligns with aged-care and community partners</li><li>supports future expansion beyond companionship</li></ul>
+<h2 id="tam-sam-som">TAM, SAM, SOM</h2>
+<p>The following figures are directional planning ranges based on the source register and founder strategy discussion. They should be refreshed before external circulation.</p>
+<h3 id="total-addressable-market">Total Addressable Market</h3>
+<p>Tellie&#x27;s long-term TAM is the English-speaking older adult population plus institutions that support healthy aging.</p>
+<div class="table-wrap"><table><thead><tr><th>Market</th><th>65+ Population Basis</th><th>Directional Addressable User Base</th><th>Illustrative Annual TAM</th></tr></thead><tbody><tr><td>Australia</td><td>~4.4M</td><td>~3.0M smartphone-capable seniors</td><td>USD $450M-$1.1B</td></tr><tr><td>United States</td><td>~56M to 61.2M</td><td>~40M smartphone-capable seniors</td><td>USD $6B-$14B</td></tr><tr><td>United Kingdom</td><td>~12M</td><td>~8M+</td><td>USD $1.5B-$3B</td></tr><tr><td>Canada</td><td>~7M</td><td>~5M+</td><td>USD $800M-$2B</td></tr><tr><td>New Zealand</td><td>~0.9M</td><td>~0.6M+</td><td>USD $100M-$250M</td></tr></tbody></table></div>
+<p>Combined directional TAM: approximately USD $9B-$20B+ annually.</p>
+<h3 id="serviceable-available-market">Serviceable Available Market</h3>
+<p>Tellie&#x27;s initial SAM is narrower than the full senior population. It includes seniors who are:</p>
+<ul><li>English-speaking</li><li>living independently or semi-independently</li><li>experiencing loneliness, isolation, or digital exclusion</li><li>capable of using a smartphone or tablet</li><li>reachable directly or through family and institutional channels</li></ul>
+<p>Directional SAM: 8M-15M users across initial English-speaking markets.</p>
+<h3 id="serviceable-obtainable-market">Serviceable Obtainable Market</h3>
+<p>Short- to medium-term operating targets:</p>
+<ul><li>5-year target: 100,000 active seniors</li><li>10-year target: 1,000,000 active seniors</li></ul>
+<p>Even at 100,000 active seniors, Tellie would still serve a very small fraction of the available market.</p>
+<h2 id="customer-segments">Customer Segments</h2>
+<h3 id="primary-user">Primary user</h3>
+<ul><li>older adults, initially skewing toward ages 70-80</li></ul>
+<h3 id="primary-buyer">Primary buyer</h3>
+<ul><li>adult children concerned about the wellbeing, loneliness, or digital exclusion of aging parents</li></ul>
+<h3 id="secondary-buyers-and-channel-partners">Secondary buyers and channel partners</h3>
+<ul><li>community centers</li><li>local councils</li><li>healthy aging programs</li><li>home care providers</li><li>aged-care facilities</li></ul>
+<h2 id="competitive-landscape">Competitive Landscape</h2>
+<p>Tellie sits at the intersection of:</p>
+<ul><li>healthy aging</li><li>digital inclusion</li><li>AI companionship</li><li>wellbeing technology</li></ul>
+<h3 id="category-1-general-ai">Category 1: General AI</h3>
+<h4 id="chatgpt-openai">ChatGPT / OpenAI</h4>
+<p>Strengths:</p>
+<ul><li>best-in-class model capability</li><li>strong brand awareness</li><li>rapid product evolution</li></ul>
+<p>Weaknesses relative to Tellie:</p>
+<ul><li>not designed for older adults</li><li>general-purpose experience</li><li>can feel cognitively overwhelming</li><li>limited senior-specific onboarding and emotional framing</li></ul>
+<h4 id="gemini">Gemini</h4>
+<p>Strengths:</p>
+<ul><li>strong distribution ecosystem</li><li>broad AI capability</li></ul>
+<p>Weaknesses relative to Tellie:</p>
+<ul><li>not senior-specific</li><li>general-purpose experience</li></ul>
+<h4 id="claude">Claude</h4>
+<p>Strengths:</p>
+<ul><li>high-quality conversational capability</li></ul>
+<p>Weaknesses relative to Tellie:</p>
+<ul><li>not optimized for older adults</li><li>no healthy-aging focus</li></ul>
+<h3 id="category-2-senior-focused-companion-hardware">Category 2: Senior-focused companion hardware</h3>
+<h4 id="elliq">ElliQ</h4>
+<p>Closest conceptual benchmark.</p>
+<p>Strengths:</p>
+<ul><li>explicitly designed for older adults</li><li>strong companionship positioning</li><li>caregiver and wellness framing</li></ul>
+<p>Weaknesses relative to Tellie:</p>
+<ul><li>hardware dependency</li><li>acquisition and deployment friction</li><li>setup complexity</li><li>higher cost to scale</li></ul>
+<p>Tellie advantage:</p>
+<ul><li>no dedicated hardware required</li><li>faster onboarding</li><li>lower deployment friction</li><li>uses devices seniors or families already own</li></ul>
+<h4 id="ato">Ato</h4>
+<p>Strengths:</p>
+<ul><li>voice-first companionship framing</li><li>family reassurance angle</li></ul>
+<p>Weaknesses relative to Tellie:</p>
+<ul><li>hardware-centered model</li><li>additional deployment friction</li></ul>
+<p>Tellie advantage:</p>
+<ul><li>mobile-first</li><li>lower upfront cost</li><li>broader geographic scalability</li></ul>
+<h3 id="category-3-safety-and-monitoring-products">Category 3: Safety and monitoring products</h3>
+<p>Examples include:</p>
+<ul><li>smartwatches</li><li>pendants</li><li>fall detection products</li><li>monitoring systems</li></ul>
+<p>These are mostly adjacent, not direct competitors. They solve safety. Tellie solves connection and digital inclusion. Many may become partners rather than competitors.</p>
+<h3 id="category-4-human-and-community-services">Category 4: Human and community services</h3>
+<p>Examples include:</p>
+<ul><li>home care</li><li>companion services</li><li>community organizations</li><li>council healthy-aging programs</li></ul>
+<p>These should often be treated as distribution partners, not replacements.</p>
+<h3 id="tellie-s-moat">Tellie&#x27;s moat</h3>
+<p>Tellie&#x27;s moat is not the raw model, voice itself, or AI memory alone. Those are increasingly commoditized. The moat is the combination of:</p>
+<ul><li>senior-specific product design</li><li>trusted emotional experience</li><li>longitudinal relationship memory</li><li>family and wellbeing context over time</li><li>strong elder-centered interface design</li><li>institutional distribution potential</li></ul>
+<h2 id="business-model">Business Model</h2>
+<p>Tellie should operate a hybrid B2C and B2B model.</p>
+<h3 id="b2c">B2C</h3>
+<h4 id="free-tier">Free tier</h4>
+<p>Purpose:</p>
+<ul><li>acquisition</li><li>trial</li><li>habit formation</li></ul>
+<p>Recommended controls:</p>
+<ul><li>limited interactions</li><li>memory restrictions</li><li>usage caps</li></ul>
+<h4 id="starter-tier">Starter tier</h4>
+<ul><li>target price: USD $12.99/month</li><li>target use case: moderate engagement</li></ul>
+<h4 id="premium-tier">Premium tier</h4>
+<ul><li>target price: USD $29.99/month</li><li>target use case: heavier users, richer experience, future premium wellbeing/family features</li></ul>
+<h3 id="b2b">B2B</h3>
+<h4 id="facility-and-organizational-licensing">Facility and organizational licensing</h4>
+<p>Potential structures:</p>
+<ul><li>per-seat pricing</li><li>facility licenses</li><li>annual contracts</li><li>activation-code bundles</li></ul>
+<p>Potential customer types:</p>
+<ul><li>community centers</li><li>councils</li><li>home care providers</li><li>aged-care facilities</li><li>healthy aging programs</li></ul>
+<h3 id="revenue-thesis">Revenue thesis</h3>
+<p>Near term:</p>
+<ul><li>B2C is the wedge</li></ul>
+<p>Long term:</p>
+<ul><li>B2B likely becomes the stronger revenue accelerator because institutions already have budgets for wellbeing, engagement, loneliness, community participation, and resident experience</li></ul>
+<h2 id="go-to-market-strategy">Go-To-Market Strategy</h2>
+<h3 id="phase-1-validation">Phase 1: Validation</h3>
+<p>Timeframe: 0-12 months</p>
+<p>Objective:</p>
+<ul><li>prove older adults will use Tellie repeatedly</li></ul>
+<p>Channels:</p>
+<ul><li>community centers</li><li>senior clubs</li><li>family referrals</li><li>founder network</li></ul>
+<p>Target proof points:</p>
+<ul><li>100 active seniors</li><li>20 interviews</li><li>20 testimonials</li><li>measurable retention</li></ul>
+<h3 id="phase-2-community-distribution">Phase 2: Community distribution</h3>
+<p>Timeframe: 12-24 months</p>
+<p>Objective:</p>
+<ul><li>reach first 1,000 active users</li></ul>
+<p>Channels:</p>
+<ul><li>councils</li><li>healthy-aging programs</li><li>community organizations</li></ul>
+<h3 id="phase-3-family-acquisition">Phase 3: Family acquisition</h3>
+<p>Timeframe: 18-36 months</p>
+<p>Objective:</p>
+<ul><li>scale through adult children</li></ul>
+<p>Channels:</p>
+<ul><li>Facebook and family-targeted digital advertising</li><li>referrals</li><li>partnership distribution</li></ul>
+<p>Core message:</p>
+<p><code>Help your loved one stay connected.</code></p>
+<h3 id="phase-4-institutional-expansion">Phase 4: Institutional expansion</h3>
+<p>Timeframe: 24-60 months</p>
+<p>Target customers:</p>
+<ul><li>home care providers</li><li>aged-care facilities</li><li>government or community programs</li></ul>
+<p>Objective:</p>
+<ul><li>build repeatable B2B revenue</li></ul>
+<h2 id="marketing-strategy">Marketing Strategy</h2>
+<p>Tellie&#x27;s marketing strategy should be built around trust, education, and distribution efficiency rather than broad early-stage paid spend. Because the end user is an older adult but the economic buyer is often an adult child or institutional partner, Tellie must market to multiple audiences with different emotional triggers and decision criteria.</p>
+<h3 id="marketing-objectives">Marketing objectives</h3>
+<p>The marketing function should support four primary objectives:</p>
+<ul><li>generate qualified awareness among adult children and family decision-makers</li><li>build trust with older adults through simple, reassuring brand presentation</li><li>create low-cost distribution through community and institutional partners</li><li>convert product usage and testimonials into increasingly efficient acquisition</li></ul>
+<h3 id="core-positioning">Core positioning</h3>
+<p>Tellie&#x27;s marketing should consistently reinforce the idea that it is not simply an AI app. It is an empathetic, senior-first technology experience designed to help older adults feel connected, supported, and included.</p>
+<p>Recommended positioning language:</p>
+<ul><li>healthy aging and digital inclusion platform</li><li>voice-first companion designed for older adults</li><li>technology that feels familiar, simple, and human</li></ul>
+<h3 id="primary-audience-segments">Primary audience segments</h3>
+<h4 id="adult-children">Adult children</h4>
+<p>This is likely the highest-value early B2C buyer segment.</p>
+<p>Core motivations:</p>
+<ul><li>concern about a parent&#x27;s loneliness</li><li>desire for reassurance when family lives far away</li><li>guilt about not always being available</li><li>desire to support independence without creating more complexity</li></ul>
+<p>Core messages:</p>
+<ul><li>help your loved one stay connected</li><li>give them a companion they can talk to anytime</li><li>simple enough for older adults, meaningful enough for families</li></ul>
+<h4 id="older-adults">Older adults</h4>
+<p>This segment needs low-friction trust-building rather than aggressive performance marketing.</p>
+<p>Core motivations:</p>
+<ul><li>companionship</li><li>feeling heard</li><li>ease of use</li><li>curiosity without intimidation</li></ul>
+<p>Core messages:</p>
+<ul><li>just talk, like a phone call</li><li>simple, warm, and made for you</li><li>no technical knowledge required</li></ul>
+<h4 id="institutional-buyers">Institutional buyers</h4>
+<p>This includes councils, community centers, home care providers, and aged-care facilities.</p>
+<p>Core motivations:</p>
+<ul><li>resident or member wellbeing</li><li>engagement outcomes</li><li>low-friction implementation</li><li>scalable support without hiring proportional staff</li></ul>
+<p>Core messages:</p>
+<ul><li>improve social connection and engagement for older adults</li><li>deploy without hardware complexity</li><li>launch pilots quickly and measure usage and satisfaction</li></ul>
+<h3 id="channel-strategy">Channel strategy</h3>
+<h4 id="1-community-led-acquisition">1. Community-led acquisition</h4>
+<p>This should be Tellie&#x27;s first and most credible acquisition channel.</p>
+<p>Examples:</p>
+<ul><li>community centers</li><li>seniors groups</li><li>libraries</li><li>councils</li><li>healthy aging programs</li><li>church and cultural communities</li></ul>
+<p>Strategic role:</p>
+<ul><li>builds trust through institutions seniors already know</li><li>lowers adoption friction</li><li>creates early case studies and testimonials</li></ul>
+<h4 id="2-family-targeted-digital-marketing">2. Family-targeted digital marketing</h4>
+<p>This should be the main scalable B2C acquisition engine once onboarding and retention are working.</p>
+<p>Priority channels:</p>
+<ul><li>Facebook</li><li>Instagram</li><li>Google Search</li><li>YouTube</li><li>remarketing campaigns</li></ul>
+<p>Why these channels matter:</p>
+<ul><li>adult children are easier to target digitally than seniors</li><li>intent-based acquisition can align to loneliness, aging parents, and staying connected</li></ul>
+<p>Example campaign angles:</p>
+<ul><li>support a parent who lives alone</li><li>help your loved one feel less isolated</li><li>a companion built for older adults, not tech experts</li></ul>
+<h4 id="3-referral-loops">3. Referral loops</h4>
+<p>Tellie should design referral pathways for:</p>
+<ul><li>adult child to parent</li><li>sibling to sibling</li><li>family to family</li><li>organization to member</li></ul>
+<p>This is especially important because trust is transferable. A warm recommendation from a family member or trusted organization should convert better than cold paid traffic.</p>
+<h4 id="4-pr-and-thought-leadership">4. PR and thought leadership</h4>
+<p>Tellie has a strong narrative that can support earned media:</p>
+<ul><li>aging population and inverted demographic pyramid</li><li>loneliness and digital exclusion</li><li>AI designed for older adults</li><li>trust before hardware</li><li>women-led founder resilience story</li></ul>
+<p>Potential outputs:</p>
+<ul><li>founder interviews</li><li>opinion pieces</li><li>healthy aging podcasts</li><li>aged-care and health-tech publications</li><li>conference speaking</li></ul>
+<p>Strategic role:</p>
+<ul><li>strengthens credibility</li><li>supports fundraising</li><li>supports B2B sales conversations</li></ul>
+<h4 id="5-partnership-marketing">5. Partnership marketing</h4>
+<p>Tellie should pursue co-marketing and pilot visibility with:</p>
+<ul><li>councils</li><li>community organizations</li><li>home care providers</li><li>aged-care groups</li><li>insurers and health-adjacent organizations where appropriate</li></ul>
+<p>This channel can lower CAC while increasing credibility through association.</p>
+<h3 id="funnel-design">Funnel design</h3>
+<p>Tellie&#x27;s funnel should be designed differently for B2C and B2B.</p>
+<h4 id="b2c-funnel">B2C funnel</h4>
+<ol><li>Awareness</li><li>Trust-building through simple landing page, testimonials, and explainer content</li><li>Trial through free tier or guided onboarding</li><li>First meaningful conversation</li><li>Habit formation</li><li>Upgrade to paid subscription</li></ol>
+<p>The most important conversion is not download to signup. It is signup to first meaningful conversation, and then first conversation to repeat habit.</p>
+<h4 id="b2b-funnel">B2B funnel</h4>
+<ol><li>Outreach or inbound interest</li><li>Discovery conversation</li><li>Pilot proposal</li><li>Limited activation cohort</li><li>KPI review</li><li>Paid rollout</li></ol>
+<p>The key to B2B marketing is proving low-friction deployment and measurable engagement, not broad brand advertising.</p>
+<h3 id="content-strategy">Content strategy</h3>
+<p>Tellie&#x27;s content should educate, reassure, and normalize the product category.</p>
+<p>Priority content themes:</p>
+<ul><li>loneliness and connection in later life</li><li>digital exclusion among older adults</li><li>how to support aging parents at a distance</li><li>why voice-first works better for seniors</li><li>stories of companionship, confidence, and inclusion</li></ul>
+<p>Priority content formats:</p>
+<ul><li>short explainer videos</li><li>testimonials</li><li>founder story content</li><li>partner case studies</li><li>simple landing-page copy</li><li>family-focused email sequences</li></ul>
+<h3 id="brand-strategy">Brand strategy</h3>
+<p>Tellie&#x27;s brand should feel:</p>
+<ul><li>warm</li><li>trustworthy</li><li>calm</li><li>human</li><li>dignified</li><li>non-clinical</li></ul>
+<p>The company should avoid branding that feels:</p>
+<ul><li>overly technical</li><li>futuristic in a cold way</li><li>infantilizing</li><li>medical unless clinically justified</li></ul>
+<h3 id="budget-and-sequencing">Budget and sequencing</h3>
+<h4 id="stage-1-pre-scale-marketing">Stage 1: Pre-scale marketing</h4>
+<p>Primary investments:</p>
+<ul><li>community outreach</li><li>lightweight content creation</li><li>founder-led storytelling</li><li>usability-informed landing page optimization</li><li>direct partner conversations</li></ul>
+<p>Paid acquisition should remain limited until retention and activation are proven.</p>
+<h4 id="stage-2-early-channel-validation">Stage 2: Early channel validation</h4>
+<p>Primary investments:</p>
+<ul><li>small-budget paid experiments on Facebook and Google</li><li>retargeting</li><li>partnership marketing pilots</li><li>referral incentives</li></ul>
+<p>Objective:</p>
+<ul><li>identify one repeatable acquisition channel with acceptable CAC and payback</li></ul>
+<h4 id="stage-3-scale-marketing">Stage 3: Scale marketing</h4>
+<p>Primary investments:</p>
+<ul><li>performance marketing</li><li>lifecycle CRM</li><li>partnerships team support</li><li>B2B case study engine</li><li>brand and PR support</li></ul>
+<h3 id="marketing-kpis">Marketing KPIs</h3>
+<p>The marketing strategy should be measured through a focused set of acquisition and efficiency metrics.</p>
+<h4 id="awareness-metrics">Awareness metrics</h4>
+<ul><li>website sessions</li><li>landing page conversion rate</li><li>cost per landing page visitor</li><li>earned media mentions</li></ul>
+<h4 id="acquisition-metrics">Acquisition metrics</h4>
+<ul><li>cost per signup</li><li>cost per activated user</li><li>customer acquisition cost by channel</li><li>referral rate</li></ul>
+<h4 id="activation-quality-metrics">Activation quality metrics</h4>
+<ul><li>completed first conversation rate by channel</li><li>time to first meaningful conversation by channel</li><li>Day 7 retention by acquisition source</li><li>Day 30 retention by acquisition source</li></ul>
+<h4 id="monetization-metrics">Monetization metrics</h4>
+<ul><li>free-to-paid conversion by source</li><li>payback period by channel</li><li>LTV:CAC by channel</li></ul>
+<h4 id="partnership-metrics">Partnership metrics</h4>
+<ul><li>number of pilot conversations initiated</li><li>pilot conversion rate</li><li>cost to acquire a partner</li><li>activated seats per partner</li></ul>
+<h3 id="strategic-marketing-principle">Strategic marketing principle</h3>
+<p>Tellie should not try to win with volume first. It should win with trust first.</p>
+<p>The most effective marketing strategy for Tellie is likely to be:</p>
+<ul><li>highly credible</li><li>emotionally resonant</li><li>partnership-led in the beginning</li><li>performance-scalable only after retention is proven</li></ul>
+<p>This approach is more disciplined, more capital-efficient, and more aligned with the nature of the product than attempting mass-market consumer acquisition too early.</p>
+<h2 id="kpi-framework">KPI Framework</h2>
+<p>Tellie should be measured less like a generic consumer app and more like a relationship and behavior-formation product.</p>
+<h3 id="north-star-metric">North star metric</h3>
+<h4 id="weekly-meaningful-conversations">Weekly Meaningful Conversations</h4>
+<p>Definition:</p>
+<ul><li>a voice or text session lasting at least 3 minutes, or</li><li>a conversation containing at least 6 back-and-forth exchanges</li></ul>
+<p>Why it matters:</p>
+<ul><li>Tellie creates value when it creates repeat moments of connection</li></ul>
+<p>12-month target:</p>
+<ul><li>500+ weekly meaningful conversations across 100 active seniors</li></ul>
+<p>24-month target:</p>
+<ul><li>10,000+ weekly meaningful conversations across 2,000 active seniors</li></ul>
+<h3 id="activation-metrics">Activation metrics</h3>
+<h4 id="completed-first-conversation-rate">Completed First Conversation Rate</h4>
+<p>Formula:</p>
+<p><code>users completing first meaningful conversation / new registered users</code></p>
+<p>Target:</p>
+<ul><li>60%+</li></ul>
+<h4 id="time-to-first-meaningful-conversation">Time To First Meaningful Conversation</h4>
+<p>Definition:</p>
+<ul><li>median time from registration to first meaningful conversation</li></ul>
+<p>Target:</p>
+<ul><li>under 5 minutes</li></ul>
+<h4 id="onboarding-completion-rate">Onboarding Completion Rate</h4>
+<p>Definition:</p>
+<ul><li>percentage of users completing core profile setup</li></ul>
+<p>Target:</p>
+<ul><li>70%+</li></ul>
+<h3 id="engagement-metrics">Engagement metrics</h3>
+<h4 id="weekly-active-seniors">Weekly Active Seniors</h4>
+<p>Definition:</p>
+<ul><li>seniors completing at least one meaningful conversation per week</li></ul>
+<p>Targets:</p>
+<ul><li>12 months: 100</li><li>24 months: 2,000</li></ul>
+<h4 id="conversations-per-active-user-per-week">Conversations Per Active User Per Week</h4>
+<p>Targets:</p>
+<ul><li>12 months: 3-5</li><li>24 months: 5-7</li></ul>
+<h4 id="average-conversation-duration">Average Conversation Duration</h4>
+<p>Targets:</p>
+<ul><li>12 months: 5-8 minutes</li><li>24 months: 8-12 minutes</li></ul>
+<h4 id="voice-usage-ratio">Voice Usage Ratio</h4>
+<p>Definition:</p>
+<ul><li>share of sessions completed via voice rather than text</li></ul>
+<p>Target:</p>
+<ul><li>70%+</li></ul>
+<p>Why it matters:</p>
+<ul><li>validates the elder-first phone-call interaction thesis</li></ul>
+<h3 id="retention-metrics">Retention metrics</h3>
+<h4 id="day-1-retention">Day 1 Retention</h4>
+<p>Target:</p>
+<ul><li>35%+</li></ul>
+<h4 id="day-7-retention">Day 7 Retention</h4>
+<p>Target:</p>
+<ul><li>25%+</li></ul>
+<h4 id="day-30-retention">Day 30 Retention</h4>
+<p>Target:</p>
+<ul><li>baseline 15%+</li><li>strong signal 30%+</li></ul>
+<h4 id="month-3-retention">Month 3 Retention</h4>
+<p>Target:</p>
+<ul><li>early 10%+</li><li>strong signal 20%+</li></ul>
+<h3 id="emotional-impact-metrics">Emotional impact metrics</h3>
+<h4 id="self-reported-loneliness-change">Self-Reported Loneliness Change</h4>
+<p>Method:</p>
+<ul><li>lightweight score at onboarding and after 30 days</li></ul>
+<p>Target:</p>
+<ul><li>20% reduction in average loneliness score among retained users after 30 days</li></ul>
+<h4 id="feeling-heard-score">Feeling Heard Score</h4>
+<p>Question:</p>
+<p><code>Did Tellie make you feel heard today?</code></p>
+<p>Target:</p>
+<ul><li>4.3+/5</li></ul>
+<h4 id="companion-perception-rate">Companion Perception Rate</h4>
+<p>Definition:</p>
+<ul><li>share of users who describe Tellie as a companion, friend, or someone they enjoy talking to</li></ul>
+<p>Target:</p>
+<ul><li>40%+ by month 12</li></ul>
+<h4 id="disappointment-test">Disappointment Test</h4>
+<p>Question:</p>
+<p><code>How disappointed would you be if Tellie were no longer available?</code></p>
+<p>Target:</p>
+<ul><li>40%+ answer <code>very disappointed</code></li></ul>
+<h3 id="business-metrics">Business metrics</h3>
+<h4 id="free-to-paid-conversion-rate">Free-to-Paid Conversion Rate</h4>
+<p>Targets:</p>
+<ul><li>early: 3%-5%</li><li>strong signal: 8%-10%</li></ul>
+<h4 id="monthly-recurring-revenue">Monthly Recurring Revenue</h4>
+<p>Targets:</p>
+<ul><li>12 months: AUD $2k-$5k MRR</li><li>24 months: AUD $25k-$50k MRR</li></ul>
+<h4 id="gross-margin">Gross Margin</h4>
+<p>Definition:</p>
+<ul><li>revenue after app-store fees and direct AI/infrastructure costs</li></ul>
+<p>Targets:</p>
+<ul><li>baseline: 60%+ blended gross margin</li><li>strong signal: 70%+</li></ul>
+<h4 id="customer-acquisition-cost">Customer Acquisition Cost</h4>
+<p>Early B2C target:</p>
+<ul><li>AUD $40-$120</li></ul>
+<p>Target payback period:</p>
+<ul><li>under 6 months</li></ul>
+<h4 id="lifetime-value">Lifetime Value</h4>
+<p>Target:</p>
+<ul><li>LTV:CAC greater than 3:1</li></ul>
+<h3 id="partnership-metrics-2">Partnership metrics</h3>
+<h4 id="community-partner-pilots">Community Partner Pilots</h4>
+<p>Targets:</p>
+<ul><li>12 months: 5</li><li>24 months: 25</li></ul>
+<h4 id="pilot-to-contract-conversion">Pilot-to-Contract Conversion</h4>
+<p>Target:</p>
+<ul><li>30%+</li></ul>
+<h4 id="institutional-seats-activated">Institutional Seats Activated</h4>
+<p>Targets:</p>
+<ul><li>12 months: 100</li><li>24 months: 2,000</li></ul>
+<h3 id="stage-gates">Stage gates</h3>
+<h4 id="stage-1-product-validation">Stage 1: Product validation</h4>
+<p>Required proof:</p>
+<ul><li>100 active seniors</li><li>500 weekly meaningful conversations</li><li>15%+ Day 30 retention</li><li>20 testimonials</li><li>4.3+ Feeling Heard Score</li></ul>
+<h4 id="stage-2-product-market-fit-signal">Stage 2: Product-market fit signal</h4>
+<p>Required proof:</p>
+<ul><li>2,000 active seniors</li><li>10,000 weekly meaningful conversations</li><li>30%+ Day 30 retention</li><li>40%+ very disappointed score</li><li>AUD $25k+ MRR</li></ul>
+<h4 id="stage-3-scale-readiness">Stage 3: Scale readiness</h4>
+<p>Required proof:</p>
+<ul><li>10,000 active seniors</li><li>60%+ blended gross margin</li><li>LTV:CAC above 3:1</li><li>at least one repeatable acquisition channel</li><li>25+ institutional pilots or partners</li></ul>
+<h2 id="financial-model">Financial Model</h2>
+<h3 id="financial-model-purpose">Financial model purpose</h3>
+<p>Tellie&#x27;s financial model needs to answer four investor questions:</p>
+<ol><li>Can Tellie acquire users efficiently?</li><li>Can Tellie retain users long enough to recover acquisition cost?</li><li>Can Tellie deliver AI-powered companionship with healthy margins?</li><li>Can Tellie expand from B2C into more scalable B2B revenue?</li></ol>
+<h3 id="key-modelling-assumptions">Key modelling assumptions</h3>
+<ul><li>AI stack uses OpenAI chat and realtime voice products</li><li>hosting baseline assumption: USD $20/month initially</li><li>data stack uses Google NoSQL infrastructure</li><li>app distribution uses Apple App Store and Google Play</li><li>conservative app store fee case: 30%</li><li>optimized app store fee case: 15%</li><li>free users must be tightly usage-capped</li><li>premium usage must be governed by entitlement and cost controls</li></ul>
+<h3 id="direct-cost-drivers">Direct cost drivers</h3>
+<h4 id="ai-costs">AI costs</h4>
+<p>Primary direct costs:</p>
+<ul><li>text input tokens</li><li>text output tokens</li><li>realtime voice input tokens</li><li>realtime voice output tokens</li><li>transcription or audio-related processing</li></ul>
+<h4 id="app-store-commissions">App store commissions</h4>
+<ul><li>Apple and Google meaningfully affect consumer gross margin</li></ul>
+<h4 id="infrastructure">Infrastructure</h4>
+<ul><li>hosting</li><li>database reads/writes/storage</li><li>bandwidth</li></ul>
+<h4 id="operating-support">Operating support</h4>
+<ul><li>customer support</li><li>accounting</li><li>company compliance</li><li>insurance</li><li>legal and data/privacy costs as the business matures</li></ul>
+<h3 id="app-store-and-platform-baseline-assumptions">App store and platform baseline assumptions</h3>
+<ul><li>Apple Developer Program: USD $99/year</li><li>Google Play Console: USD $25 one-time registration</li><li>Apple small business program: eligible developers may pay 15% instead of 30%</li><li>Google Play states most developers subject to service fees qualify for 15% or less</li></ul>
+<h3 id="database-assumptions">Database assumptions</h3>
+<p>Firestore-style usage is expected to be negligible at early stage relative to AI costs. The database becomes more material only at larger scale or with very chatty read/write patterns.</p>
+<p><code>Assumption to validate:</code> early-stage database cost remains under roughly USD $50/month until usage grows materially.</p>
+<h3 id="consumer-pricing">Consumer pricing</h3>
+<div class="table-wrap"><table><thead><tr><th>Tier</th><th>Price</th><th>Role</th></tr></thead><tbody><tr><td>Free</td><td>$0</td><td>Acquisition and trial</td></tr><tr><td>Starter</td><td>$12.99/month</td><td>Moderate use</td></tr><tr><td>Premium</td><td>$29.99/month</td><td>Heavier use and future premium features</td></tr></tbody></table></div>
+<h3 id="target-ai-budgets-by-tier">Target AI budgets by tier</h3>
+<div class="table-wrap"><table><thead><tr><th>Tier</th><th>Target Monthly AI Budget</th><th>Notes</th></tr></thead><tbody><tr><td>Free</td><td>$0.25-$1.00</td><td>Strictly capped acquisition tier</td></tr><tr><td>Starter</td><td>$2.00-$3.50</td><td>Designed to preserve healthy unit economics</td></tr><tr><td>Premium</td><td>$6.00-$10.00</td><td>Higher use, still controlled</td></tr><tr><td>Institutional</td><td>25%-35% of contract value</td><td>Negotiated usage envelope</td></tr></tbody></table></div>
+<h3 id="unit-economics">Unit economics</h3>
+<h4 id="starter-tier-at-30-store-fee">Starter tier at 30% store fee</h4>
+<ul><li>list price: USD $12.99</li><li>store fee: USD $3.90</li><li>net after store fee: USD $9.09</li><li>target AI and infrastructure cost: USD $2.00-$3.50</li><li>gross profit: USD $5.59-$7.09</li><li>gross margin: approximately 43%-55%</li></ul>
+<h4 id="starter-tier-at-15-store-fee">Starter tier at 15% store fee</h4>
+<ul><li>list price: USD $12.99</li><li>store fee: USD $1.95</li><li>net after store fee: USD $11.04</li><li>target AI and infrastructure cost: USD $2.00-$3.50</li><li>gross profit: USD $7.54-$9.04</li><li>gross margin: approximately 58%-70%</li></ul>
+<h4 id="premium-tier-at-30-store-fee">Premium tier at 30% store fee</h4>
+<ul><li>list price: USD $29.99</li><li>store fee: about USD $9.00</li><li>net after store fee: USD $20.99</li><li>target AI and infrastructure cost: USD $6.00-$10.00</li><li>gross profit: USD $10.99-$14.99</li><li>gross margin: approximately 37%-50%</li></ul>
+<h4 id="premium-tier-at-15-store-fee">Premium tier at 15% store fee</h4>
+<ul><li>list price: USD $29.99</li><li>store fee: about USD $4.50</li><li>net after store fee: USD $25.49</li><li>target AI and infrastructure cost: USD $6.00-$10.00</li><li>gross profit: USD $15.49-$19.49</li><li>gross margin: approximately 52%-65%</li></ul>
+<h3 id="important-economic-conclusion">Important economic conclusion</h3>
+<p>Tellie cannot price unlimited high-cost realtime voice usage into a flat consumer subscription without controls. The business must manage usage like an AI company, not like an uncapped calling plan.</p>
+<h3 id="required-cost-controls">Required cost controls</h3>
+<ul><li>monthly usage caps</li><li>soft throttling</li><li>conversation summarization</li><li>memory compression</li><li>cached context where practical</li><li>model routing</li><li>shorter context windows</li><li>voice session limits by tier</li><li>B2B usage bundles</li><li>internal alerts for margin erosion</li></ul>
+<h3 id="3-year-directional-model">3-year directional model</h3>
+<h4 id="year-1-validation">Year 1: Validation</h4>
+<p>Assumptions:</p>
+<ul><li>1,000 registered users</li><li>100 weekly active seniors</li><li>50 paying subscribers</li><li>5 small pilots</li><li>blended consumer ARPU: about USD $18/month</li></ul>
+<p>Directional output:</p>
+<ul><li>consumer MRR: about USD $900</li><li>ARR: about USD $10,800</li></ul>
+<p>Interpretation:</p>
+<ul><li>financially small, strategically valuable</li><li>year focused on product truth, not revenue scale</li></ul>
+<h4 id="year-2-early-growth">Year 2: Early growth</h4>
+<p>Assumptions:</p>
+<ul><li>10,000 registered users</li><li>2,000 active seniors</li><li>500 paying subscribers</li><li>10 institutional partners</li><li>blended subscription ARPU: about USD $20/month</li></ul>
+<p>Directional output:</p>
+<ul><li>consumer MRR: about USD $10,000</li><li>institutional MRR: USD $10,000-$25,000</li><li>total MRR: USD $20,000-$35,000</li><li>ARR: USD $240,000-$420,000</li></ul>
+<h4 id="year-3-scale-preparation">Year 3: Scale preparation</h4>
+<p>Assumptions:</p>
+<ul><li>50,000 registered users</li><li>10,000 active seniors</li><li>2,500 paying subscribers</li><li>50 institutional partners</li></ul>
+<p>Directional output:</p>
+<ul><li>consumer MRR: about USD $50,000</li><li>institutional MRR: USD $75,000-$150,000</li><li>total MRR: USD $125,000-$200,000</li><li>ARR: USD $1.5M-$2.4M</li></ul>
+<h3 id="burn-rate-scenarios">Burn-rate scenarios</h3>
+<h4 id="bootstrap-stage">Bootstrap stage</h4>
+<ul><li>monthly burn: USD $1,000-$5,000</li></ul>
+<p>Includes:</p>
+<ul><li>hosting</li><li>AI usage</li><li>software tools</li><li>limited legal and accounting</li><li>founder-led testing</li></ul>
+<h4 id="pre-seed-stage">Pre-seed stage</h4>
+<ul><li>monthly burn: USD $15,000-$40,000</li></ul>
+<p>Includes:</p>
+<ul><li>founder support</li><li>contractors</li><li>product iteration</li><li>customer interviews</li><li>pilot support</li><li>legal, privacy, and compliance setup</li></ul>
+<h4 id="seed-stage">Seed stage</h4>
+<ul><li>monthly burn: USD $80,000-$180,000</li></ul>
+<p>Includes:</p>
+<ul><li>core team</li><li>growth</li><li>B2B sales</li><li>product development</li><li>customer success</li><li>compliance expansion</li></ul>
+<h2 id="funding-strategy">Funding Strategy</h2>
+<h3 id="bootstrap-phase">Bootstrap phase</h3>
+<p>Objective:</p>
+<ul><li>reach product validation and first retention proof</li></ul>
+<p>Indicative capital need:</p>
+<ul><li>USD $25,000-$100,000</li></ul>
+<p>Use of funds:</p>
+<ul><li>AI usage</li><li>community pilots</li><li>product refinement</li><li>onboarding</li><li>lightweight acquisition testing</li></ul>
+<h3 id="pre-seed-raise">Pre-seed raise</h3>
+<p>Recommended range:</p>
+<ul><li>USD $250,000-$500,000</li></ul>
+<p>Objective:</p>
+<ul><li>prove product-market fit signal and repeatable acquisition</li></ul>
+<p>Use of funds:</p>
+<ul><li>product development</li><li>growth experiments</li><li>founder runway</li><li>early B2B pilots</li><li>privacy, legal, and operating setup</li></ul>
+<h3 id="seed-raise">Seed raise</h3>
+<p>Recommended range:</p>
+<ul><li>USD $1.5M-$3M</li></ul>
+<p>Objective:</p>
+<ul><li>scale validated channels and institutional sales</li></ul>
+<p>Use of funds:</p>
+<ul><li>growth team</li><li>product team</li><li>customer success</li><li>B2B sales</li><li>market expansion</li><li>compliance infrastructure</li></ul>
+<h2 id="team-strategy">Team Strategy</h2>
+<h3 id="current-founding-profile">Current founding profile</h3>
+<p>The founder brings product vision, mission clarity, empathy-driven market insight, and category conviction.</p>
+<h3 id="missing-capabilities-likely-required">Missing capabilities likely required</h3>
+<ul><li>growth and lifecycle marketing</li><li>B2B partnerships and sales</li><li>financial modelling and fundraising support</li><li>product analytics and experimentation</li></ul>
+<h3 id="recommended-co-founder-or-first-senior-hire-profile">Recommended co-founder or first senior hire profile</h3>
+<p>Best-fit profiles:</p>
+<ul><li>growth / marketing operator with consumer and partnership experience</li><li>partnerships / B2B sales leader with aged-care or community channel credibility</li></ul>
+<p><code>Assumption to validate:</code> future co-founder equity range likely needs explicit founder decision before fundraising outreach.</p>
+<h2 id="risks-and-mitigation">Risks And Mitigation</h2>
+<h3 id="user-adoption-risk">User adoption risk</h3>
+<p>Risk:</p>
+<ul><li>seniors may not adopt or repeat usage at expected levels</li></ul>
+<p>Mitigation:</p>
+<ul><li>community-first pilots</li><li>phone-call-style onboarding</li><li>heavy usability iteration</li></ul>
+<h3 id="retention-risk">Retention risk</h3>
+<p>Risk:</p>
+<ul><li>novelty may not convert into durable habit</li></ul>
+<p>Mitigation:</p>
+<ul><li>optimize for weekly meaningful conversations</li><li>measure emotional value, not just activity</li></ul>
+<h3 id="ai-cost-risk">AI cost risk</h3>
+<p>Risk:</p>
+<ul><li>realtime voice usage could erode margins</li></ul>
+<p>Mitigation:</p>
+<ul><li>tiered usage controls</li><li>model optimization</li><li>entitlement limits</li><li>enterprise bundles</li></ul>
+<h3 id="competitive-platform-risk">Competitive/platform risk</h3>
+<p>Risk:</p>
+<ul><li>general AI platforms could add senior-friendly features</li></ul>
+<p>Mitigation:</p>
+<ul><li>build distribution, trust, senior-specific UX, and longitudinal relationship data</li></ul>
+<h3 id="regulatory-risk">Regulatory risk</h3>
+<p>Risk:</p>
+<ul><li>the product could drift into regulated health territory</li></ul>
+<p>Mitigation:</p>
+<ul><li>remain in companionship and wellbeing framing until a formal regulatory strategy is established</li></ul>
+<h3 id="b2b-sales-cycle-risk">B2B sales cycle risk</h3>
+<p>Risk:</p>
+<ul><li>institutional contracts may be slow</li></ul>
+<p>Mitigation:</p>
+<ul><li>start with low-friction pilots through community and council channels</li></ul>
+<h2 id="strategic-positioning-recommendation">Strategic Positioning Recommendation</h2>
+<p>Tellie should be pitched as:</p>
+<p><code>An empathetic healthy-aging and digital-inclusion platform for older adults, powered by AI.</code></p>
+<p>This is stronger than pitching it as:</p>
+<ul><li>only an AI startup</li><li>only a loneliness startup</li><li>only a companion app</li></ul>
+<p>That positioning improves:</p>
+<ul><li>market size narrative</li><li>partnership potential</li><li>defensibility story</li><li>investor attractiveness</li></ul>
+<h2 id="5-year-and-long-term-vision">5-Year And Long-Term Vision</h2>
+<h3 id="5-year-ambition">5-year ambition</h3>
+<p>Tellie becomes a trusted platform for older adults across Australia, with early international traction and institutional partnerships.</p>
+<h3 id="long-term-ambition">Long-term ambition</h3>
+<p>Tellie supports more than one million older adults by helping them feel:</p>
+<ul><li>connected</li><li>supported</li><li>included</li><li>valued</li><li>more confident using technology</li></ul>
+<p>Success should be measured not only in ARR, but in whether Tellie becomes the most trusted technology experience for older adults.</p>
+<h2 id="sources-register">Sources Register</h2>
+<p>The following sources were identified in the founder research process and should be kept with the business plan. Official sources should be prioritized in investor-facing versions.</p>
+<h3 id="demographics-and-aging">Demographics and aging</h3>
+<ul><li>AIHW Older Australians demographic profile: <a href="https://www.aihw.gov.au/reports/older-people/older-australians/contents/demographic-profile" target="_blank" rel="noreferrer"><a href="https://www.aihw.gov.au/reports/older-people/older-australians/contents/demographic-profile" target="_blank" rel="noreferrer">https://www.aihw.gov.au/reports/older-people/older-australians/contents/demographic-profile</a></a></li><li>AIHW Profile of Australia&#x27;s population: <a href="https://www.aihw.gov.au/reports/australias-welfare/profile-of-australias-population" target="_blank" rel="noreferrer"><a href="https://www.aihw.gov.au/reports/australias-welfare/profile-of-australias-population" target="_blank" rel="noreferrer">https://www.aihw.gov.au/reports/australias-welfare/profile-of-australias-population</a></a></li><li>ABS Population Projections Australia: <a href="https://www.abs.gov.au/statistics/people/population/population-projections-australia" target="_blank" rel="noreferrer"><a href="https://www.abs.gov.au/statistics/people/population/population-projections-australia" target="_blank" rel="noreferrer">https://www.abs.gov.au/statistics/people/population/population-projections-australia</a></a></li><li>Australian Government Intergenerational Report: <a href="https://treasury.gov.au/publication/2023-intergenerational-report" target="_blank" rel="noreferrer"><a href="https://treasury.gov.au/publication/2023-intergenerational-report" target="_blank" rel="noreferrer">https://treasury.gov.au/publication/2023-intergenerational-report</a></a></li><li>U.S. Census Bureau older adults release: <a href="https://www.census.gov/newsroom/press-releases/2025/older-adults-outnumber-children.html" target="_blank" rel="noreferrer"><a href="https://www.census.gov/newsroom/press-releases/2025/older-adults-outnumber-children.html" target="_blank" rel="noreferrer">https://www.census.gov/newsroom/press-releases/2025/older-adults-outnumber-children.html</a></a></li><li>ONS population aged 65 and over: <a href="https://www.ons.gov.uk/explore-local-statistics/indicators/percentage-population-aged-65" target="_blank" rel="noreferrer"><a href="https://www.ons.gov.uk/explore-local-statistics/indicators/percentage-population-aged-65" target="_blank" rel="noreferrer">https://www.ons.gov.uk/explore-local-statistics/indicators/percentage-population-aged-65</a></a></li><li>Statistics Canada older adults and aging: <a href="https://www.statcan.gc.ca/en/subjects-start/older_adults_and_population_aging" target="_blank" rel="noreferrer"><a href="https://www.statcan.gc.ca/en/subjects-start/older_adults_and_population_aging" target="_blank" rel="noreferrer">https://www.statcan.gc.ca/en/subjects-start/older_adults_and_population_aging</a></a></li><li>Stats NZ older people: <a href="https://www.stats.govt.nz/topics/older-people/" target="_blank" rel="noreferrer"><a href="https://www.stats.govt.nz/topics/older-people/" target="_blank" rel="noreferrer">https://www.stats.govt.nz/topics/older-people/</a></a></li><li>United Nations World Population Ageing: <a href="https://www.un.org/development/desa/pd/content/World-Population-Ageing-2023" target="_blank" rel="noreferrer"><a href="https://www.un.org/development/desa/pd/content/World-Population-Ageing-2023" target="_blank" rel="noreferrer">https://www.un.org/development/desa/pd/content/World-Population-Ageing-2023</a></a></li></ul>
+<h3 id="loneliness-and-public-health-impact">Loneliness and public-health impact</h3>
+<ul><li>WHO Commission on Social Connection: <a href="https://www.who.int/groups/commission-on-social-connection/report/" target="_blank" rel="noreferrer"><a href="https://www.who.int/groups/commission-on-social-connection/report/" target="_blank" rel="noreferrer">https://www.who.int/groups/commission-on-social-connection/report/</a></a></li><li>WHO social connection and early death release: <a href="https://www.who.int/news/item/30-06-2025-social-connection-linked-to-improved-heath-and-reduced-risk-of-early-death" target="_blank" rel="noreferrer"><a href="https://www.who.int/news/item/30-06-2025-social-connection-linked-to-improved-heath-and-reduced-risk-of-early-death" target="_blank" rel="noreferrer">https://www.who.int/news/item/30-06-2025-social-connection-linked-to-improved-heath-and-reduced-risk-of-early-death</a></a></li><li>WHO social isolation and loneliness: <a href="https://www.who.int/teams/social-determinants-of-health/demographic-change-and-healthy-ageing/social-isolation-and-loneliness" target="_blank" rel="noreferrer"><a href="https://www.who.int/teams/social-determinants-of-health/demographic-change-and-healthy-ageing/social-isolation-and-loneliness" target="_blank" rel="noreferrer">https://www.who.int/teams/social-determinants-of-health/demographic-change-and-healthy-ageing/social-isolation-and-loneliness</a></a></li><li>U.S. Surgeon General advisory: <a href="https://www.hhs.gov/sites/default/files/surgeon-general-social-connection-advisory.pdf" target="_blank" rel="noreferrer"><a href="https://www.hhs.gov/sites/default/files/surgeon-general-social-connection-advisory.pdf" target="_blank" rel="noreferrer">https://www.hhs.gov/sites/default/files/surgeon-general-social-connection-advisory.pdf</a></a></li><li>National Academies report: <a href="https://www.nationalacademies.org/read/25663" target="_blank" rel="noreferrer"><a href="https://www.nationalacademies.org/read/25663" target="_blank" rel="noreferrer">https://www.nationalacademies.org/read/25663</a></a></li><li>AIHW social isolation and loneliness: <a href="https://www.aihw.gov.au/mental-health/topic-areas/social-isolation-and-loneliness" target="_blank" rel="noreferrer"><a href="https://www.aihw.gov.au/mental-health/topic-areas/social-isolation-and-loneliness" target="_blank" rel="noreferrer">https://www.aihw.gov.au/mental-health/topic-areas/social-isolation-and-loneliness</a></a></li><li>Ending Loneliness Together report: <a href="https://endingloneliness.com.au/wp-content/uploads/2023/10/ELT_LNA_Report_Digital.pdf" target="_blank" rel="noreferrer"><a href="https://endingloneliness.com.au/wp-content/uploads/2023/10/ELT_LNA_Report_Digital.pdf" target="_blank" rel="noreferrer">https://endingloneliness.com.au/wp-content/uploads/2023/10/ELT_LNA_Report_Digital.pdf</a></a></li><li>Lancet Healthy Longevity article: <a href="https://www.thelancet.com/journals/lanhl/article/PIIS2666-7568(25)00001-7/fulltext" target="_blank" rel="noreferrer"><a href="https://www.thelancet.com/journals/lanhl/article/PIIS2666-7568(25)00001-7/fulltext" target="_blank" rel="noreferrer">https://www.thelancet.com/journals/lanhl/article/PIIS2666-7568(25)00001-7/fulltext</a></a></li><li>Age UK loneliness research: <a href="https://www.ageuk.org.uk/our-impact/policy-research/loneliness-research-and-resources/" target="_blank" rel="noreferrer"><a href="https://www.ageuk.org.uk/our-impact/policy-research/loneliness-research-and-resources/" target="_blank" rel="noreferrer">https://www.ageuk.org.uk/our-impact/policy-research/loneliness-research-and-resources/</a></a></li></ul>
+<h3 id="digital-adoption-and-exclusion">Digital adoption and exclusion</h3>
+<ul><li>ACMA communications and media in Australia: <a href="https://www.acma.gov.au/communications-and-media-australia" target="_blank" rel="noreferrer"><a href="https://www.acma.gov.au/communications-and-media-australia" target="_blank" rel="noreferrer">https://www.acma.gov.au/communications-and-media-australia</a></a></li><li>auDA Digital Lives of Australians 2024: <a href="https://files.auda.org.au/documents/Digital-Lives-of-Australians-2024-report.pdf" target="_blank" rel="noreferrer"><a href="https://files.auda.org.au/documents/Digital-Lives-of-Australians-2024-report.pdf" target="_blank" rel="noreferrer">https://files.auda.org.au/documents/Digital-Lives-of-Australians-2024-report.pdf</a></a></li><li>Australian Government digital exclusion report: <a href="https://www.infrastructure.gov.au/sites/default/files/documents/digital-exclusion-in-australia-report.pdf" target="_blank" rel="noreferrer"><a href="https://www.infrastructure.gov.au/sites/default/files/documents/digital-exclusion-in-australia-report.pdf" target="_blank" rel="noreferrer">https://www.infrastructure.gov.au/sites/default/files/documents/digital-exclusion-in-australia-report.pdf</a></a></li><li>Benetas digital habits of older Australians: <a href="https://www.benetas.com.au/news/digial-habits-of-older-australians" target="_blank" rel="noreferrer"><a href="https://www.benetas.com.au/news/digial-habits-of-older-australians" target="_blank" rel="noreferrer">https://www.benetas.com.au/news/digial-habits-of-older-australians</a></a></li><li>Pew mobile fact sheet: <a href="https://www.pewresearch.org/internet/fact-sheet/mobile/" target="_blank" rel="noreferrer"><a href="https://www.pewresearch.org/internet/fact-sheet/mobile/" target="_blank" rel="noreferrer">https://www.pewresearch.org/internet/fact-sheet/mobile/</a></a></li></ul>
+<h3 id="aged-care-and-care-delivery-market">Aged care and care delivery market</h3>
+<ul><li>GEN aged care data snapshot: <a href="https://www.gen-agedcaredata.gov.au/resources/access-data/2024/october/aged-care-data-snapshot-2024" target="_blank" rel="noreferrer"><a href="https://www.gen-agedcaredata.gov.au/resources/access-data/2024/october/aged-care-data-snapshot-2024" target="_blank" rel="noreferrer">https://www.gen-agedcaredata.gov.au/resources/access-data/2024/october/aged-care-data-snapshot-2024</a></a></li><li>GEN aged care data home: <a href="https://www.gen-agedcaredata.gov.au/" target="_blank" rel="noreferrer"><a href="https://www.gen-agedcaredata.gov.au/" target="_blank" rel="noreferrer">https://www.gen-agedcaredata.gov.au/</a></a></li><li>AIHW aged care overview: <a href="https://www.aihw.gov.au/reports/australias-welfare/aged-care" target="_blank" rel="noreferrer"><a href="https://www.aihw.gov.au/reports/australias-welfare/aged-care" target="_blank" rel="noreferrer">https://www.aihw.gov.au/reports/australias-welfare/aged-care</a></a></li><li>Home Care Packages Program Data Report: <a href="https://www.gen-agedcaredata.gov.au/getmedia/99a876cc-1cc2-4a96-88df-fb25051d87d9/Home-Care-Packages-Program-Data-Report-1st-Qtr-2024-25" target="_blank" rel="noreferrer"><a href="https://www.gen-agedcaredata.gov.au/getmedia/99a876cc-1cc2-4a96-88df-fb25051d87d9/Home-Care-Packages-Program-Data-Report-1st-Qtr-2024-25" target="_blank" rel="noreferrer">https://www.gen-agedcaredata.gov.au/getmedia/99a876cc-1cc2-4a96-88df-fb25051d87d9/Home-Care-Packages-Program-Data-Report-1st-Qtr-2024-25</a></a></li></ul>
+<h3 id="market-sizing-and-category-reports">Market sizing and category reports</h3>
+<ul><li>AARP AgeTech release: <a href="https://www.aarp.org/press/releases/2025-1-8-new-report-finds-growing-interest-tech-aging-well-home.html" target="_blank" rel="noreferrer"><a href="https://www.aarp.org/press/releases/2025-1-8-new-report-finds-growing-interest-tech-aging-well-home.html" target="_blank" rel="noreferrer">https://www.aarp.org/press/releases/2025-1-8-new-report-finds-growing-interest-tech-aging-well-home.html</a></a></li><li>TheGerontechnologist market map: <a href="https://thegerontechnologist.com/" target="_blank" rel="noreferrer"><a href="https://thegerontechnologist.com/" target="_blank" rel="noreferrer">https://thegerontechnologist.com/</a></a></li><li>Aging and Health Technology Watch: <a href="https://www.ageinplacetech.com/page/2024-market-overview-technology-aging-january-2024" target="_blank" rel="noreferrer"><a href="https://www.ageinplacetech.com/page/2024-market-overview-technology-aging-january-2024" target="_blank" rel="noreferrer">https://www.ageinplacetech.com/page/2024-market-overview-technology-aging-january-2024</a></a></li><li>Grand View Research AI companion market: <a href="https://www.grandviewresearch.com/industry-analysis/ai-companion-market-report" target="_blank" rel="noreferrer"><a href="https://www.grandviewresearch.com/industry-analysis/ai-companion-market-report" target="_blank" rel="noreferrer">https://www.grandviewresearch.com/industry-analysis/ai-companion-market-report</a></a></li><li>Global Market Insights AI companion app market: <a href="https://www.gminsights.com/industry-analysis/ai-companion-app-market" target="_blank" rel="noreferrer"><a href="https://www.gminsights.com/industry-analysis/ai-companion-app-market" target="_blank" rel="noreferrer">https://www.gminsights.com/industry-analysis/ai-companion-app-market</a></a></li><li>TechSci Australia digital health market: <a href="https://www.techsciresearch.com/report/australia-digital-health-market/29994.html" target="_blank" rel="noreferrer"><a href="https://www.techsciresearch.com/report/australia-digital-health-market/29994.html" target="_blank" rel="noreferrer">https://www.techsciresearch.com/report/australia-digital-health-market/29994.html</a></a></li><li>Fortune Business Insights elderly care market: <a href="https://www.fortunebusinessinsights.com/elderly-care-market-111477" target="_blank" rel="noreferrer"><a href="https://www.fortunebusinessinsights.com/elderly-care-market-111477" target="_blank" rel="noreferrer">https://www.fortunebusinessinsights.com/elderly-care-market-111477</a></a></li></ul>
+<h3 id="competitors">Competitors</h3>
+<ul><li>ElliQ: <a href="https://elliq.com/" target="_blank" rel="noreferrer"><a href="https://elliq.com/" target="_blank" rel="noreferrer">https://elliq.com/</a></a></li><li>Intuition Robotics: <a href="https://www.intuitionrobotics.com/" target="_blank" rel="noreferrer"><a href="https://www.intuitionrobotics.com/" target="_blank" rel="noreferrer">https://www.intuitionrobotics.com/</a></a></li><li>The Verge ElliQ pricing article: <a href="https://www.theverge.com/2025/1/6/24334149/elliq-robot-aging-in-place-tech-smart-home" target="_blank" rel="noreferrer"><a href="https://www.theverge.com/2025/1/6/24334149/elliq-robot-aging-in-place-tech-smart-home" target="_blank" rel="noreferrer">https://www.theverge.com/2025/1/6/24334149/elliq-robot-aging-in-place-tech-smart-home</a></a></li><li>Wired ElliQ review: <a href="https://www.wired.com/review/elliq-ai-companion-robot/" target="_blank" rel="noreferrer"><a href="https://www.wired.com/review/elliq-ai-companion-robot/" target="_blank" rel="noreferrer">https://www.wired.com/review/elliq-ai-companion-robot/</a></a></li><li>Ato PRWeb release: <a href="https://www.prweb.com/releases/ato-is-the-voice-first-ai-companion-to-combat-senior-loneliness-and-empower-family-caregivers-302756517.html" target="_blank" rel="noreferrer"><a href="https://www.prweb.com/releases/ato-is-the-voice-first-ai-companion-to-combat-senior-loneliness-and-empower-family-caregivers-302756517.html" target="_blank" rel="noreferrer">https://www.prweb.com/releases/ato-is-the-voice-first-ai-companion-to-combat-senior-loneliness-and-empower-family-caregivers-302756517.html</a></a></li><li>Ato / Founders Inc profile: <a href="https://f.inc/portfolio/ato/" target="_blank" rel="noreferrer"><a href="https://f.inc/portfolio/ato/" target="_blank" rel="noreferrer">https://f.inc/portfolio/ato/</a></a></li><li>Nobi: <a href="https://www.nobi.life/en_GB" target="_blank" rel="noreferrer"><a href="https://www.nobi.life/en_GB" target="_blank" rel="noreferrer">https://www.nobi.life/en_GB</a></a></li><li>Nobi product: <a href="https://www.nobi.life/en/product" target="_blank" rel="noreferrer"><a href="https://www.nobi.life/en/product" target="_blank" rel="noreferrer">https://www.nobi.life/en/product</a></a></li><li>CarePredict: <a href="https://shop.carepredict.com/collections/all" target="_blank" rel="noreferrer"><a href="https://shop.carepredict.com/collections/all" target="_blank" rel="noreferrer">https://shop.carepredict.com/collections/all</a></a></li></ul>
+<h3 id="regulation">Regulation</h3>
+<ul><li>TGA software-based medical devices guidance: <a href="https://www.tga.gov.au/resources/guidance/understanding-how-we-regulate-software-based-medical-devices" target="_blank" rel="noreferrer"><a href="https://www.tga.gov.au/resources/guidance/understanding-how-we-regulate-software-based-medical-devices" target="_blank" rel="noreferrer">https://www.tga.gov.au/resources/guidance/understanding-how-we-regulate-software-based-medical-devices</a></a></li><li>TGA software-based medical device exclusions: <a href="https://www.tga.gov.au/products/medical-devices/software-and-artificial-intelligence-ai/overview/software-based-medical-device-exclusions" target="_blank" rel="noreferrer"><a href="https://www.tga.gov.au/products/medical-devices/software-and-artificial-intelligence-ai/overview/software-based-medical-device-exclusions" target="_blank" rel="noreferrer">https://www.tga.gov.au/products/medical-devices/software-and-artificial-intelligence-ai/overview/software-based-medical-device-exclusions</a></a></li><li>NSW Clinical Excellence Commission factsheet: <a href="https://www.cec.health.nsw.gov.au/__data/assets/pdf_file/0010/952966/Factsheet-Software-based-medical-devices-including-software-as-a-medical-device.pdf" target="_blank" rel="noreferrer"><a href="https://www.cec.health.nsw.gov.au/__data/assets/pdf_file/0010/952966/Factsheet-Software-based-medical-devices-including-software-as-a-medical-device.pdf" target="_blank" rel="noreferrer">https://www.cec.health.nsw.gov.au/__data/assets/pdf_file/0010/952966/Factsheet-Software-based-medical-devices-including-software-as-a-medical-device.pdf</a></a></li></ul>
+<h3 id="financial-model-inputs">Financial model inputs</h3>
+<ul><li>OpenAI API pricing: <a href="https://openai.com/api/pricing/" target="_blank" rel="noreferrer"><a href="https://openai.com/api/pricing/" target="_blank" rel="noreferrer">https://openai.com/api/pricing/</a></a></li><li>Apple Small Business Program: <a href="https://developer.apple.com/app-store/small-business-program/" target="_blank" rel="noreferrer"><a href="https://developer.apple.com/app-store/small-business-program/" target="_blank" rel="noreferrer">https://developer.apple.com/app-store/small-business-program/</a></a></li><li>Apple Developer Program: <a href="https://developer.apple.com/programs/whats-included/" target="_blank" rel="noreferrer"><a href="https://developer.apple.com/programs/whats-included/" target="_blank" rel="noreferrer">https://developer.apple.com/programs/whats-included/</a></a></li><li>Google Play service fee overview: <a href="https://support.google.com/googleplay/android-developer/answer/10632485" target="_blank" rel="noreferrer"><a href="https://support.google.com/googleplay/android-developer/answer/10632485" target="_blank" rel="noreferrer">https://support.google.com/googleplay/android-developer/answer/10632485</a></a></li><li>Google Play Console registration fee: <a href="https://support.google.com/googleplay/android-developer/answer/6112435" target="_blank" rel="noreferrer"><a href="https://support.google.com/googleplay/android-developer/answer/6112435" target="_blank" rel="noreferrer">https://support.google.com/googleplay/android-developer/answer/6112435</a></a></li><li>Firestore pricing: <a href="https://firebase.google.com/docs/firestore/pricing" target="_blank" rel="noreferrer"><a href="https://firebase.google.com/docs/firestore/pricing" target="_blank" rel="noreferrer">https://firebase.google.com/docs/firestore/pricing</a></a></li></ul>
+      </article>
+    </main>
+  </div>
+  <script src="./app.js"></script>
+</body>
+</html>
