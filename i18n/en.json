@@ -74,22 +74,11 @@
         "No payment required"
       ]
     },
-    "starter": {
-      "name": "Starter",
-      "price": "AUD $12.99",
-      "billing": "/month or AUD $129.90/year",
-      "tagline": "Meaningful moments, a few times each week",
-      "points": [
-        "Up to 8 hours of conversation per month",
-        "Longer chats when you need them",
-        "Ideal for weekly connection"
-      ]
-    },
-    "premium": {
-      "name": "Premium",
+    "plus": {
+      "name": "Plus",
       "badge": "Popular",
-      "price": "AUD $29.99",
-      "billing": "/month or AUD $299.90/year",
+      "price": "AUD $9.99",
+      "billing": "/month",
       "tagline": "Your everyday companion.",
       "points": [
         "Up to 30 hours of conversation per month",

@@ -74,23 +74,12 @@
         "Sem necessidade de pagamento"
       ]
     },
-    "starter": {
-      "name": "Starter",
-      "price": "AUD $12.99",
-      "billing": "/mês ou AUD $129.90/ano",
-      "tagline": "Momentos significativos, algumas vezes por semana",
-      "points": [
-        "Até 8 horas de conversa por mês",
-        "Conversas mais longas quando você precisar",
-        "Ideal para conexão semanal"
-      ]
-    },
-    "premium": {
-      "name": "Premium",
+    "plus": {
+      "name": "Plus",
       "badge": "Popular",
-      "price": "AUD $29.99",
-      "billing": "/mês ou AUD $299.90/ano",
-      "tagline": "Sua companhia de todos os dias.",
+      "price": "AUD $9.99",
+      "billing": "/mês",
+      "tagline": "A sua companhia de todos os dias.",
       "points": [
         "Até 30 horas de conversa por mês",
         "Liberdade para falar sem olhar para o relógio",
