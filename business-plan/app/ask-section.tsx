@@ -30,15 +30,15 @@ export function AskSection() {
   return <>
     <header className="max-w-4xl">
       <p className="text-xs font-semibold uppercase tracking-[.18em] text-[#007f7a]">The ask</p>
-      <h1 className="balanced mt-4 text-4xl font-semibold tracking-[-.05em] sm:text-5xl">Validate first. Raise to scale what the evidence proves.</h1>
-      <p className="mt-5 max-w-3xl text-lg leading-8 text-stone-600">Tellie’s immediate priority is a residential validation. Following successful validation, the company will pursue a pre-seed raise to fund 12 months of commercial launch and go-to-market execution.</p>
+      <h1 className="balanced mt-4 text-4xl font-semibold tracking-[-.05em] sm:text-5xl">Validate the pilot metrics. Then go to market.</h1>
+      <p className="mt-5 max-w-3xl text-lg leading-8 text-stone-600">Tellie’s immediate priority is a residential validation that measures the agreed pilot KPIs. The next step is a pre-seed raise to fund 12 months of commercial launch and go-to-market execution.</p>
     </header>
 
     <section className="mt-12 rounded-3xl border border-stone-200 bg-white p-6 sm:p-9" aria-label="Validation and funding sequence">
       <div className="grid gap-3 lg:grid-cols-[1fr_auto_1fr_auto_1fr] lg:items-stretch">
         <article className="rounded-2xl bg-[#fff8f0] p-6"><p className="text-xs font-semibold uppercase tracking-[.14em] text-[#9a5633]">Now</p><h2 className="mt-3 text-xl font-semibold">Validate with a provider</h2><p className="mt-2 text-sm leading-6 text-stone-600">Deploy Tellie with older residents and measure product, provider and operational value.</p></article>
         <ArrowRight className="mx-auto h-5 w-5 rotate-90 self-center text-[#57aaa6] lg:rotate-0" />
-        <article className="rounded-2xl bg-[#eaf5f4] p-6"><p className="text-xs font-semibold uppercase tracking-[.14em] text-[#007f7a]">Evidence gate</p><h2 className="mt-3 text-xl font-semibold">Make the scale decision</h2><p className="mt-2 text-sm leading-6 text-stone-600">Confirm adoption, useful insight, viable delivery and provider willingness to progress.</p></article>
+        <article className="rounded-2xl bg-[#eaf5f4] p-6"><p className="text-xs font-semibold uppercase tracking-[.14em] text-[#007f7a]">Evidence gate</p><h2 className="mt-3 text-xl font-semibold">Validate the pilot metrics</h2><p className="mt-2 text-sm leading-6 text-stone-600">Confirm adoption, useful insight, viable delivery and provider willingness to progress.</p></article>
         <ArrowRight className="mx-auto h-5 w-5 rotate-90 self-center text-[#57aaa6] lg:rotate-0" />
         <article className="rounded-2xl bg-[#f7f3fb] p-6"><p className="text-xs font-semibold uppercase tracking-[.14em] text-[#75609a]">Then</p><h2 className="mt-3 text-xl font-semibold">Post-validation pre-seed</h2><p className="mt-2 text-sm leading-6 text-stone-600">Fund 12 months of commercial launch and go-to-market execution to convert evidence into recurring provider revenue.</p></article>
       </div>
@@ -73,7 +73,7 @@ export function AskSection() {
     </section>
 
     <section className="mt-16" aria-labelledby="raise-title">
-      <div className="max-w-3xl"><p className="text-xs font-semibold uppercase tracking-[.16em] text-[#75609a]">Phase 2 · Post-validation pre-seed</p><h2 id="raise-title" className="mt-3 text-3xl font-semibold tracking-[-.04em]">A 12-month team for commercial launch and go-to-market</h2><p className="mt-3 leading-7 text-stone-600">Following successful validation, pre-seed funding adds execution capacity while Micaela retains product decisions, growth strategy and company direction.</p></div>
+      <div className="max-w-3xl"><p className="text-xs font-semibold uppercase tracking-[.16em] text-[#75609a]">Phase 2 · Post-validation pre-seed</p><h2 id="raise-title" className="mt-3 text-3xl font-semibold tracking-[-.04em]">A 12-month team for commercial launch and go-to-market</h2><p className="mt-3 leading-7 text-stone-600">With the pilot metrics validated, pre-seed funding adds execution capacity while Micaela retains product decisions, growth strategy and company direction.</p></div>
       <div className="mt-8 grid gap-4 md:grid-cols-2 xl:grid-cols-5">
         {[
           [UserRound, 'Founder & CEO', 'Product, growth and company direction'],
