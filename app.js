@@ -95,6 +95,37 @@ function setupNavToggle() {
     });
 }
 
+function setupAudienceTabs() {
+    const tabs = $$('[data-audience]');
+    if (!tabs.length) return;
+
+    const activate = (selected) => {
+        tabs.forEach(tab => {
+            const active = tab === selected;
+            tab.classList.toggle('active', active);
+            tab.setAttribute('aria-selected', String(active));
+            tab.setAttribute('tabindex', active ? '0' : '-1');
+            const panel = $(`#${tab.getAttribute('aria-controls')}`);
+            if (panel) {
+                panel.hidden = !active;
+                panel.classList.toggle('active', active);
+            }
+        });
+    };
+
+    tabs.forEach((tab, index) => {
+        tab.addEventListener('click', () => activate(tab));
+        tab.addEventListener('keydown', event => {
+            if (!['ArrowLeft', 'ArrowRight'].includes(event.key)) return;
+            event.preventDefault();
+            const direction = event.key === 'ArrowRight' ? 1 : -1;
+            const next = tabs[(index + direction + tabs.length) % tabs.length];
+            activate(next);
+            next.focus();
+        });
+    });
+}
+
 // ---------- Analytics core ----------
 function _payloadBase() {
     return { userAgent: navigator.userAgent || '', page: location.href, lang: getCurrentLang() };
@@ -150,6 +181,7 @@ function setupCtaTracking() {
 (async function init() {
     setupYear();
     setupNavToggle();
+    setupAudienceTabs();
     setupCtaTracking();
 
     const lang = await chooseInitialLang();
