@@ -61,8 +61,8 @@ export function FounderCompanySection() {
     <section className="mt-14">
       <h2 className="text-3xl font-semibold tracking-[-.04em] sm:text-4xl">What guides Tellie</h2>
       <div className="mt-7 grid gap-4 md:grid-cols-3">{[
-        { icon: Heart, label: 'Mission', title: 'No one left behind', body: 'Ensure no older adult feels left behind in an increasingly digital world.' },
-        { icon: Compass, label: 'Vision', title: 'Technology built around people', body: 'A world where every older adult can access companionship, connection and support on familiar terms.' },
+        { icon: Heart, label: 'Mission', title: 'End loneliness in later life', body: 'Help every older adult feel heard, valued and meaningfully connected.' },
+        { icon: Compass, label: 'Vision', title: 'Connection on familiar terms', body: 'A world where older adults stay connected with loved ones and their community with dignity—through inclusive technology that meets them where they are.' },
         { icon: Users, label: 'Values', title: 'Empathy · Simplicity · Dignity', body: 'Warmth, clarity, independence and respect guide every company and product decision.' },
       ].map(({ icon: Icon, label, title, body }) => <article key={label} className="rounded-3xl border border-stone-200 bg-white p-7"><Icon className="h-5 w-5 text-[#007f7a]" /><p className="mt-5 text-xs font-semibold uppercase tracking-[.14em] text-[#007f7a]">{label}</p><h3 className="mt-2 text-xl font-semibold">{title}</h3><p className="mt-3 text-sm leading-6 text-stone-600">{body}</p></article>)}</div>
     </section>
