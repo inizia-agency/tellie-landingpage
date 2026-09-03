@@ -4,6 +4,7 @@ import './globals.css';
 export const metadata: Metadata = {
   title: 'Tellie | Private stakeholder portal',
   description: 'A private overview of Tellie, its product, market, pilot opportunities and long-term vision.',
+  icons: { icon: '/tellie-mark.png', shortcut: '/tellie-mark.png', apple: '/tellie-mark.png' },
   robots: { index: false, follow: false, nocache: true },
 };
 

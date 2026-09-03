@@ -1,14 +1,31 @@
 'use client';
 
 import { useEffect, useRef, useState } from 'react';
-import { ChevronDown, LogOut, Menu, Play, Search, X } from 'lucide-react';
+import { BarChart3, BookOpen, Building2, Calculator, CircleHelp, Compass, HeartCrack, Home, Landmark, LogOut, Menu, Play, Rocket, Search, Smartphone, Target, TrendingUp, UsersRound, X } from 'lucide-react';
 
 export const portalTabs = [
   ['overview', 'Overview'], ['problem', 'Problem'], ['product', 'Product'], ['market', 'Market'],
   ['competitors', 'Competitors'], ['business-model', 'Business model'], ['financials', 'Financials'], ['ask', 'The ask'], ['traction', 'Traction'],
   ['marketing', 'Go-to-market'], ['pilots', 'Pilots'], ['founder', 'Founder & company'],
-  ['faqs', 'FAQs'], ['business-plan', 'Legacy business plan'],
+  ['faqs', 'FAQs'], ['business-plan', 'Full biz plan'],
 ] as const;
+
+const portalIcons = {
+  overview: Home,
+  problem: HeartCrack,
+  product: Smartphone,
+  market: TrendingUp,
+  competitors: Target,
+  'business-model': Building2,
+  financials: Calculator,
+  ask: Rocket,
+  traction: BarChart3,
+  marketing: Compass,
+  pilots: Landmark,
+  founder: UsersRound,
+  faqs: CircleHelp,
+  'business-plan': BookOpen,
+} as const;
 
 function showPanel(id: string, setActive?: (value: string) => void) {
   document.querySelectorAll<HTMLElement>('[data-portal-panel]').forEach((panel) => {
@@ -39,35 +56,35 @@ export function PortalControls() {
 
   return (
     <>
-      <div className="sticky top-0 z-40 border-b border-stone-200 bg-white/95 backdrop-blur-xl">
-        <div className="mx-auto flex h-18 max-w-[1440px] items-center justify-between gap-5 px-4 sm:px-8 lg:px-12">
+      <div className="sticky top-0 z-40 border-b border-stone-200 bg-white/95 backdrop-blur-xl md:hidden">
+        <div className="flex h-16 items-center justify-between gap-5 px-4 sm:px-8">
           <button onClick={() => showPanel('overview', setActive)} className="focus-ring rounded-lg" aria-label="Tellie portal overview"><img src="/tellie-logo.png" alt="Tellie" className="h-12 w-auto" /></button>
-          <nav aria-label="Portal navigation" className="hidden min-w-0 flex-1 items-center justify-center gap-1 xl:flex">
-            {portalTabs.slice(0, 10).map(([id, label]) => (
-              <button key={id} onClick={() => showPanel(id, setActive)} aria-current={active === id ? 'page' : undefined} className={`focus-ring whitespace-nowrap rounded-full px-3 py-2 text-xs font-medium transition ${active === id ? 'bg-[#222] text-white' : 'text-stone-600 hover:bg-stone-100 hover:text-stone-900'}`}>{label}</button>
-            ))}
-            <div className="group relative">
-              <button className="focus-ring flex items-center gap-1 rounded-full px-3 py-2 text-xs font-medium text-stone-600 hover:bg-stone-100">More <ChevronDown className="h-3 w-3" /></button>
-              <div className="invisible absolute right-0 top-full mt-2 w-56 rounded-2xl border border-stone-200 bg-white p-2 opacity-0 shadow-xl transition group-hover:visible group-hover:opacity-100 group-focus-within:visible group-focus-within:opacity-100">
-                {portalTabs.slice(10).map(([id, label]) => <button key={id} onClick={() => showPanel(id, setActive)} className="focus-ring block w-full rounded-xl px-3 py-2.5 text-left text-sm hover:bg-stone-50">{label}</button>)}
-              </div>
-            </div>
-          </nav>
-          <div className="flex items-center gap-2">
-            <button onClick={logout} className="focus-ring hidden rounded-full border border-stone-200 p-2.5 text-stone-600 hover:bg-stone-50 sm:block" aria-label="Sign out"><LogOut className="h-4 w-4" /></button>
-            <button onClick={() => setMenu(true)} className="focus-ring rounded-full border border-stone-200 p-2.5 xl:hidden" aria-label="Open navigation"><Menu className="h-5 w-5" /></button>
-          </div>
+          <button onClick={() => setMenu(true)} className="focus-ring rounded-full border border-stone-200 p-2.5" aria-label="Open navigation"><Menu className="h-5 w-5" /></button>
         </div>
       </div>
-      {menu && <div className="fixed inset-0 z-50 bg-white p-5 sm:p-8 xl:hidden">
+      <aside className="group/nav fixed inset-y-0 left-0 z-50 hidden w-[76px] flex-col overflow-hidden border-r border-stone-200 bg-white shadow-[8px_0_30px_rgba(34,34,34,.05)] transition-[width] duration-300 hover:w-[270px] focus-within:w-[270px] md:flex">
+        <button onClick={() => showPanel('overview', setActive)} className="focus-ring relative mx-2 mt-2 flex h-16 shrink-0 items-center overflow-hidden rounded-2xl px-[11px]" aria-label="Tellie portal overview">
+          <img src="/tellie-mark.png" alt="" className="h-10 w-10 shrink-0 rounded-full object-cover transition-opacity group-hover/nav:opacity-0 group-focus-within/nav:opacity-0" />
+          <img src="/tellie-wordmark.jpg" alt="Tellie" className="absolute left-4 h-13 w-auto opacity-0 transition-opacity group-hover/nav:opacity-100 group-focus-within/nav:opacity-100" />
+        </button>
+        <nav aria-label="Portal navigation" className="mt-3 flex-1 space-y-1 overflow-y-auto overflow-x-hidden px-3 pb-3">
+          {portalTabs.map(([id, label]) => { const Icon = portalIcons[id]; return <button title={label} key={id} onClick={() => showPanel(id, setActive)} aria-current={active === id ? 'page' : undefined} className={`focus-ring flex h-11 w-full items-center overflow-hidden rounded-xl px-[14px] text-sm font-medium transition ${active === id ? 'bg-[#f4eef8] text-[#75438a]' : 'text-stone-600 hover:bg-stone-100 hover:text-stone-900'}`}><Icon className="h-5 w-5 shrink-0" /><span className="ml-4 whitespace-nowrap opacity-0 transition-opacity duration-200 group-hover/nav:opacity-100 group-focus-within/nav:opacity-100">{label}</span></button>; })}
+        </nav>
+        <div className="border-t border-stone-200 p-3"><button title="Sign out" onClick={logout} className="focus-ring flex h-11 w-full items-center overflow-hidden rounded-xl px-[14px] text-sm font-medium text-stone-600 transition hover:bg-stone-100 hover:text-stone-900"><LogOut className="h-5 w-5 shrink-0" /><span className="ml-4 whitespace-nowrap opacity-0 transition-opacity duration-200 group-hover/nav:opacity-100 group-focus-within/nav:opacity-100">Sign out</span></button></div>
+      </aside>
+      {menu && <div className="fixed inset-0 z-50 overflow-y-auto bg-white p-5 sm:p-8 md:hidden">
         <div className="mx-auto flex max-w-2xl items-center justify-between"><img src="/tellie-logo.png" alt="Tellie" className="h-13 w-auto" /><button onClick={() => setMenu(false)} className="focus-ring rounded-full border border-stone-200 p-2.5" aria-label="Close navigation"><X className="h-5 w-5" /></button></div>
         <nav className="mx-auto mt-10 grid max-w-2xl gap-2 sm:grid-cols-2" aria-label="Mobile portal navigation">
-          {portalTabs.map(([id, label]) => <button key={id} onClick={() => { showPanel(id, setActive); setMenu(false); }} className={`focus-ring rounded-2xl border px-5 py-4 text-left text-base font-medium ${active === id ? 'border-[#007f7a] bg-[#eaf5f4] text-[#075e5b]' : 'border-stone-200'}`}>{label}</button>)}
+          {portalTabs.map(([id, label]) => { const Icon = portalIcons[id]; return <button key={id} onClick={() => { showPanel(id, setActive); setMenu(false); }} className={`focus-ring flex items-center gap-3 rounded-2xl border px-5 py-4 text-left text-base font-medium ${active === id ? 'border-[#cdb7da] bg-[#f4eef8] text-[#75438a]' : 'border-stone-200'}`}><Icon className="h-5 w-5" />{label}</button>; })}
         </nav>
         <button onClick={logout} className="mx-auto mt-8 flex max-w-2xl items-center gap-2 text-sm font-semibold text-stone-600"><LogOut className="h-4 w-4" /> Sign out</button>
       </div>}
     </>
   );
+}
+
+export function BusinessPlanNavigation({ items }: { items: ReadonlyArray<{ id: string; title: string }> }) {
+  return <nav aria-label="Business plan contents" className="space-y-1">{items.map((item) => <button key={item.id} onClick={() => document.querySelector<HTMLElement>(`#business-plan .business-plan-content #${CSS.escape(item.id)}`)?.scrollIntoView({ behavior: 'smooth', block: 'start' })} className="focus-ring block w-full rounded-xl px-3 py-2 text-left text-sm leading-5 text-stone-600 transition hover:bg-[#f4eef8] hover:text-[#75438a]">{item.title}</button>)}</nav>;
 }
 
 export function PanelLink({ to, children, primary = false }: { to: string; children: React.ReactNode; primary?: boolean }) {
