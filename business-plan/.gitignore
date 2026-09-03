@@ -1,0 +1,13 @@
+node_modules
+.next
+.vinext
+dist
+.wrangler
+.DS_Store
+.env*
+!.env.example
+/app.js
+/styles.css
+/assets
+/downloads
+/scripts
