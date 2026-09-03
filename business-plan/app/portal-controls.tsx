@@ -93,11 +93,20 @@ export function PanelLink({ to, children, primary = false }: { to: string; child
 
 export function DemoButton() {
   const dialog = useRef<HTMLDialogElement>(null);
+  const [isOpen, setIsOpen] = useState(false);
+  const openDemo = () => {
+    setIsOpen(true);
+    dialog.current?.showModal();
+  };
+  const closeDemo = () => {
+    setIsOpen(false);
+    dialog.current?.close();
+  };
   return <>
-    <button onClick={() => dialog.current?.showModal()} className="focus-ring inline-flex items-center gap-2 rounded-xl bg-[#007f7a] px-5 py-3 text-sm font-semibold text-white transition hover:bg-[#075e5b]"><Play className="h-4 w-4 fill-current" /> Watch demo</button>
-    <dialog ref={dialog} className="m-auto w-[min(900px,calc(100%-32px))] rounded-3xl border border-stone-200 p-0 shadow-2xl backdrop:bg-black/50">
-      <div className="flex items-center justify-between border-b border-stone-200 p-5 sm:px-7"><div><p className="text-xs font-semibold uppercase tracking-[.14em] text-[#007f7a]">Product demonstration</p><h2 className="mt-1 text-xl font-semibold">See Tellie in action</h2></div><button onClick={() => dialog.current?.close()} aria-label="Close demo" className="focus-ring grid h-10 w-10 place-items-center rounded-full border border-stone-200"><X className="h-4 w-4" /></button></div>
-      <div className="grid aspect-video place-items-center bg-[#e7efed] p-8 text-center"><div><div className="mx-auto grid h-16 w-16 place-items-center rounded-full bg-white shadow"><Play className="h-6 w-6 text-[#007f7a]" /></div><p className="mt-5 text-lg font-semibold">Micaela’s guided demo will live here.</p><p className="mt-2 max-w-md text-sm leading-6 text-stone-600">The portal is ready for a captioned product walkthrough whenever the final video is available.</p></div></div>
+    <button onClick={openDemo} className="focus-ring inline-flex items-center gap-2 rounded-xl bg-[#007f7a] px-5 py-3 text-sm font-semibold text-white transition hover:bg-[#075e5b]"><Play className="h-4 w-4 fill-current" /> Watch demo</button>
+    <dialog ref={dialog} aria-labelledby="demo-title" onClose={() => setIsOpen(false)} onClick={(event) => { if (event.target === event.currentTarget) closeDemo(); }} className="m-auto w-[min(540px,calc(100%-32px))] overflow-hidden rounded-3xl border border-stone-200 bg-white p-0 shadow-2xl backdrop:bg-[#4b3c55]/35">
+      <div className="flex items-center justify-between border-b border-stone-200 p-4 sm:px-7 sm:py-5"><div><p className="text-xs font-semibold uppercase tracking-[.14em] text-[#007f7a]">Product demonstration</p><h2 id="demo-title" className="mt-1 text-xl font-semibold">See Tellie in action</h2></div><button onClick={closeDemo} aria-label="Close demo" className="focus-ring grid h-10 w-10 place-items-center rounded-full border border-stone-200 text-stone-600 transition hover:bg-[#f4eef8] hover:text-[#75438a]"><X className="h-4 w-4" /></button></div>
+      <div className="flex justify-center bg-[#f4eef8] p-2 sm:p-4">{isOpen && <iframe src="https://www.youtube.com/embed/CItIXMic6vg?autoplay=1&amp;rel=0" title="Tellie product demonstration" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowFullScreen className="aspect-[9/16] max-h-[72vh] w-full max-w-[405px] rounded-2xl border-0 bg-stone-100" />}</div>
     </dialog>
   </>;
 }
