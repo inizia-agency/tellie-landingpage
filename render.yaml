@@ -1,0 +1,15 @@
+services:
+  - type: web
+    name: tellie-landing-website
+    runtime: node
+    plan: starter
+    buildCommand: cd business-plan && npm ci && npm run build
+    startCommand: cd business-plan && npm start
+    healthCheckPath: /
+    envVars:
+      - key: NODE_VERSION
+        value: 24.18.0
+      - key: PORTAL_PASSWORD
+        sync: false
+      - key: PORTAL_SESSION_SECRET
+        generateValue: true

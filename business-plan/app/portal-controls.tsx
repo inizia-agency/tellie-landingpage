@@ -50,22 +50,22 @@ export function PortalControls() {
   }, []);
 
   async function logout() {
-    await fetch('/api/logout', { method: 'POST' });
-    window.location.assign('/login');
+    await fetch('/internal-app/api/logout', { method: 'POST' });
+    window.location.assign('/internal-app/login');
   }
 
   return (
     <>
       <div className="sticky top-0 z-40 border-b border-stone-200 bg-white/95 backdrop-blur-xl md:hidden">
         <div className="flex h-16 items-center justify-between gap-5 px-4 sm:px-8">
-          <button onClick={() => showPanel('overview', setActive)} className="focus-ring rounded-lg" aria-label="Tellie portal overview"><img src="/tellie-logo.png" alt="Tellie" className="h-12 w-auto" /></button>
+          <button onClick={() => showPanel('overview', setActive)} className="focus-ring rounded-lg" aria-label="Tellie portal overview"><img src="/internal-app/tellie-logo.png" alt="Tellie" className="h-12 w-auto" /></button>
           <button onClick={() => setMenu(true)} className="focus-ring rounded-full border border-stone-200 p-2.5" aria-label="Open navigation"><Menu className="h-5 w-5" /></button>
         </div>
       </div>
       <aside className="group/nav fixed inset-y-0 left-0 z-50 hidden w-[76px] flex-col overflow-hidden border-r border-stone-200 bg-white shadow-[8px_0_30px_rgba(34,34,34,.05)] transition-[width] duration-300 hover:w-[270px] focus-within:w-[270px] md:flex">
         <button onClick={() => showPanel('overview', setActive)} className="focus-ring relative mx-2 mt-2 flex h-16 shrink-0 items-center overflow-hidden rounded-2xl px-[11px]" aria-label="Tellie portal overview">
-          <img src="/tellie-mark.png" alt="" className="h-10 w-10 shrink-0 rounded-full object-cover transition-opacity group-hover/nav:opacity-0 group-focus-within/nav:opacity-0" />
-          <img src="/tellie-wordmark.jpg" alt="Tellie" className="absolute left-4 h-13 w-auto opacity-0 transition-opacity group-hover/nav:opacity-100 group-focus-within/nav:opacity-100" />
+          <img src="/internal-app/tellie-mark.png" alt="" className="h-10 w-10 shrink-0 rounded-full object-cover transition-opacity group-hover/nav:opacity-0 group-focus-within/nav:opacity-0" />
+          <img src="/internal-app/tellie-wordmark.jpg" alt="Tellie" className="absolute left-4 h-13 w-auto opacity-0 transition-opacity group-hover/nav:opacity-100 group-focus-within/nav:opacity-100" />
         </button>
         <nav aria-label="Portal navigation" className="mt-3 flex-1 space-y-1 overflow-y-auto overflow-x-hidden px-3 pb-3">
           {portalTabs.map(([id, label]) => { const Icon = portalIcons[id]; return <button title={label} key={id} onClick={() => showPanel(id, setActive)} aria-current={active === id ? 'page' : undefined} className={`focus-ring flex h-11 w-full items-center overflow-hidden rounded-xl px-[14px] text-sm font-medium transition ${active === id ? 'bg-[#f4eef8] text-[#75438a]' : 'text-stone-600 hover:bg-stone-100 hover:text-stone-900'}`}><Icon className="h-5 w-5 shrink-0" /><span className="ml-4 whitespace-nowrap opacity-0 transition-opacity duration-200 group-hover/nav:opacity-100 group-focus-within/nav:opacity-100">{label}</span></button>; })}
@@ -73,7 +73,7 @@ export function PortalControls() {
         <div className="border-t border-stone-200 p-3"><button title="Sign out" onClick={logout} className="focus-ring flex h-11 w-full items-center overflow-hidden rounded-xl px-[14px] text-sm font-medium text-stone-600 transition hover:bg-stone-100 hover:text-stone-900"><LogOut className="h-5 w-5 shrink-0" /><span className="ml-4 whitespace-nowrap opacity-0 transition-opacity duration-200 group-hover/nav:opacity-100 group-focus-within/nav:opacity-100">Sign out</span></button></div>
       </aside>
       {menu && <div className="fixed inset-0 z-50 overflow-y-auto bg-white p-5 sm:p-8 md:hidden">
-        <div className="mx-auto flex max-w-2xl items-center justify-between"><img src="/tellie-logo.png" alt="Tellie" className="h-13 w-auto" /><button onClick={() => setMenu(false)} className="focus-ring rounded-full border border-stone-200 p-2.5" aria-label="Close navigation"><X className="h-5 w-5" /></button></div>
+        <div className="mx-auto flex max-w-2xl items-center justify-between"><img src="/internal-app/tellie-logo.png" alt="Tellie" className="h-13 w-auto" /><button onClick={() => setMenu(false)} className="focus-ring rounded-full border border-stone-200 p-2.5" aria-label="Close navigation"><X className="h-5 w-5" /></button></div>
         <nav className="mx-auto mt-10 grid max-w-2xl gap-2 sm:grid-cols-2" aria-label="Mobile portal navigation">
           {portalTabs.map(([id, label]) => { const Icon = portalIcons[id]; return <button key={id} onClick={() => { showPanel(id, setActive); setMenu(false); }} className={`focus-ring flex items-center gap-3 rounded-2xl border px-5 py-4 text-left text-base font-medium ${active === id ? 'border-[#cdb7da] bg-[#f4eef8] text-[#75438a]' : 'border-stone-200'}`}><Icon className="h-5 w-5" />{label}</button>; })}
         </nav>

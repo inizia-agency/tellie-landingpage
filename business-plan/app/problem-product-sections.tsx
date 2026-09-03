@@ -108,7 +108,7 @@ export function MarketSection() {
 }
 
 function PhoneFrame() {
-  return <div className="relative mx-auto w-[min(310px,82%)] rounded-[3.25rem] border-[9px] border-[#242424] bg-[#242424] p-[4px] shadow-[0_35px_70px_rgba(34,34,34,.22)]"><div className="absolute left-1/2 top-2 z-10 h-6 w-24 -translate-x-1/2 rounded-full bg-[#242424]"/><div className="overflow-hidden rounded-[2.55rem] bg-white"><img src="/tellie-call-screen.png" alt="Tellie mobile call screen" className="aspect-[9/19] h-auto w-full object-cover object-top" /></div></div>;
+  return <div className="relative mx-auto w-[min(310px,82%)] rounded-[3.25rem] border-[9px] border-[#242424] bg-[#242424] p-[4px] shadow-[0_35px_70px_rgba(34,34,34,.22)]"><div className="absolute left-1/2 top-2 z-10 h-6 w-24 -translate-x-1/2 rounded-full bg-[#242424]"/><div className="overflow-hidden rounded-[2.55rem] bg-white"><img src="/internal-app/tellie-call-screen.png" alt="Tellie mobile call screen" className="aspect-[9/19] h-auto w-full object-cover object-top" /></div></div>;
 }
 
 const features = [

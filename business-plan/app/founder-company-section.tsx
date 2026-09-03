@@ -21,7 +21,7 @@ export function FounderCompanySection() {
 
     <section className="mt-10 grid overflow-hidden rounded-3xl border border-stone-200 bg-white lg:grid-cols-[1.02fr_.98fr]">
       <figure className="flex flex-col bg-[#f4f0f8]">
-        <img src="/micaela-founder-community.jpg" alt="Tellie founder Micaela Piacenza presenting Tellie at a community event" className="aspect-[1.08/1] h-full min-h-[440px] w-full object-cover object-center" />
+        <img src="/internal-app/micaela-founder-community.jpg" alt="Tellie founder Micaela Piacenza presenting Tellie at a community event" className="aspect-[1.08/1] h-full min-h-[440px] w-full object-cover object-center" />
         <figcaption className="px-6 py-4 text-xs leading-5 text-stone-600">Micaela introducing Tellie and inviting the community to explore what meaningful connection looks like.</figcaption>
       </figure>
       <div className="p-7 sm:p-10 lg:p-12">

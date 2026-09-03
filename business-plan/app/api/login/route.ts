@@ -43,7 +43,7 @@ export async function POST(request: Request) {
     httpOnly: true,
     secure: process.env.NODE_ENV === 'production',
     sameSite: 'strict',
-    path: '/',
+    path: '/internal-app',
     maxAge: 60 * 60 * 8,
   });
   response.headers.set('Cache-Control', 'no-store');

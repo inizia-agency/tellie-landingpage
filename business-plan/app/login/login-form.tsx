@@ -18,14 +18,14 @@ export function LoginForm() {
     if (!accepted) { setError('Please accept the confidentiality terms.'); return; }
     setBusy(true);
     try {
-      const response = await fetch('/api/login', {
+      const response = await fetch('/internal-app/api/login', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ password, accepted, version: CONFIDENTIALITY_VERSION }),
       });
       const data = (await response.json()) as { error?: string };
       if (!response.ok) { setError(data.error ?? 'Access could not be verified.'); return; }
-      window.location.assign('/');
+      window.location.assign('/internal-app');
     } catch {
       setError('Access could not be verified. Please try again.');
     } finally {
