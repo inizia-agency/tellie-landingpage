@@ -26,6 +26,14 @@ button, input { font: inherit; }
 .hairline { border-color: var(--line); }
 .balanced { text-wrap: balance; }
 
+.portal-nav-scroll {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+.portal-nav-scroll::-webkit-scrollbar {
+  display: none;
+}
+
 .business-plan-content { color: #3f3f46; font-size: .95rem; line-height: 1.8; }
 .business-plan-content > h1:first-child { display: none; }
 .business-plan-content h2 { margin: 3.5rem 0 1rem; color: #222; font-size: clamp(1.75rem, 3vw, 2.5rem); font-weight: 650; letter-spacing: -.04em; line-height: 1.15; }
